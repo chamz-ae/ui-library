@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Dashboard</title>
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/style/style.css">
+</head>
+<body>
+    <div class="sidebar">
+        <h1>Sistem Perpustakaan</h1>
+        <ul>
+            <li class="active"><a href="#dashboard"><i class="bx bxs-dashboard"></i> Dashboard</a></li>
+            <li><a href="#katalog"><i class="bx bxs-book"></i> Katalog</a></li>
+            <li><a href="#databuku"><i class="bx bxs-report"></i> Data Buku</a></li>
+            <li><a href="#statistik"><i class="bx bxs-bar-chart-alt-2"></i> Statistik</a></li>
+        </ul>
+    </div>
+    <div class="main-content">
+        <div  class="header">
+            <h2 id="page-title">Dashboard</h2>
+            <div class="user-info">
+                <a style="padding: 13px; text-decoration: none;" href="login.html">LogOut</a>
+                <img src="logo-title.png" alt="User Avatar" />
+                <span>IcamNotYours-GANTENG</span>
+            </div>
+        </div>
+        
+        <div id="dashboard" class="page active">
+            <div class="dashboard-cards">
+                <div class="card blue">
+                    <i class="bx bxs-group"></i>
+                    <h3>Jumlah Anggota</h3>
+                    <p>4</p>
+                </div>
+                <div class="card green">
+                    <i class="bx bxs-book"></i>
+                    <h3>Jumlah Buku</h3>
+                    <p>2</p>
+                </div>
+                <div class="card orange">
+                    <i class="bx bxs-cart"></i>
+                    <h3>Jumlah Transaksi Peminjaman</h3>
+                    <p>3</p>
+                </div>
+                <div class="card red">
+                    <i class="bx bxs-factory"></i>
+                    <h3>Jumlah Supplier</h3>
+                    <p>3</p>
+                </div>
+            </div>
+            <div class="chart">
+                <h3>Statistik Pengunjung</h3>
+                <canvas id="combinedChart" width="400" height="200"></canvas>
+            </div>
+        </div>
+
+
+         <main>
+           <div id="databuku" class="page active">
+            <table style="margin-top: 30px;" id="dashboardTable">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Judul</th>
+                        <th>Penulis</th>
+                        <th>Tahun</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- nambahinnya di JavaScript -->
+                </tbody>
+            </table>
+            <div class="pagination" id="dashboardPagination"></div>
+           </div>
+        </main>
+        
+        
+
+        <div id="katalog" class="page active"><main>
+            <h1>Books</h1>
+            <div class="book">
+                <button class="tab-button" data-category="all">All</button>
+                <button class="tab-button" data-category="classic">Classic</button>
+                <button class="tab-button" data-category="modern">Modern</button>
+            </div>
+            
+            <div class="book-grid" id="bookGrid"></div>
+            
+
+            
+        </main></div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
+    <script src="/config/dashboard.js"></script>
+
+    <script>
+        const books = [
+            { title: "Brave New World", author: "Aldous Huxley", price: "$12.99", cover: "/image/background.jpeg", category: "classic" },
+            { title: "1984", author: "George Orwell", price: "$11.99", cover: "/image/background.jpeg", category: "classic" },
+            { title: "The Great Gatsby", author: "F. Scott Fitzgerald", price: "$10.99", cover: "/image/background.jpeg", category: "classic" },
+            { title: "To Kill a Mockingbird", author: "Harper Lee", price: "$13.99", cover: "/image/background.jpeg", category: "modern" },
+            { title: "To Riz a Mockingbird", author: "Rapper Lee", price: "$99.99", cover: "/image/background.jpeg", category: "modern" },
+            { title: "To Jek a Laughing", author: "Mines Lee", price: "$10.99", cover: "/image/background.jpeg", category: "modern" },
+            { title: "To Kamver a Kabey", author: "Loei Lee", price: "$12.99", cover: "/image/background.jpeg", category: "modern" }
+        ];
+    
+        const bookGrid = document.getElementById('bookGrid');
+        const tabButtons = document.querySelectorAll('.tab-button');
+    
+        function displayBooks(category = 'all') {
+            bookGrid.innerHTML = '';
+            books.forEach(book => {
+                if (category === 'all' || book.category === category) {
+                    const bookElement = document.createElement('div');
+                    bookElement.classList.add('book-item');
+                    bookElement.innerHTML = `
+                        <img src="${book.cover}" alt="${book.title}" class="book-cover">
+                        <div class="book-info">
+                            <h3 class="book-title">${book.title}</h3>
+                            <p class="book-author">${book.author}</p>
+                            <p class="book-price">${book.price}</p>
+                        </div>
+                    `;
+                    bookGrid.appendChild(bookElement);
+                }
+            });
+        }
+    
+        tabButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                // Hapus class 'active' dari semua tombol tab
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                // Tambah class 'active' pada tombol yang diklik
+                e.target.classList.add('active');
+                // Tampilkan buku sesuai kategori yang dipilih
+                const category = e.target.getAttribute('data-category');
+                displayBooks(category);
+            });
+        });
+    
+        // Tampilkan semua buku secara default
+        displayBooks();
+    </script>    
+</body>
+</html>
