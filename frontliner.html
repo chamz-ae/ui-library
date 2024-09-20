@@ -9,12 +9,11 @@
 </head>
 <body>
     <div class="sidebar">
-        <h1>Sistem Perpustakaan</h1>
+        <h1>Library System</h1>
         <ul>
             <li class="active"><a href="#dashboard"><i class="bx bxs-dashboard"></i> Dashboard</a></li>
-            <li><a href="#katalog"><i class="bx bxs-book"></i> Katalog</a></li>
-            <li><a href="#databuku"><i class="bx bxs-report"></i> Data Buku</a></li>
-            <li><a href="#statistik"><i class="bx bxs-bar-chart-alt-2"></i> Statistik</a></li>
+            <li><a href="#katalog"><i class="bx bxs-book"></i> Catalog</a></li>
+            <li><a href="#loan"><i class="bx bxs-report"></i> Loan</a></li>
         </ul>
     </div>
     <div class="main-content">
@@ -23,7 +22,7 @@
             <div class="user-info">
                 <a style="padding: 13px; text-decoration: none;" href="login.html">LogOut</a>
                 <img src="logo-title.png" alt="User Avatar" />
-                <span>IcamNotYours-GANTENG</span>
+                <span>ADMIN</span>
             </div>
         </div>
         
@@ -31,41 +30,41 @@
             <div class="dashboard-cards">
                 <div class="card blue">
                     <i class="bx bxs-group"></i>
-                    <h3>Jumlah Anggota</h3>
-                    <p>4</p>
+                    <h3>Number of Members</h3>
+                    <p>114</p>
                 </div>
                 <div class="card green">
                     <i class="bx bxs-book"></i>
-                    <h3>Jumlah Buku</h3>
-                    <p>2</p>
+                    <h3>Number of Books</h3>
+                    <p>990</p>
                 </div>
                 <div class="card orange">
                     <i class="bx bxs-cart"></i>
-                    <h3>Jumlah Transaksi Peminjaman</h3>
-                    <p>3</p>
+                    <h3>Number of Loan Transactions</h3>
+                    <p>24</p>
                 </div>
                 <div class="card red">
                     <i class="bx bxs-factory"></i>
-                    <h3>Jumlah Supplier</h3>
-                    <p>3</p>
+                    <h3>Supplier Quantity</h3>
+                    <p>1100</p>
                 </div>
             </div>
             <div class="chart">
-                <h3>Statistik Pengunjung</h3>
+                <h3>Visitor Statistics</h3>
                 <canvas id="combinedChart" width="400" height="200"></canvas>
             </div>
         </div>
 
 
          <main>
-           <div id="databuku" class="page active">
+           <div id="loan" class="page active">
             <table style="margin-top: 30px;" id="dashboardTable">
                 <thead>
                     <tr>
                         <th>#</th>
-                        <th>Judul</th>
-                        <th>Penulis</th>
-                        <th>Tahun</th>
+                        <th>Name</th>
+                        <th>Books</th>
+                        <th>date</th>
                         <th>Status</th>
                     </tr>
                 </thead>

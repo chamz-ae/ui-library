@@ -1,12 +1,25 @@
-    // Sample data for the dashboard table
+function dateToYMD(date) {
+    var d = date.getDate();
+    var m = date.getMonth() + 1; //Month from 0 to 11
+    var y = date.getFullYear();
+    return '' + y + '-' + (m<=9 ? '0' + m : m) + '-' + (d <= 9 ? '0' + d : d);
+}
+
+
+// Sample data for the dashboard table
     const dashboardData = [
-        { id: 1, judul: "Book Title 1", penulis: "Author 1", tahun: 2023, status: "Available" },
-        { id: 2, judul: "Book Title 2", penulis: "Author 2", tahun: 2022, status: "Borrowed" },
-        { id: 3, judul: "Book Title 3", penulis: "Author 3", tahun: 2032, status: "Borrowed" },
-        { id: 4, judul: "Book Title 4", penulis: "Author 4", tahun: 4044, status: "Borrowed" },
-        { id: 5, judul: "Book Title 5", penulis: "Author 5", tahun: 5055, status: "Borrowed" },
-        { id: 6, judul: "Book Title 6", penulis: "Author 6", tahun: 6066, status: "Borrowed" },
-        { id: 7, judul: "Book Title 7", penulis: "Author 7", tahun: 7072, status: "Borrowed" },
+        { id: 1, Name: "UserBorrow 1", Title: "Book 1", Date: dateToYMD(new Date(2017,10,5)), status: "Available" },
+        { id: 2, Name: "UserBorrow 2", Title: "Book 2", Date: dateToYMD(new Date(2020,9,7)), status: "Borrowed" },
+        { id: 3, Name: "UserBorrow 3", Title: "Book 3", Date: dateToYMD(new Date(2017,10,5)), status: "Borrowed" },
+        { id: 4, Name: "UserBorrow 4", Title: "Book 4", Date: dateToYMD(new Date(2017,10,5)), status: "Borrowed" },
+        { id: 5, Name: "UserBorrow 5", Title: "Book 5", Date: dateToYMD(new Date(2017,10,5)), status: "Borrowed" },
+        { id: 6, Name: "UserBorrow 6", Title: "Book 6", Date: dateToYMD(new Date(2017,10,5)), status: "Borrowed" },
+        { id: 7, Name: "UserBorrow 7", Title: "Book 7", Date: dateToYMD(new Date(2017,10,5)), status: "Borrowed" },
+        { id: 8, Name: "UserBorrow 8", Title: "Book 8", Date: dateToYMD(new Date(2017,10,5)), status: "Borrowed" },
+        { id: 9, Name: "UserBorrow 9", Title: "Book 9", Date: dateToYMD(new Date(2017,10,5)), status: "Borrowed" },
+        { id: 10, Name: "UserBorrow 10", Title: "Book 10", Date: dateToYMD(new Date(2017,10,5)), status: "Borrowed" },
+        { id: 11, Name: "UserBorrow 11", Title: "Book 11", Date: dateToYMD(new Date(2017,10,5)), status: "Borrowed" },
+        { id: 12, Name: "UserBorrow 12", Title: "Book 12", Date: dateToYMD(new Date(2017,10,5)), status: "Borrowed" }
         // Add more sample data here...
     ];
 
@@ -115,7 +128,7 @@ new Chart(ctx, {
         datasets: [
             {
                 label: 'Visitor',
-                data: [12, 19, 3, 5, 2, 3],
+                data: [90, 90, 50, 70, 90, 50],
                 borderColor: 'rgb(75, 192, 192)',
                 backgroundColor: 'rgba(75, 192, 192, 0.2)',
                 tension: 0.1,
@@ -125,7 +138,7 @@ new Chart(ctx, {
             },
             {
                 label: 'Books-Borrowed',
-                data: [10, 15, 8, 13, 7, 4],
+                data: [0, 0, 50, 20, 0, 50],
                 borderColor: 'rgb(153, 102, 255)',
                 backgroundColor: 'rgba(153, 102, 255, 0.2)',
                 tension: 0.1,
@@ -155,3 +168,5 @@ new Chart(ctx, {
         }
     }
 });
+
+
