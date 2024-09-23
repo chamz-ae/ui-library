@@ -11,14 +11,14 @@ function dateToYMD(date) {
         { id: 1, Name: "UserBorrow 1", Title: "Book 1", Date: dateToYMD(new Date(2017,10,5)), status: "Available" },
         { id: 2, Name: "UserBorrow 2", Title: "Book 2", Date: dateToYMD(new Date(2020,9,7)), status: "Borrowed" },
         { id: 3, Name: "UserBorrow 3", Title: "Book 3", Date: dateToYMD(new Date(2017,10,5)), status: "Borrowed" },
-        { id: 4, Name: "UserBorrow 4", Title: "Book 4", Date: dateToYMD(new Date(2017,10,5)), status: "Borrowed" },
-        { id: 5, Name: "UserBorrow 5", Title: "Book 5", Date: dateToYMD(new Date(2017,10,5)), status: "Borrowed" },
+        { id: 4, Name: "UserBorrow 4", Title: "Book 4", Date: dateToYMD(new Date(2017,10,5)), status: "Available" },
+        { id: 5, Name: "UserBorrow 5", Title: "Book 5", Date: dateToYMD(new Date(2017,10,5)), status: "Available" },
         { id: 6, Name: "UserBorrow 6", Title: "Book 6", Date: dateToYMD(new Date(2017,10,5)), status: "Borrowed" },
-        { id: 7, Name: "UserBorrow 7", Title: "Book 7", Date: dateToYMD(new Date(2017,10,5)), status: "Borrowed" },
+        { id: 7, Name: "UserBorrow 7", Title: "Book 7", Date: dateToYMD(new Date(2017,10,5)), status: "Available" },
         { id: 8, Name: "UserBorrow 8", Title: "Book 8", Date: dateToYMD(new Date(2017,10,5)), status: "Borrowed" },
         { id: 9, Name: "UserBorrow 9", Title: "Book 9", Date: dateToYMD(new Date(2017,10,5)), status: "Borrowed" },
         { id: 10, Name: "UserBorrow 10", Title: "Book 10", Date: dateToYMD(new Date(2017,10,5)), status: "Borrowed" },
-        { id: 11, Name: "UserBorrow 11", Title: "Book 11", Date: dateToYMD(new Date(2017,10,5)), status: "Borrowed" },
+        { id: 11, Name: "UserBorrow 11", Title: "Book 11", Date: dateToYMD(new Date(2017,10,5)), status: "Available" },
         { id: 12, Name: "UserBorrow 12", Title: "Book 12", Date: dateToYMD(new Date(2017,10,5)), status: "Borrowed" }
         // Add more sample data here...
     ];
@@ -169,4 +169,47 @@ new Chart(ctx, {
     }
 });
 
+// SUPER ADMIN JAVASCRIPT
 
+// dashboard.js
+document.addEventListener('DOMContentLoaded', function() {
+    // Simulasi data
+    const simulateData = () => ({
+        totalBooks: Math.floor(Math.random() * 10000) + 5000,
+        activeMembers: Math.floor(Math.random() * 1000) + 500,
+        todayLoans: Math.floor(Math.random() * 100) + 10,
+        overdueBooks: Math.floor(Math.random() * 50) + 5
+    });
+
+    // Update dashboard data
+    const updateDashboard = () => {
+        const data = simulateData();
+        document.getElementById('totalBooks').textContent = data.totalBooks.toLocaleString();
+        document.getElementById('activeMembers').textContent = data.activeMembers.toLocaleString();
+        document.getElementById('todayLoans').textContent = data.todayLoans.toLocaleString();
+        document.getElementById('overdueBooks').textContent = data.overdueBooks.toLocaleString();
+    };
+
+    // Inisialisasi dashboard
+    updateDashboard();
+
+    // Update dashboard setiap 5 detik
+    setInterval(updateDashboard, 5000);
+
+    // Event listener untuk tombol logout
+    document.getElementById('logoutBtn').addEventListener('click', function() {
+        alert('Anda telah berhasil logout.');
+        // Di sini Anda bisa menambahkan logika logout sebenarnya
+    });
+
+    // Event listeners untuk tombol aksi cepat
+    const actionButtons = document.querySelectorAll('.action-btn');
+    actionButtons.forEach(btn => {
+        if (btn.tagName === 'BUTTON') {  // Hanya untuk tombol, bukan link
+            btn.addEventListener('click', function() {
+                alert(`Anda mengklik tombol "${this.textContent}"`);
+                // Di sini Anda bisa menambahkan logika untuk setiap aksi
+            });
+        }
+    });
+});
