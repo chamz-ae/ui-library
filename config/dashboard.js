@@ -126,16 +126,16 @@ new Chart(ctx, {
     data: {
         labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
         datasets: [
-            {
-                label: 'Visitor',
-                data: [90, 90, 50, 70, 90, 50],
-                borderColor: 'rgb(75, 192, 192)',
-                backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                tension: 0.1,
-                pointStyle: 'circle',
-                pointRadius: 5,
-                pointHoverRadius: 7,
-            },
+            // {
+            //     label: 'Visitor',
+            //     data: [90, 90, 50, 70, 90, 50],
+            //     borderColor: 'rgb(75, 192, 192)',
+            //     backgroundColor: 'rgba(75, 192, 192, 0.2)',
+            //     tension: 0.1,
+            //     pointStyle: 'circle',
+            //     pointRadius: 5,
+            //     pointHoverRadius: 7,
+            // },
             {
                 label: 'Books-Borrowed',
                 data: [0, 0, 50, 20, 0, 50],
