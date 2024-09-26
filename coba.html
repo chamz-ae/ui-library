@@ -3,102 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>Floating Label Input</title>
+    <title>Document</title>
     <style>
-        .root {
-    position: relative;
+.sidebar {
+    width: 250px; /* Adjust width as needed */
+    background-color: #f0f0f0; /* Example background color */
+    padding: 20px;
 }
 
-.label {
-    position: absolute;
-    z-index: 2;
-    top: 7px; /* Adjust for your needs */
-    left: 8px; /* Replace with your spacing */
-    pointer-events: none;
-    color: gray; /* Change to appropriate color */
-    transition: transform 150ms ease, font-size 150ms ease, color 150ms ease;
+.profile {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px; /* Space below profile */
 }
 
-.label[data-floating="true"] {
-    transform: translate(-8px, -28px); /* Adjust for your needs */
-    font-size: 12px; /* Adjust for your needs */
-    font-weight: 500;
-    color: black; /* Change to appropriate color */
+.logo {
+    width: 50px; /* Adjust size as needed */
+    height: 50px; /* Adjust size as needed */
+    border-radius: 50%; /* Make it circular */
+    margin-right: 15px; /* Space between logo and title */
 }
 
-.required {
-    transition: opacity 150ms ease;
-    opacity: 0;
+.profile-info h1 {
+    font-size: 1.2em; /* Adjust font size as needed */
+    margin: 0; /* Remove default margin */
 }
 
-.label[data-floating="true"] + .required {
-    opacity: 1;
+.profile-info p {
+    margin: 0; /* Remove default margin */
+    font-size: 0.9em; /* Adjust font size for subtitle */
+    color: #666; /* Example color for subtitle */
 }
 
-.input {
-    width: 100%;
-    padding: 10px; /* Adjust for your needs */
+ul {
+    list-style-type: none; /* Remove bullet points */
+    padding: 0; /* Remove padding */
 }
 
-.input::placeholder {
-    transition: color 150ms ease;
-    color: transparent;
+ul li {
+    margin: 10px 0; /* Space between list items */
 }
 
-.input[data-floating="true"]::placeholder {
-    color: #ccc; /* Change to your placeholder color */
+ul li a {
+    text-decoration: none; /* Remove underline */
+    color: #333; /* Text color */
+}
+
+ul li a:hover {
+    color: #007bff; /* Example hover color */
 }
 
     </style>
 </head>
 <body>
-    <div class="root">
-        <label for="floatingInput" class="label" data-floating="false">Floating label</label>
-        <input
-            type="text"
-            id="floatingInput"
-            placeholder="OMG, it also has a placeholder"
-            required
-            class="input"
-            autocomplete="off"
-        />
-        <span class="required">Required</span>
+    <div class="sidebar">
+        <div class="profile">
+            <img src="logo-title.png" alt="User Avatar" class="logo"/>
+            <div class="profile-info">
+                <h1>Super Admin</h1>
+                <p>Perpustakaan</p>
+            </div>
+        </div>
+        <ul>
+            <li><a href="#"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+            <li><a href="#"><i class="fas fa-book"></i> Buku</a></li>
+            <li><a href="#"><i class="fas fa-users"></i> Anggota</a></li>
+            <li><a href="#"><i class="fas fa-exchange-alt"></i> Peminjaman</a></li>
+            <li><a href="#"><i class="fas fa-chart-bar"></i> Laporan</a></li>
+            <li><a href="#"><i class="fas fa-cog"></i> Pengaturan</a></li>
+        </ul>
     </div>
-
-    <script src="script.js"></script>
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-    const input = document.getElementById("floatingInput");
-    const label = document.querySelector(".label");
-    const requiredSpan = document.querySelector(".required");
-
-    let focused = false;
-
-    input.addEventListener("focus", () => {
-        focused = true;
-        updateFloatingLabel();
-    });
-
-    input.addEventListener("blur", () => {
-        focused = false;
-        updateFloatingLabel();
-    });
-
-    input.addEventListener("input", () => {
-        updateFloatingLabel();
-    });
-
-    function updateFloatingLabel() {
-        const value = input.value.trim();
-        const isFloating = value.length !== 0 || focused;
-
-        label.setAttribute("data-floating", isFloating);
-        input.setAttribute("data-floating", isFloating);
-        requiredSpan.style.opacity = isFloating ? "1" : "0";
-    }
-});
-
-    </script>
+    
 </body>
 </html>
