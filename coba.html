@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Floating Label Input</title>
+    <style>
+        .root {
+    position: relative;
+}
+
+.label {
+    position: absolute;
+    z-index: 2;
+    top: 7px; /* Adjust for your needs */
+    left: 8px; /* Replace with your spacing */
+    pointer-events: none;
+    color: gray; /* Change to appropriate color */
+    transition: transform 150ms ease, font-size 150ms ease, color 150ms ease;
+}
+
+.label[data-floating="true"] {
+    transform: translate(-8px, -28px); /* Adjust for your needs */
+    font-size: 12px; /* Adjust for your needs */
+    font-weight: 500;
+    color: black; /* Change to appropriate color */
+}
+
+.required {
+    transition: opacity 150ms ease;
+    opacity: 0;
+}
+
+.label[data-floating="true"] + .required {
+    opacity: 1;
+}
+
+.input {
+    width: 100%;
+    padding: 10px; /* Adjust for your needs */
+}
+
+.input::placeholder {
+    transition: color 150ms ease;
+    color: transparent;
+}
+
+.input[data-floating="true"]::placeholder {
+    color: #ccc; /* Change to your placeholder color */
+}
+
+    </style>
+</head>
+<body>
+    <div class="root">
+        <label for="floatingInput" class="label" data-floating="false">Floating label</label>
+        <input
+            type="text"
+            id="floatingInput"
+            placeholder="OMG, it also has a placeholder"
+            required
+            class="input"
+            autocomplete="off"
+        />
+        <span class="required">Required</span>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+    const input = document.getElementById("floatingInput");
+    const label = document.querySelector(".label");
+    const requiredSpan = document.querySelector(".required");
+
+    let focused = false;
+
+    input.addEventListener("focus", () => {
+        focused = true;
+        updateFloatingLabel();
+    });
+
+    input.addEventListener("blur", () => {
+        focused = false;
+        updateFloatingLabel();
+    });
+
+    input.addEventListener("input", () => {
+        updateFloatingLabel();
+    });
+
+    function updateFloatingLabel() {
+        const value = input.value.trim();
+        const isFloating = value.length !== 0 || focused;
+
+        label.setAttribute("data-floating", isFloating);
+        input.setAttribute("data-floating", isFloating);
+        requiredSpan.style.opacity = isFloating ? "1" : "0";
+    }
+});
+
+    </script>
+</body>
+</html>
