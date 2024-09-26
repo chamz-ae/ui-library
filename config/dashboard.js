@@ -178,7 +178,8 @@ document.addEventListener('DOMContentLoaded', function() {
         totalBooks: Math.floor(Math.random() * 10000) + 5000,
         activeMembers: Math.floor(Math.random() * 1000) + 500,
         todayLoans: Math.floor(Math.random() * 100) + 10,
-        overdueBooks: Math.floor(Math.random() * 50) + 5
+        overdueBooks: Math.floor(Math.random() * 50) + 5,
+        missingBooks: Math.floor(Math.random() * 100) + 7
     });
 
     // Update dashboard data
@@ -188,6 +189,7 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('activeMembers').textContent = data.activeMembers.toLocaleString();
         document.getElementById('todayLoans').textContent = data.todayLoans.toLocaleString();
         document.getElementById('overdueBooks').textContent = data.overdueBooks.toLocaleString();
+        document.getElementById('missingBooks').textContent = data.missingBooks.toLocaleString();
     };
 
     // Inisialisasi dashboard
