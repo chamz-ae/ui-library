@@ -11,7 +11,7 @@ body {
 }
 .sidebar {
     width: 250px;
-    background-color: #1a237e;
+    background-color: #5D0E41;
     color: white;
     padding: 20px;
     transition: all 0.3s;
@@ -37,7 +37,7 @@ body {
     transition: all 0.3s;
 }
 .sidebar ul li a:hover {
-    background-color: #3949ab;
+    background-color: #cfb8b869;
 }
 .sidebar ul li a i {
     margin-right: 10px;
@@ -50,21 +50,23 @@ body {
 }
 
 .logo {
-    width: 50px; /* Adjust size as needed */
-    height: 50px; /* Adjust size as needed */
-    border-radius: 50%; /* Make it circular */
-    margin-right: 15px; /* Space between logo and title */
+    width: 65px; 
+    height: 65px; 
+    border-radius: 50%; 
+    margin-right: 1px;
+    
+
 }
 
 .profile-info h1 {
-    font-size: 1.2em; /* Adjust font size as needed */
-    margin: 0; /* Remove default margin */
+    font-size: 1.2em; 
+    margin: 0; 
 }
 
 .profile-info p {
-    margin: 0; /* Remove default margin */
-    font-size: 0.9em; /* Adjust font size for subtitle */
-    color: #000000; /* Example color for subtitle */
+    margin: 0; 
+    font-size: 0.9em; 
+    color: #ffffffb6; 
 }
 
 ul {
@@ -82,7 +84,7 @@ ul li a {
 }
 
 ul li a:hover {
-    color: #007bff; /* Example hover color */
+    color: #8b8b8b; /* Example hover color */
 }
 .main-content {
     flex: 1;
@@ -103,7 +105,7 @@ ul li a:hover {
     color: #1a237e;
 }
 .logout-btn {
-    background-color: #f44336;
+    background-color: #A0153E;
     color: white;
     border: none;
     width: 195px;
@@ -114,7 +116,7 @@ ul li a:hover {
     transition: all 0.3s;
 }
 .logout-btn:hover {
-    background-color: #d32f2f;
+    background-color: #630420;
 }
 .card-container {
     display: grid;

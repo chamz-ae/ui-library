@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peminjaman Buku - Dashboard Super Admin</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style/super-admin.css">
+    <style>
+        /* Styling untuk halaman Peminjaman */
+        .content-wrapper {
+            margin: 10px;
+            padding: 10px;
+            width: 100%;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        /* Styling untuk tabel */
+        #dashboardTable {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        #dashboardTable th, #dashboardTable td {
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        #dashboardTable th {
+            background-color: #FF204E;
+            color: white;
+        }
+
+        #dashboardTable tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        #dashboardTable tr:hover {
+            background-color: #ddd;
+        }
+
+        .pagination {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .pagination button {
+            padding: 10px 15px;
+            margin: 0 5px;
+            border: none;
+            background-color: #FF204E;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .pagination button:hover {
+            background-color: #100992;
+        }
+        
+        .pagination button.disabled {
+            background-color: #ddd;
+            cursor: not-allowed;
+        }
+
+        /* Quick actions untuk filter */
+        .filter-actions {
+            display: flex;
+            justify-content: left;
+            align-items: center;
+            margin-bottom: 20px;
+            gap: 10px;
+        }
+
+        .filter-actions input {
+            padding: 10px;
+            width: 400px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .filter-actions button {
+            padding: 10px 15px;
+            background-color: #FF204E;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .filter-actions button:hover {
+            background-color: #FF204E;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="profile">
+            <img src="/image/image-removebg-preview.png" alt="User Avatar" class="logo"/>
+            <div class="profile-info">
+                <h1>Super Admin</h1>
+                <p>Hisyam-Ganz</p>
+            </div>
+        </div>
+        <ul>
+            <li style="cursor: pointer;"><a onclick="window.location.href = 'super-admin.html'"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+            <li style="cursor: pointer;"><a onclick="window.location.href = 'buku.html'"><i class="fas fa-book"></i> Buku</a></li>
+            <li style="cursor: pointer;"><a onclick="window.location.href = 'anggota.html'"><i class="fas fa-users"></i> Anggota</a></li>
+            <li style="cursor: pointer;"><a onclick="window.location.href = 'peminjaman.html'"><i class="fas fa-exchange-alt"></i> Peminjaman</a></li>
+            <li><a href="#"><i class="fas fa-chart-bar"></i> Laporan</a></li>
+            <li><a href="#"><i class="fas fa-cog"></i> Pengaturan</a></li>
+        </ul>
+        <div style="padding-left: 40px; margin-top: 148px;">
+            <a style="cursor: pointer;" onclick="window.location.href = 'login.html'" ><button class="logout-btn" id="logoutBtn">Logout</button></a>
+        </div>
+    </div>
+    <div class="content-wrapper">
+        <h2>Peminjaman Buku</h2>
+        <div class="filter-actions">
+            <input type="text" id="searchLoan" placeholder="Cari berdasarkan nama atau buku...">
+            <button onclick="filterLoans()">Cari</button>
+        </div>
+        <table id="dashboardTable">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Nama</th>
+                    <th>Buku</th>
+                    <th>Tanggal</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Data akan ditambahkan melalui JavaScript -->
+            </tbody>
+        </table>
+        <div class="pagination" id="dashboardPagination">
+            <button class="disabled">&laquo; Previous</button>
+            <button>1</button>
+            <button>2</button>
+            <button>3</button>
+            <button>Next &raquo;</button>
+        </div>
+    </div>
+
+    <script src="config/dashboard.js"></script>
+    <script>
+        // Fungsi untuk memfilter data peminjaman
+        function filterLoans() {
+            var searchTerm = document.getElementById("searchLoan").value.toLowerCase();
+            var table = document.getElementById("dashboardTable").getElementsByTagName("tbody")[0];
+            var rows = table.getElementsByTagName("tr");
+            for (var i = 0; i < rows.length; i++) {
+                var name = rows[i].getElementsByTagName("td")[1].innerText.toLowerCase();
+                var book = rows[i].getElementsByTagName("td")[2].innerText.toLowerCase();
+                if (name.includes(searchTerm) || book.includes(searchTerm)) {
+                    rows[i].style.display = "";
+                } else {
+                    rows[i].style.display = "none";
+                }
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,64 +1,60 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Admin Dashboard</title>
-    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="/style/style.css">
-    <link rel="website icon" type="png" href="logo-title.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buku - Dashboard Super Admin Perpustakaan</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style/super-admin.css">
 </head>
 <body>
     <div class="sidebar">
-        <h1>Library System</h1>
+        <div class="profile">
+            <img src="/image/image-removebg-preview.png" alt="User Avatar" class="logo"/>
+            <div class="profile-info">
+                <h1>Super Admin</h1>
+                <p>Hisyam-Ganz</p>
+            </div>
+        </div>
         <ul>
-            <li class="active"><a href="#dashboard"><i class="bx bxs-dashboard"></i> Dashboard</a></li>
-            <li><a href="#books"><i class="bx bxs-book"></i> Books</a></li>
-            <li><a href="#loan"><i class="bx bxs-report"></i> Loan</a></li>
+            <li><a href="index.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+            <li><a href="buku.html" class="active"><i class="fas fa-book"></i> Buku</a></li>
+            <li><a href="#"><i class="fas fa-users"></i> Anggota</a></li>
+            <li><a href="#"><i class="fas fa-exchange-alt"></i> Peminjaman</a></li>
+            <li><a href="#"><i class="fas fa-chart-bar"></i> Laporan</a></li>
+            <li><a href="#"><i class="fas fa-cog"></i> Pengaturan</a></li>
         </ul>
+        <div style="padding-left: 40px; margin-top: 148px;">
+            <a href="login.html"> <button class="logout-btn" id="logoutBtn">Logout</button></a>
+        </div>
     </div>
     <div class="main-content">
-        <div  class="header">
-            <h2 id="page-title">Dashboard</h2>
-            <div class="user-info">
-                <a style="padding: 13px; text-decoration: none;" href="login.html">LogOut</a>
-                <img src="logo-title.png" alt="User Avatar" />
-                <span>ADMIN</span>
+        <div class="header">
+            <h2>Manajemen Buku</h2>
+        </div>
+        <div class="card-container">
+            <div class="card">
+                <h3>Total Buku</h3>
+                <p id="totalBooks">500</p>
+            </div>
+            <div class="card">
+                <h3>Buku Dipinjam</h3>
+                <p id="borrowedBooks">120</p>
+            </div>
+            <div class="card">
+                <h3>Buku Tersedia</h3>
+                <p id="availableBooks">380</p>
             </div>
         </div>
-        
-        <div id="dashboard" class="page active">
-            <div class="dashboard-cards">
-                <div class="card blue">
-                    <i class="bx bxs-group"></i>
-                    <h3>Number of Members</h3>
-                    <p>114</p>
-                </div>
-                <div class="card green">
-                    <i class="bx bxs-book"></i>
-                    <h3>Number of Books</h3>
-                    <p>89</p>
-                </div>
-                <div class="card orange">
-                    <i class="bx bxs-cart"></i>
-                    <h3>Number of Loan Transactions</h3>
-                    <p>24</p>
-                </div>
-                <!-- <div class="card red">
-                    <i class="bx bxs-factory"></i>
-                    <h3>Supplier Quantity</h3>
-                    <p>120</p>
-                </div> -->
-            </div>
-            <div class="chart">
-                <h3>Static Chart</h3>
-                <canvas id="combinedChart" width="400" height="200"></canvas>
+        <div class="quick-actions">
+            <h3>Aksi Cepat</h3>
+            <div class="action-buttons">
+                <a href="create-new-book.html" class="action-btn">Tambah Buku Baru</a>
+                <button class="action-btn">Laporan Buku</button>
+                <button class="action-btn">Kelola Kategori</button>
             </div>
         </div>
-
-
-        <main>
-           <div id="loan" class="page active">
+        <div id="loan" class="page active">
             <table style="margin-top: 30px;" id="dashboardTable">
                 <thead>
                     <tr>
@@ -74,74 +70,9 @@
                 </tbody>
             </table>
             <div class="pagination" id="dashboardPagination"></div>
-           </div>
-        </main>
-        
-        
-
-        <div id="books" class="page active"><main>
-            <div class="book">
-                <button class="tab-button" data-category="all">All</button>
-                <button class="tab-button" data-category="Author">Author</button>
-                <button class="tab-button" data-category="Publisher">Publisher</button>
-            </div>
-            
-            <div class="book-grid" id="bookGrid"></div>
-            
-
-            
-        </main></div>
+        </div>
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
-    <script src="/config/dashboard.js"></script>
-
-    <script>
-        const books = [
-            { title: "Brave New World", author: "Aldous Huxley", price: "$12.99", cover: "/image/background.jpeg", category: "classic" },
-            { title: "1984", author: "George Orwell", price: "$11.99", cover: "/image/background.jpeg", category: "classic" },
-            { title: "The Great Gatsby", author: "F. Scott Fitzgerald", price: "$10.99", cover: "/image/background.jpeg", category: "classic" },
-            { title: "To Kill a Mockingbird", author: "Harper Lee", price: "$13.99", cover: "/image/background.jpeg", category: "modern" },
-            { title: "To Riz a Mockingbird", author: "Rapper Lee", price: "$99.99", cover: "/image/background.jpeg", category: "modern" },
-            { title: "To Jek a Laughing", author: "Mines Lee", price: "$10.99", cover: "/image/background.jpeg", category: "modern" },
-            { title: "To Kamver a Kabey", author: "Loei Lee", price: "$12.99", cover: "/image/background.jpeg", category: "modern" }
-        ];
-    
-        const bookGrid = document.getElementById('bookGrid');
-        const tabButtons = document.querySelectorAll('.tab-button');
-    
-        function displayBooks(category = 'all') {
-            bookGrid.innerHTML = '';
-            books.forEach(book => {
-                if (category === 'all' || book.category === category) {
-                    const bookElement = document.createElement('div');
-                    bookElement.classList.add('book-item');
-                    bookElement.innerHTML = `
-                        <img src="${book.cover}" alt="${book.title}" class="book-cover">
-                        <div class="book-info">
-                            <h3 class="book-title">${book.title}</h3>
-                            <p class="book-author">${book.author}</p>
-                            <p class="book-price">${book.price}</p>
-                        </div>
-                    `;
-                    bookGrid.appendChild(bookElement);
-                }
-            });
-        }
-    
-        tabButtons.forEach(button => {
-            button.addEventListener('click', (e) => {
-                // Hapus class 'active' dari semua tombol tab
-                tabButtons.forEach(btn => btn.classList.remove('active'));
-                // Tambah class 'active' pada tombol yang diklik
-                e.target.classList.add('active');
-                // Tampilkan buku sesuai kategori yang dipilih
-                const category = e.target.getAttribute('data-category');
-                displayBooks(category);
-            });
-        });
-
-        displayBooks();
-    </script>    
+    <script src="config/buku.js"></script>
 </body>
 </html>
