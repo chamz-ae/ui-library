@@ -45,19 +45,24 @@
         .pagination {
             margin-top: 20px;
             display: flex;
-            justify-content: center;
+            justify-content: right;
+
         }
 
         .pagination button {
             padding: 10px 15px;
-            margin: 0 5px;
+            margin: 0 2px;
             border: none;
             background-color: #FF204E;
             color: white;
             border-radius: 5px;
             cursor: pointer;
         }
-
+        
+        .pagination button.active {
+            background-color: #94001e;
+            color: white;
+        }
         .pagination button:hover {
             background-color: #ff204da2;
         }
@@ -112,15 +117,15 @@
             <li style="cursor: pointer;"><a onclick="window.location.href = 'super-admin.html'"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
             <li style="cursor: pointer;"><a onclick="window.location.href = 'buku.html'"><i class="fas fa-book"></i> Buku</a></li>
             <li style="cursor: pointer;"><a onclick="window.location.href = 'anggota.html'"><i class="fas fa-users"></i> Anggota</a></li>
-            <li><a href="#"><i class="fas fa-chart-bar"></i> Laporan</a></li>
-            <li><a href="#"><i class="fas fa-cog"></i> Pengaturan</a></li>
+            <li style="cursor: pointer;"><a onclick="window.location.href = 'laporan.html'"><i class="fas fa-chart-bar"></i> Laporan</a></li>
+            <li><a href="#"><i class="fas fa-cog"></i> Data Admin</a></li>
         </ul>
-        <div style="padding-left: 40px; margin-top: 148px;">
+        <div style="padding-left: 40px; margin-top: 200px;">
             <button onclick="window.location.href = '/auth/login.html'" class="logout-btn" id="logoutBtn" >Logout</button>
         </div>
     </div>
     <div class="content-wrapper">
-        <h2>Peminjaman Buku</h2>
+        <h2>Buku</h2>
         <div class="filter-actions">
             <input type="text" id="searchLoan" placeholder="Cari berdasarkan nama atau buku...">
             <button onclick="filterLoans()">Cari</button>

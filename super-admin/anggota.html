@@ -67,10 +67,10 @@
             <li style="cursor: pointer;"><a onclick="window.location.href = 'super-admin.html'"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
             <li style="cursor: pointer;"><a onclick="window.location.href = 'buku.html'"><i class="fas fa-book"></i> Buku</a></li>
             <li style="cursor: pointer;"><a onclick="window.location.href = 'anggota.html'"><i class="fas fa-users"></i> Anggota</a></li>
-            <li><a href="#"><i class="fas fa-chart-bar"></i> Laporan</a></li>
-            <li><a href="#"><i class="fas fa-cog"></i> Pengaturan</a></li>
+            <li style="cursor: pointer;"><a onclick="window.location.href = 'laporan.html'"><i class="fas fa-chart-bar"></i> Laporan</a></li>
+            <li><a href="#"><i class="fas fa-cog"></i> Data Admin</a></li>
         </ul>
-        <div style="padding-left: 40px; margin-top: 148px;">
+        <div style="padding-left: 40px; margin-top: 200px;">
             <button onclick="window.location.href = '/auth/login.html'" class="logout-btn" id="logoutBtn" >Logout</button>
         </div>
     </div>
@@ -117,38 +117,60 @@
 <script src="../config/dashboard.js"></script>
 
     <script>
-        function editAnggota(button) {
-            const row = button.closest('tr');
-            const nama = row.cells[0].textContent;
-            const email = row.cells[1].textContent;
-            
-            document.getElementById('nama').value = nama;
-            document.getElementById('email').value = email;
-        }
+        let rowToEdit = null;
 
-        function hapusAnggota(button) {
-            const row = button.closest('tr');
-            row.remove();
-        }
+function editAnggota(button) {
+    const row = button.closest('tr');
+    const nama = row.cells[0].textContent;
+    const email = row.cells[1].textContent;
 
-        document.getElementById('anggotaForm').onsubmit = function(e) {
-            e.preventDefault();
-            const nama = document.getElementById('nama').value;
-            const email = document.getElementById('email').value;
-            
-            const table = document.getElementById('anggotaTable').getElementsByTagName('tbody')[0];
-            const newRow = table.insertRow();
-            newRow.innerHTML = `
-                <td>${nama}</td>
-                <td>${email}</td>
-                <td>
-                    <button onclick="editAnggota(this)">Edit</button>
-                    <button onclick="hapusAnggota(this)">Hapus</button>
-                </td>
-            `;
-            
-            document.getElementById('anggotaForm').reset();
-        };
+    document.getElementById('nama').value = nama;
+    document.getElementById('email').value = email;
+
+    // Simpan referensi baris yang sedang diedit
+    rowToEdit = row;
+}
+
+function hapusAnggota(button) {
+    const row = button.closest('tr');
+    row.remove();
+
+    // Reset referensi baris yang sedang diedit jika dihapus
+    if (rowToEdit === row) {
+        rowToEdit = null;
+    }
+}
+
+document.getElementById('anggotaForm').onsubmit = function(e) {
+    e.preventDefault();
+    const nama = document.getElementById('nama').value;
+    const email = document.getElementById('email').value;
+
+    if (rowToEdit) {
+        // Jika ada baris yang sedang diedit, perbarui isinya
+        rowToEdit.cells[0].textContent = nama;
+        rowToEdit.cells[1].textContent = email;
+
+        // Reset referensi baris yang sedang diedit setelah diperbarui
+        rowToEdit = null;
+    } else {
+        // Jika tidak ada baris yang sedang diedit, tambahkan baris baru
+        const table = document.getElementById('anggotaTable').getElementsByTagName('tbody')[0];
+        const newRow = table.insertRow();
+        newRow.innerHTML = `
+            <td>${nama}</td>
+            <td>${email}</td>
+            <td>
+                <button onclick="editAnggota(this)">Edit</button>
+                <button onclick="hapusAnggota(this)">Hapus</button>
+            </td>
+        `;
+    }
+
+    // Reset form setelah submit
+    document.getElementById('anggotaForm').reset();
+};
+
     </script>
 </body>
 </html>
