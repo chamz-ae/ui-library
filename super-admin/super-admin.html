@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard Super Admin Perpustakaan</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="style/super-admin.css">
+    <link rel="stylesheet" href="super-admin.css">
 </head>
 <body>
     <div class="sidebar">
@@ -19,13 +19,12 @@
         <ul>
             <li><a href="super-admin.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
             <li><a href="buku.html"><i class="fas fa-book"></i> Buku</a></li>
-            <li><a href="#"><i class="fas fa-users"></i> Anggota</a></li>
-            <li><a href="peminjaman.html"><i class="fas fa-exchange-alt"></i> Peminjaman</a></li>
+            <li><a href="anggota.html"><i class="fas fa-users"></i> Anggota</a></li>
             <li><a href="#"><i class="fas fa-chart-bar"></i> Laporan</a></li>
             <li><a href="#"><i class="fas fa-cog"></i> Pengaturan</a></li>
         </ul>
-        <div style="padding-left: 40px; margin-top: 148px;">
-            <a href="login.html"> <button class="logout-btn" id="logoutBtn" href="login.html" >Logout</button></a>
+        <div style="padding-left: 40px; margin-top: 200px;">
+            <button onclick="window.location.href = '/auth/login.html'" class="logout-btn" id="logoutBtn" >Logout</button>
         </div>
 
     </div>
@@ -59,13 +58,11 @@
         <div class="quick-actions">
             <h3>Aksi Cepat</h3>
             <div class="action-buttons">
-                <a href="create-new-book.html" class="action-btn">Tambah Buku Baru</a>
-                <button class="action-btn">Report Loan</button>
                 <button class="action-btn">Kelola Anggota</button>
             </div>
         </div>
     </div>
 
-    <script src="config/dashboard.js"></script>
+    <script src="../config/dashboard.js"></script>
 </body>
 </html>

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Peminjaman Buku - Dashboard Super Admin</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="style/super-admin.css">
+    <link rel="stylesheet" href="super-admin.css">
     <style>
         /* Styling untuk halaman Peminjaman */
         .content-wrapper {
@@ -72,6 +72,7 @@
             display: flex;
             justify-content: left;
             align-items: center;
+            margin: 10px;
             margin-bottom: 20px;
             gap: 10px;
         }
@@ -84,7 +85,7 @@
         }
 
         .filter-actions button {
-            padding: 10px 15px;
+            padding: 10px 25px;
             background-color: #FF204E;
             color: white;
             border: none;
@@ -111,12 +112,11 @@
             <li style="cursor: pointer;"><a onclick="window.location.href = 'super-admin.html'"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
             <li style="cursor: pointer;"><a onclick="window.location.href = 'buku.html'"><i class="fas fa-book"></i> Buku</a></li>
             <li style="cursor: pointer;"><a onclick="window.location.href = 'anggota.html'"><i class="fas fa-users"></i> Anggota</a></li>
-            <li style="cursor: pointer;"><a onclick="window.location.href = 'peminjaman.html'"><i class="fas fa-exchange-alt"></i> Peminjaman</a></li>
             <li><a href="#"><i class="fas fa-chart-bar"></i> Laporan</a></li>
             <li><a href="#"><i class="fas fa-cog"></i> Pengaturan</a></li>
         </ul>
         <div style="padding-left: 40px; margin-top: 148px;">
-            <a style="cursor: pointer;" onclick="window.location.href = 'login.html'" ><button class="logout-btn" id="logoutBtn">Logout</button></a>
+            <button onclick="window.location.href = '/auth/login.html'" class="logout-btn" id="logoutBtn" >Logout</button>
         </div>
     </div>
     <div class="content-wrapper">
@@ -148,7 +148,7 @@
         </div>
     </div>
 
-    <script src="config/dashboard.js"></script>
+    <script src="../config/dashboard.js"></script>
     <script>
         // Fungsi untuk memfilter data peminjaman
         function filterLoans() {

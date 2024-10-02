@@ -1,78 +1,187 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-.sidebar {
-    width: 250px; /* Adjust width as needed */
-    background-color: #f0f0f0; /* Example background color */
-    padding: 20px;
-}
-
-.profile {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px; /* Space below profile */
-}
-
-.logo {
-    width: 50px; /* Adjust size as needed */
-    height: 50px; /* Adjust size as needed */
-    border-radius: 50%; /* Make it circular */
-    margin-right: 15px; /* Space between logo and title */
-}
-
-.profile-info h1 {
-    font-size: 1.2em; /* Adjust font size as needed */
-    margin: 0; /* Remove default margin */
-}
-
-.profile-info p {
-    margin: 0; /* Remove default margin */
-    font-size: 0.9em; /* Adjust font size for subtitle */
-    color: #666; /* Example color for subtitle */
-}
-
-ul {
-    list-style-type: none; /* Remove bullet points */
-    padding: 0; /* Remove padding */
-}
-
-ul li {
-    margin: 10px 0; /* Space between list items */
-}
-
-ul li a {
-    text-decoration: none; /* Remove underline */
-    color: #333; /* Text color */
-}
-
-ul li a:hover {
-    color: #007bff; /* Example hover color */
-}
-
-    </style>
-</head>
 <body>
     <div class="sidebar">
         <div class="profile">
-            <img src="logo-title.png" alt="User Avatar" class="logo"/>
+            <img src="/image/image-removebg-preview.png" alt="User Avatar" class="logo"/>
             <div class="profile-info">
                 <h1>Super Admin</h1>
-                <p>Perpustakaan</p>
+                <p>Hisyam-Ganz</p>
             </div>
         </div>
         <ul>
-            <li><a href="#"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
-            <li><a href="#"><i class="fas fa-book"></i> Buku</a></li>
-            <li><a href="#"><i class="fas fa-users"></i> Anggota</a></li>
-            <li><a href="#"><i class="fas fa-exchange-alt"></i> Peminjaman</a></li>
+            <li style="cursor: pointer;"><a onclick="window.location.href = 'super-admin.html'"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+            <li style="cursor: pointer;"><a onclick="window.location.href = 'buku.html'"><i class="fas fa-book"></i> Buku</a></li>
+            <li style="cursor: pointer;"><a onclick="window.location.href = 'anggota.html'"><i class="fas fa-users"></i> Anggota</a></li>
+            <li style="cursor: pointer;"><a onclick="window.location.href = 'peminjaman.html'"><i class="fas fa-exchange-alt"></i> Peminjaman</a></li>
             <li><a href="#"><i class="fas fa-chart-bar"></i> Laporan</a></li>
             <li><a href="#"><i class="fas fa-cog"></i> Pengaturan</a></li>
         </ul>
+        <div style="padding-left: 40px; margin-top: 148px;">
+            <button onclick="window.location.href = '/auth/login.html'" class="logout-btn" id="logoutBtn" >Logout</button>
+        </div>
     </div>
+    <div class="content-wrapper">
+        <h2>Peminjaman Buku</h2>
+        <div class="filter-actions">
+            <input type="text" id="searchLoan" placeholder="Cari berdasarkan nama atau buku...">
+            <button onclick="filterLoans()">Cari</button>
+        </div>
+        <table id="dashboardTable">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Nama</th>
+                    <th>Buku</th>
+                    <th>Tanggal</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Data akan ditambahkan melalui JavaScript -->
+            </tbody>
+        </table>
+        <div class="pagination" id="dashboardPagination">
+            <button class="disabled">&laquo; Previous</button>
+            <button>1</button>
+            <button>2</button>
+            <button>3</button>
+            <button>Next &raquo;</button>
+        </div>
+    </div>
+
+    <script src="../config/dashboard.js"></script>
+
+
+
+<!-- HTML ANGGOTAA DISINII -->
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kelola Anggota</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            color: #333;
+        }
+        form {
+            background: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+        input[type="text"], input[type="email"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button {
+            background: #333;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #555;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #fff;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background: #f4f4f4;
+        }
+    </style>
+</head>
+<body>
+    <h1>Kelola Anggota</h1>
     
+    <form id="anggotaForm">
+        <h2>Tambah/Edit Anggota</h2>
+        <input type="hidden" id="id">
+        <input type="text" id="nama" placeholder="Nama" required>
+        <input type="email" id="email" placeholder="Email" required>
+        <button type="submit">Simpan</button>
+    </form>
+
+    <table id="anggotaTable">
+        <thead>
+            <tr>
+                <th>Nama</th>
+                <th>Email</th>
+                <th>Aksi</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>John Doe</td>
+                <td>john@example.com</td>
+                <td>
+                    <button onclick="editAnggota(this)">Edit</button>
+                    <button onclick="hapusAnggota(this)">Hapus</button>
+                </td>
+            </tr>
+            <tr>
+                <td>Jane Doe</td>
+                <td>jane@example.com</td>
+                <td>
+                    <button onclick="editAnggota(this)">Edit</button>
+                    <button onclick="hapusAnggota(this)">Hapus</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        function editAnggota(button) {
+            const row = button.closest('tr');
+            const nama = row.cells[0].textContent;
+            const email = row.cells[1].textContent;
+            
+            document.getElementById('nama').value = nama;
+            document.getElementById('email').value = email;
+        }
+
+        function hapusAnggota(button) {
+            const row = button.closest('tr');
+            row.remove();
+        }
+
+        document.getElementById('anggotaForm').onsubmit = function(e) {
+            e.preventDefault();
+            const nama = document.getElementById('nama').value;
+            const email = document.getElementById('email').value;
+            
+            const table = document.getElementById('anggotaTable').getElementsByTagName('tbody')[0];
+            const newRow = table.insertRow();
+            newRow.innerHTML = `
+                <td>${nama}</td>
+                <td>${email}</td>
+                <td>
+                    <button onclick="editAnggota(this)">Edit</button>
+                    <button onclick="hapusAnggota(this)">Hapus</button>
+                </td>
+            `;
+            
+            document.getElementById('anggotaForm').reset();
+        };
+    </script>
 </body>
 </html>
