@@ -1,3 +1,13 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kelola Anggota</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="super-admin.css">
+    <link rel="stylesheet" href="anggota.css">
+</head>
 <body>
     <div class="sidebar">
         <div class="profile">
@@ -8,180 +18,84 @@
             </div>
         </div>
         <ul>
-            <li style="cursor: pointer;"><a onclick="window.location.href = 'super-admin.html'"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
-            <li style="cursor: pointer;"><a onclick="window.location.href = 'buku.html'"><i class="fas fa-book"></i> Buku</a></li>
-            <li style="cursor: pointer;"><a onclick="window.location.href = 'anggota.html'"><i class="fas fa-users"></i> Anggota</a></li>
-            <li style="cursor: pointer;"><a onclick="window.location.href = 'peminjaman.html'"><i class="fas fa-exchange-alt"></i> Peminjaman</a></li>
-            <li><a href="#"><i class="fas fa-chart-bar"></i> Laporan</a></li>
-            <li><a href="#"><i class="fas fa-cog"></i> Pengaturan</a></li>
+            <li><a href="super-admin.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+            <li><a href="buku.html"><i class="fas fa-book"></i> Buku</a></li>
+            <li><a href="anggota.html"><i class="fas fa-users"></i> Anggota</a></li>
+            <li><a href="laporan.html"><i class="fas fa-chart-bar"></i> Laporan</a></li>
+            <li><a href="#"><i class="fas fa-cog"></i> Data Admin</a></li>
         </ul>
-        <div style="padding-left: 40px; margin-top: 148px;">
-            <button onclick="window.location.href = '/auth/login.html'" class="logout-btn" id="logoutBtn" >Logout</button>
+        <div style="padding-left: 40px; margin-top: 210px;">
+            <button onclick="window.location.href = '/auth/login.html'" class="logout-btn" id="logoutBtn">Logout</button>
         </div>
     </div>
-    <div class="content-wrapper">
-        <h2>Peminjaman Buku</h2>
-        <div class="filter-actions">
-            <input type="text" id="searchLoan" placeholder="Cari berdasarkan nama atau buku...">
-            <button onclick="filterLoans()">Cari</button>
+    <div class="anggota">
+        <h2>Kelola Anggota</h2>
+        
+        <button class="btnn" id="openModalBtn"><i class="fas fa-plus"></i> Tambah Anggota</button>
+
+        <div class="table-container">
+            <table id="anggotaTable">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Username</th>
+                        <th>Email</th>
+                        <th>FullName</th>
+                        <th>Address</th>
+                        <th>Job</th>
+                        <th>Status</th>
+                        <th>Religion</th>
+                        <th>Gender</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Zeeshan</td>
+                        <td>Zeeshan@gmail.com</td>
+                        <td>Zeeshan Aihara</td>
+                        <td>Los Angles</td>
+                        <td>Progammer</td>
+                        <td>Active</td>
+                        <td>Islam</td>
+                        <td>Male</td>
+                        <td class="action-buttons">
+                            <button onclick="editAnggota(this)" class="btn-edit"><i class="fas fa-edit"></i> Edit</button>
+                            <button onclick="hapusAnggota(this)" class="btn-delete"><i class="fas fa-trash"></i> Hapus</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Jane Doe</td>
+                        <td>jane@example.com</td>
+                        <td class="action-buttons">
+                            <button onclick="editAnggota(this)" class="btn-edit"><i class="fas fa-edit"></i> Edit</button>
+                            <button onclick="hapusAnggota(this)" class="btn-delete"><i class="fas fa-trash"></i> Hapus</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
-        <table id="dashboardTable">
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Nama</th>
-                    <th>Buku</th>
-                    <th>Tanggal</th>
-                    <th>Status</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- Data akan ditambahkan melalui JavaScript -->
-            </tbody>
-        </table>
-        <div class="pagination" id="dashboardPagination">
-            <button class="disabled">&laquo; Previous</button>
-            <button>1</button>
-            <button>2</button>
-            <button>3</button>
-            <button>Next &raquo;</button>
+    </div>
+</div>
+
+
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal-content">
+            <form id="anggotaForm">
+                <h2 id="modalTitle">Tambah Anggota</h2>
+                <input type="hidden" id="editIndex">
+                <input type="text" id="nama" placeholder="Nama" required>
+                <input type="email" id="email" placeholder="Email" required>
+                <div class="action-buttons">
+                    <button type="submit" id="submitBtn">Simpan</button>
+                    <button type="button" id="cancelBtn">Batal</button>
+                </div>
+            </form>
         </div>
     </div>
 
     <script src="../config/dashboard.js"></script>
-
-
-
-<!-- HTML ANGGOTAA DISINII -->
-
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kelola Anggota</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 20px;
-            background-color: #f4f4f4;
-        }
-        h1 {
-            color: #333;
-        }
-        form {
-            background: #fff;
-            padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 5px;
-        }
-        input[type="text"], input[type="email"] {
-            width: 100%;
-            padding: 8px;
-            margin-bottom: 10px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-        }
-        button {
-            background: #333;
-            color: #fff;
-            padding: 10px 15px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        button:hover {
-            background: #555;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            background: #fff;
-        }
-        th, td {
-            padding: 10px;
-            border: 1px solid #ddd;
-            text-align: left;
-        }
-        th {
-            background: #f4f4f4;
-        }
-    </style>
-</head>
-<body>
-    <h1>Kelola Anggota</h1>
-    
-    <form id="anggotaForm">
-        <h2>Tambah/Edit Anggota</h2>
-        <input type="hidden" id="id">
-        <input type="text" id="nama" placeholder="Nama" required>
-        <input type="email" id="email" placeholder="Email" required>
-        <button type="submit">Simpan</button>
-    </form>
-
-    <table id="anggotaTable">
-        <thead>
-            <tr>
-                <th>Nama</th>
-                <th>Email</th>
-                <th>Aksi</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>John Doe</td>
-                <td>john@example.com</td>
-                <td>
-                    <button onclick="editAnggota(this)">Edit</button>
-                    <button onclick="hapusAnggota(this)">Hapus</button>
-                </td>
-            </tr>
-            <tr>
-                <td>Jane Doe</td>
-                <td>jane@example.com</td>
-                <td>
-                    <button onclick="editAnggota(this)">Edit</button>
-                    <button onclick="hapusAnggota(this)">Hapus</button>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-
-    <script>
-        function editAnggota(button) {
-            const row = button.closest('tr');
-            const nama = row.cells[0].textContent;
-            const email = row.cells[1].textContent;
-            
-            document.getElementById('nama').value = nama;
-            document.getElementById('email').value = email;
-        }
-
-        function hapusAnggota(button) {
-            const row = button.closest('tr');
-            row.remove();
-        }
-
-        document.getElementById('anggotaForm').onsubmit = function(e) {
-            e.preventDefault();
-            const nama = document.getElementById('nama').value;
-            const email = document.getElementById('email').value;
-            
-            const table = document.getElementById('anggotaTable').getElementsByTagName('tbody')[0];
-            const newRow = table.insertRow();
-            newRow.innerHTML = `
-                <td>${nama}</td>
-                <td>${email}</td>
-                <td>
-                    <button onclick="editAnggota(this)">Edit</button>
-                    <button onclick="hapusAnggota(this)">Hapus</button>
-                </td>
-            `;
-            
-            document.getElementById('anggotaForm').reset();
-        };
-    </script>
+    <script src="anggota.js"></script>
 </body>
 </html>
