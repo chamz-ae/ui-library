@@ -1,3 +1,8 @@
+:root {
+    --primary: rgb(243, 43, 43);
+    --secondary: #ececec79;
+  }
+
 * {
     margin: 0;
     padding: 0;
@@ -7,14 +12,21 @@
 body {
     display: flex;
     height: 100vh;
-    background-color: #f0f4f8;
+    /* background-color: #ffffff; */
 }
 .sidebar {
     width: 250px;
-    background-color: #5D0E41;
     color: white;
     padding: 20px;
     transition: all 0.3s;
+}
+
+.sidebar a:hover {
+    color: var(--primary)
+}
+
+.sidebar a.active {
+    color: var(--primary)
 }
 .sidebar h1 {
     margin-bottom: 30px;
@@ -28,7 +40,7 @@ body {
     margin-bottom: 15px;
 }
 .sidebar ul li a {
-    color: white;
+    color: black;
     text-decoration: none;
     display: flex;
     align-items: center;
@@ -37,7 +49,7 @@ body {
     transition: all 0.3s;
 }
 .sidebar ul li a:hover {
-    background-color: #cfb8b869;
+    background-color: var(--secondary);
 }
 .sidebar ul li a i {
     margin-right: 10px;
@@ -60,13 +72,14 @@ body {
 
 .profile-info h1 {
     font-size: 1.2em; 
-    margin: 0; 
+    margin: 0;
+    color: black;
 }
 
 .profile-info p {
     margin: 0; 
     font-size: 0.9em; 
-    color: #ffffffb6; 
+    color: #272727b6; 
 }
 
 ul {
@@ -93,7 +106,7 @@ ul li a:hover {
     overflow-y: auto;
     background-color: #f9f9f9;
     border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 35px var(--primary);
 }
 
 
@@ -109,13 +122,14 @@ ul li a:hover {
 }
 .header h2 {
     font-size: 42px;
-    background: -webkit-linear-gradient(#4a76f0, #5D0E41);
+    color: #FF204E;
+    /* background: -webkit-linear-gradient(#4a76f0, #5D0E41);
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    -webkit-text-fill-color: transparent; */
 }
 
 .logout-btn {
-    background-color: #A0153E;
+    background-color: var(--primary);
     color: white;
     border: none;
     width: 195px;
@@ -136,7 +150,7 @@ ul li a:hover {
 .card {
     background-color: white;
     border-radius: 10px;
-    padding: 20px;
+    padding: 40px;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     transition: all 0.3s;
 }
@@ -151,7 +165,7 @@ ul li a:hover {
 .card p {
     font-size: 24px;
     font-weight: bold;
-    color: blue;
+    color: var(--primary);
 }
 .quick-actions {
     margin-top: 30px;

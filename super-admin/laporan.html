@@ -5,42 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard Laporan</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="super-admin.css">
+    <link rel="stylesheet" href="../style/super-admin.css">
+    <link rel="stylesheet" href="../style/laporan.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
-    <style>
-        .laporan {
-            margin: 10px;
-            padding: 10px;
-            width: 100%;
-            background-color: #f9f9f9;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-
-        .laporan h1 {
-            margin-bottom: 11px;
-        }
-
-        .chart-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-        .chart {
-            width: 23%;
-            margin-bottom: 10px;
-            background-color: #fff;
-            border-radius: 8px;
-            margin: 10px;
-            padding: 25px;
-            box-shadow: 0 0 5px rgba(0,0,0,0.1);
-        }
-        @media (max-width: 768px) {
-            .chart {
-                width: 100%;
-            }
-        }
-    </style>
 </head>
 <body>
     <div class="sidebar">
@@ -52,11 +19,11 @@
             </div>
         </div>
         <ul>
-            <li style="cursor: pointer;"><a onclick="window.location.href = 'super-admin.html'"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
-            <li style="cursor: pointer;"><a onclick="window.location.href = 'buku.html'"><i class="fas fa-book"></i> Buku</a></li>
-            <li style="cursor: pointer;"><a onclick="window.location.href = 'anggota.html'"><i class="fas fa-users"></i> Anggota</a></li>
-            <li><a href="#"><i class="fas fa-chart-bar"></i> Laporan</a></li>
-            <li><a href="#"><i class="fas fa-cog"></i> Data Admin</a></li>
+            <li class="dash" style="cursor: pointer;"><a onclick="window.location.href = 'index.html'"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+            <li class="dash" style="cursor: pointer;"><a onclick="window.location.href = 'buku.html'"><i class="fas fa-book"></i> Buku</a></li>
+            <li class="dash" style="cursor: pointer;"><a onclick="window.location.href = 'anggota.html'"><i class="fas fa-users"></i> Anggota</a></li>
+            <li style="cursor: pointer;"><a class="dash active" onclick="window.location.href = 'laporan.html'"><i class="fas fa-chart-bar"></i> Laporan</a></li>
+            <li class="dash" style="cursor: pointer;"><a onclick="window.location.href = 'data-admim.html'"><i class="fas fa-cog"></i> Data Admin</a></li>
         </ul>
         <div style="padding-left: 40px; margin-top: 210px;">
             <button onclick="window.location.href = '/auth/login.html'" class="logout-btn" id="logoutBtn" >Logout</button>

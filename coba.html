@@ -1,101 +1,156 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kelola Anggota</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="super-admin.css">
-    <link rel="stylesheet" href="anggota.css">
-</head>
-<body>
-    <div class="sidebar">
-        <div class="profile">
-            <img src="/image/image-removebg-preview.png" alt="User Avatar" class="logo"/>
-            <div class="profile-info">
-                <h1>Super Admin</h1>
-                <p>Hisyam-Ganz</p>
-            </div>
-        </div>
-        <ul>
-            <li><a href="super-admin.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
-            <li><a href="buku.html"><i class="fas fa-book"></i> Buku</a></li>
-            <li><a href="anggota.html"><i class="fas fa-users"></i> Anggota</a></li>
-            <li><a href="laporan.html"><i class="fas fa-chart-bar"></i> Laporan</a></li>
-            <li><a href="#"><i class="fas fa-cog"></i> Data Admin</a></li>
-        </ul>
-        <div style="padding-left: 40px; margin-top: 210px;">
-            <button onclick="window.location.href = '/auth/login.html'" class="logout-btn" id="logoutBtn">Logout</button>
-        </div>
-    </div>
-    <div class="anggota">
-        <h2>Kelola Anggota</h2>
-        
-        <button class="btnn" id="openModalBtn"><i class="fas fa-plus"></i> Tambah Anggota</button>
+/* Existing styles */
+.content-wrapper {
+    margin: 10px;
+    padding: 10px;
+    width: 100%;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
 
-        <div class="table-container">
-            <table id="anggotaTable">
-                <thead>
-                    <tr>
-                        <th>Id</th>
-                        <th>Username</th>
-                        <th>Email</th>
-                        <th>FullName</th>
-                        <th>Address</th>
-                        <th>Job</th>
-                        <th>Status</th>
-                        <th>Religion</th>
-                        <th>Gender</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Zeeshan</td>
-                        <td>Zeeshan@gmail.com</td>
-                        <td>Zeeshan Aihara</td>
-                        <td>Los Angles</td>
-                        <td>Progammer</td>
-                        <td>Active</td>
-                        <td>Islam</td>
-                        <td>Male</td>
-                        <td class="action-buttons">
-                            <button onclick="editAnggota(this)" class="btn-edit"><i class="fas fa-edit"></i> Edit</button>
-                            <button onclick="hapusAnggota(this)" class="btn-delete"><i class="fas fa-trash"></i> Hapus</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Jane Doe</td>
-                        <td>jane@example.com</td>
-                        <td class="action-buttons">
-                            <button onclick="editAnggota(this)" class="btn-edit"><i class="fas fa-edit"></i> Edit</button>
-                            <button onclick="hapusAnggota(this)" class="btn-delete"><i class="fas fa-trash"></i> Hapus</button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-</div>
+/* Styling untuk tabel */
+#dashboardTable {
+    width: 100%;
+    border-collapse: collapse;
+}
 
+#dashboardTable th, #dashboardTable td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
 
-    <div class="modal-overlay" id="modalOverlay">
-        <div class="modal-content">
-            <form id="anggotaForm">
-                <h2 id="modalTitle">Tambah Anggota</h2>
-                <input type="hidden" id="editIndex">
-                <input type="text" id="nama" placeholder="Nama" required>
-                <input type="email" id="email" placeholder="Email" required>
-                <div class="action-buttons">
-                    <button type="submit" id="submitBtn">Simpan</button>
-                    <button type="button" id="cancelBtn">Batal</button>
-                </div>
-            </form>
-        </div>
-    </div>
+#dashboardTable th {
+    background-color: #FF204E;
+    color: white;
+}
 
-    <script src="../config/dashboard.js"></script>
-    <script src="anggota.js"></script>
-</body>
-</html>
+#dashboardTable tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#dashboardTable tr:hover {
+    background-color: #ddd;
+}
+
+.pagination {
+    margin-top: 20px;
+    display: flex;
+    justify-content: right;
+}
+
+.pagination button {
+    padding: 10px 15px;
+    margin: 0 2px;
+    border: none;
+    background-color: #FF204E;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.pagination button.active {
+    background-color: #94001e;
+    color: white;
+}
+
+.pagination button:hover {
+    background-color: #ff204da2;
+}
+
+.pagination button.disabled {
+    background-color: #ddd;
+    cursor: not-allowed;
+}
+
+/* Quick actions untuk filter */
+.filter-actions {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    margin: 10px;
+    margin-bottom: 20px;
+    gap: 10px;
+}
+
+.filter-actions input {
+    padding: 10px;
+    width: 400px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.filter-actions button {
+    padding: 10px 25px;
+    background-color: #FF204E;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.filter-actions button:hover {
+    background-color: #FF204E;
+}
+
+/* New styles for tabs */
+.tabs {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.tab-container {
+    display: flex;
+    overflow: hidden;
+    background-color: #f1f1f1;
+    border-bottom: 1px solid #ccc;
+}
+
+.tablink {
+    background-color: #f1f1f1;
+    color: #333;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    font-size: 17px;
+    transition: 0.3s;
+    border-radius: 5px 5px 0 0;
+    margin-right: 2px;
+    border-bottom: 3px solid transparent;
+}
+
+.tablink:hover {
+    background-color: #ddd;
+}
+
+.tablink.active {
+    background-color: #fff;
+    color: #FF204E;
+    border-bottom: 3px solid #FF204E;
+}
+
+.tabcontent {
+    display: none;
+    padding: 20px;
+    border-top: none;
+    animation: fadeEffect 1s;
+}
+
+@keyframes fadeEffect {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+/* Responsive design */
+@media screen and (max-width: 600px) {
+    .tab-container {
+        flex-direction: column;
+    }
+    .tablink {
+        width: 100%;
+        margin-bottom: 2px;
+    }
+}

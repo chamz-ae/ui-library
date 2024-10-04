@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Super Admin Perpustakaan</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../style/super-admin.css">
+</head>
+<body>
+    <div class="sidebar">
+        <div class="profile">
+            <img src="/image/image-removebg-preview.png" alt="User Avatar" class="logo"/>
+            <div class="profile-info">
+                <h1>Super Admin</h1>
+                <p>Hisyam-Ganz</p>
+            </div>
+        </div>
+        <ul>
+            <li><a class="dash active" href="index.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+            <li><a class="dash" href="buku.html"><i class="fas fa-book"></i> Buku</a></li>
+            <li><a class="dash" href="anggota.html"><i class="fas fa-users"></i> Anggota</a></li>
+            <li><a class="dash" href="laporan.html"><i class="fas fa-chart-bar"></i> Laporan</a></li>
+            <li><a class="dash" href="data-admim.html"><i class="fas fa-cog"></i> Data Admin</a></li>
+        </ul>
+        <div style="padding-left: 40px; margin-top: 210px;">
+            <button onclick="window.location.href = '/auth/login.html'" class="logout-btn" id="logoutBtn" >Logout</button>
+        </div>
+
+    </div>
+    <div class="main-content">
+        <div class="header">
+            <h2>Selamat datang, Super Admin!</h2>
+            <!-- <a href="login.html"> <button class="logout-btn" id="logoutBtn" href="login.html" >Logout</button></a> -->
+        </div>
+        <div class="card-container">
+            <div class="card">
+                <h3>Most borrowed books</h3>
+                <p id="totalBooks">203</p>
+            </div>
+            <div class="card">
+                <h3>Least borrowed books</h3>
+                <p id="activeMembers">1112</p>
+            </div>
+            <div class="card">
+                <h3>Broken books</h3>
+                <p id="todayLoans">880</p>
+            </div>
+            <div class="card">
+                <h3>Missing books</h3>
+                <p id="overdueBooks">23</p>
+            </div>
+            <div class="card">
+                <h3>Missing books</h3>
+                <p id="missingBooks">87</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="../config/dashboard.js"></script>
+</body>
+</html>

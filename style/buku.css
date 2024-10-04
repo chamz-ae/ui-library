@@ -1,93 +1,94 @@
-.content-wrapper {
+.container {
     margin: 10px;
     padding: 10px;
     width: 100%;
     background-color: #f9f9f9;
     border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    flex-grow: 1;
+    overflow-x: hidden;
 }
 
-/* Styling untuk tabel */
-#dashboardTable {
+.tabs {
+    display: flex;
+    background-color: #e2889a;
+    margin-bottom: 20px;
+    margin-top: 15px;
+}
+
+.tab {
+    flex: 1;
+    padding: 15px;
+    cursor: pointer;
+    text-align: center;
+    color: black;
+    transition: background-color 0.3s;
+}
+
+.tab:hover {
+    background-color: #ff0134;
+}
+
+.tab.active {
+    background-color: #FF204E;
+}
+
+.content {
+    display: none;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.content.active {
+    display: block;
+}
+
+table {
     width: 100%;
     border-collapse: collapse;
+    margin-bottom: 20px;
 }
 
-#dashboardTable th, #dashboardTable td {
-    padding: 12px 15px;
-    border: 1px solid #ddd;
+th, td {
+    padding: 12px;
     text-align: left;
+    border-bottom: 1px solid #e0e0e0;
 }
 
-#dashboardTable th {
-    background-color: #FF204E;
-    color: white;
-}
-
-#dashboardTable tr:nth-child(even) {
+th {
     background-color: #f2f2f2;
+    font-weight: bold;
+    color: #2c3e50;
 }
 
-#dashboardTable tr:hover {
-    background-color: #ddd;
+tr:nth-child(even) {
+    background-color: #f8f9fa;
 }
 
 .pagination {
-    margin-top: 20px;
     display: flex;
-    justify-content: right;
-
+    justify-content: center;
+    margin-top: 20px;
 }
 
 .pagination button {
-    padding: 10px 15px;
-    margin: 0 2px;
-    border: none;
+    margin: 0 5px;
+    padding: 8px 12px;
     background-color: #FF204E;
-    color: white;
-    border-radius: 5px;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
     cursor: pointer;
+    transition: background-color 0.3s;
 }
 
-.pagination button.active {
-    background-color: #94001e;
-    color: white;
-}
 .pagination button:hover {
-    background-color: #ff204da2;
+    background-color: #fd0033;
 }
 
-.pagination button.disabled {
-    background-color: #ddd;
+.pagination button:disabled {
+    background-color: #d3002a;
     cursor: not-allowed;
-}
-
-/* Quick actions untuk filter */
-.filter-actions {
-    display: flex;
-    justify-content: left;
-    align-items: center;
-    margin: 10px;
-    margin-bottom: 20px;
-    gap: 10px;
-}
-
-.filter-actions input {
-    padding: 10px;
-    width: 400px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-}
-
-.filter-actions button {
-    padding: 10px 25px;
-    background-color: #FF204E;
-    color: white;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-}
-
-.filter-actions button:hover {
-    background-color: #FF204E;
 }
