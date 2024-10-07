@@ -106,7 +106,6 @@ ul li a:hover {
     overflow-y: auto;
     background-color: #f9f9f9;
     border-radius: 8px;
-    box-shadow: 0 2px 15px var(--primary);
 }
 
 
@@ -140,7 +139,7 @@ ul li a:hover {
     transition: all 0.3s;
 }
 .logout-btn:hover {
-    background-color: #630420;
+    background-color: #b80000;
 }
 .card-container {
     display: grid;
@@ -174,25 +173,6 @@ ul li a:hover {
     margin-bottom: 15px;
     color: black;
 }
-.action-buttons {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 15px;
-}
-.action-btn {
-    background-color: #910761;
-    color: white;
-    border: none;
-    padding: 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: all 0.3s;
-    text-align: center;
-    font-size: 16px;
-}
-.action-btn:hover {
-    background-color: #5D0E41;
-}
 @media (max-width: 768px) {
     body {
         flex-direction: column;
@@ -202,7 +182,7 @@ ul li a:hover {
     }
 }
 
-.modal {
+/* .modal {
     display: none;
     position: fixed;
     z-index: 1;
@@ -266,4 +246,4 @@ ul li a:hover {
 
 .submit-btn:hover {
     background-color: #45a049;
-}
+} */
