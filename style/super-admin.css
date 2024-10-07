@@ -106,7 +106,7 @@ ul li a:hover {
     overflow-y: auto;
     background-color: #f9f9f9;
     border-radius: 8px;
-    box-shadow: 0 2px 35px var(--primary);
+    box-shadow: 0 2px 15px var(--primary);
 }
 
 

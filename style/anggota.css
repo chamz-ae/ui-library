@@ -11,6 +11,7 @@ body {
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     flex-grow: 1;
     overflow-x: hidden;
+    box-shadow: 0 2px 15px var(--primary);
 }
 
 .modal-overlay {
@@ -105,7 +106,7 @@ table {
 }
 
 th, td {
-    text-align: left;
+    text-align: center;
     padding: 1rem;
     border-bottom: 1px solid #ecf0f1;
 }
@@ -125,6 +126,13 @@ th {
     padding: 0.5rem 1rem;
     font-size: 0.9rem;
 }
+
+.btnn{
+    display: flex;
+    justify-content: space-between;
+    margin-right: 10px;
+}
+
 #openModalBtn {
     margin-top: 20px;
     display: block;
@@ -134,16 +142,12 @@ th {
     background-color: #cc0b32;
 }
 
-/* .scrollmenu {
-    background-color: #333;
-    overflow: auto;
-    white-space: nowrap;
-  }
-  
-.scrollmenu th {
-    display: inline-block;
-    color: black;
-    text-align: center;
-    padding: 4px;
-    text-decoration: none;
-} */
+#flter {
+    margin-top: 20px;
+    display: block;
+    background-color: #FF204E;
+}
+
+#flter:hover {
+    background-color: #cc0b32;
+}

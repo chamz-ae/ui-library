@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kelola Anggota</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="../style/super-admin.css">
     <link rel="stylesheet" href="../style/anggota.css">
 </head>
@@ -30,8 +31,13 @@
     </div>
     <div class="anggota">
         <h2>Kelola Anggota</h2>
+        <div class="btnn">
+            <button class="btnn" id="flter"><i class='bx bx-filter-alt'></i>     Filter</button>
+            <div></div>
+            <button class="btnn" id="openModalBtn"><i class="fas fa-plus"></i> Tambah Anggota</button>
+
+        </div>
         
-        <button class="btnn" id="openModalBtn"><i class="fas fa-plus"></i> Tambah Anggota</button>
 
         <div class="table-container">
             <table id="anggotaTable">
