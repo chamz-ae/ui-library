@@ -5,9 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Peminjaman Buku - Dashboard Super Admin</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../style/buku.css">
     <link rel="stylesheet" href="../style/super-admin.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="../style/buku.css">
 </head>
 <body>
     <div class="sidebar">
@@ -30,29 +29,259 @@
         </div>
     </div>
 
-    <main class="container">
-        <h1>Book Database</h1>
+    <div class="container">
         <div class="tabs">
-            <div class="tab active" data-tab="books">Books</div>
-            <div class="tab" data-tab="publishers">Publishers</div>
-            <div class="tab" data-tab="authors">Authors</div>
+            <div class="tab active" onclick="openTab(event, 'book')">Book</div>
+            <div class="tab" onclick="openTab(event, 'author')">Author</div>
+            <div class="tab" onclick="openTab(event, 'publisher')">Publisher</div>
         </div>
 
-        <div id="books" class="content active">
-            <table></table>
-            <div class="pagination"></div>
+        <div id="book" class="tab-content active">
+            <h2>BOOK</h2>
+            <div class="crud-buttons">
+                <button onclick="openModal('bookModal')">Add Book</button>
+            </div>
+            <table id="bookTable">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Year</th>
+                        <th>ISBN</th>
+                        <th>Stock Quantity</th>
+                        <th>Price</th>
+                        <th>Barcode</th>
+                        <th>Publisher</th>
+                        <th>Address</th>
+                        <th>Phone</th>
+                        <th>Email</th>
+                        <th>Author</th>
+                        <th>Biography</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Supernova</td>
+                        <td>2001</td>
+                        <td>978-1-234567-07-7</td>
+                        <td>10</td>
+                        <td>190000</td>
+                        <td>BC007</td>
+                        <td>Penerbit Andi</td>
+                        <td>Jl. Sosial No. 5, Yogyakarta</td>
+                        <td>0274-78901234</td>
+                        <td>contact@andi.co.id</td>
+                        <td>Dewi Lestari</td>
+                        <td>Dewi Lestari, juga dikenal sebagai Dee, adalah penulis, penyanyi, dan penulis lirik.</td>
+                        <td>
+                            <button class="action-button" onclick="editItem('bookTable', 1)">Edit</button>
+                            <button class="action-button" onclick="deleteItem('bookTable', 1)">Delete</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Supernova</td>
+                        <td>2001</td>
+                        <td>978-1-234567-07-7</td>
+                        <td>10</td>
+                        <td>190000</td>
+                        <td>BC007</td>
+                        <td>Penerbit Andi</td>
+                        <td>Jl. Sosial No. 5, Yogyakarta</td>
+                        <td>0274-78901234</td>
+                        <td>contact@andi.co.id</td>
+                        <td>Dewi Lestari</td>
+                        <td>Dewi Lestari, juga dikenal sebagai Dee, adalah penulis, penyanyi, dan penulis lirik.</td>
+                        <td>
+                            <button class="action-button" onclick="editItem('bookTable', 1)">Edit</button>
+                            <button class="action-button" onclick="deleteItem('bookTable', 1)">Delete</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Supernova</td>
+                        <td>2001</td>
+                        <td>978-1-234567-07-7</td>
+                        <td>10</td>
+                        <td>190000</td>
+                        <td>BC007</td>
+                        <td>Penerbit Andi</td>
+                        <td>Jl. Sosial No. 5, Yogyakarta</td>
+                        <td>0274-78901234</td>
+                        <td>contact@andi.co.id</td>
+                        <td>Dewi Lestari</td>
+                        <td>Dewi Lestari, juga dikenal sebagai Dee, adalah penulis, penyanyi, dan penulis lirik.</td>
+                        <td>
+                            <button class="action-button" onclick="editItem('bookTable', 1)">Edit</button>
+                            <button class="action-button" onclick="deleteItem('bookTable', 1)">Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="pagination">
+                <button onclick="changePage(1, 'book')">1</button>
+                <button onclick="changePage(2, 'book')">2</button>
+                <button onclick="changePage(3, 'book')">3</button>
+            </div>
         </div>
-        <div id="publishers" class="content">
-            <table></table>
-            <div class="pagination"></div>
-        </div>
-        <div id="authors" class="content">
-            <table></table>
-            <div class="pagination"></div>
-        </div>
-    </main>
 
-    <script src="../config/dashboard.js"></script>
+        <div id="author" class="tab-content">
+            <h2>AUTHOR</h2>
+            <div class="crud-buttons">
+                <button onclick="openModal('authorModal')">Add Author</button>
+            </div>
+            <table id="authorTable">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Country</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Harper Lee</td>
+                        <td>United States</td>
+                        <td>
+                            <button class="action-button" onclick="editItem('authorTable', 1)">Edit</button>
+                            <button class="action-button" onclick="deleteItem('authorTable', 1)">Delete</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>George Orwell</td>
+                        <td>United Kingdom</td>
+                        <td>
+                            <button class="action-button" onclick="editItem('authorTable', 2)">Edit</button>
+                            <button class="action-button" onclick="deleteItem('authorTable', 2)">Delete</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Jane Austen</td>
+                        <td>United Kingdom</td>
+                        <td>
+                            <button class="action-button" onclick="editItem('authorTable', 3)">Edit</button>
+                            <button class="action-button" onclick="deleteItem('authorTable', 3)">Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="pagination">
+                <button onclick="changePage(1, 'author')">1</button>
+                <button onclick="changePage(2, 'author')">2</button>
+                <button onclick="changePage(3, 'author')">3</button>
+            </div>
+        </div>
+
+        <div id="publisher" class="tab-content">
+            <h2>PUBLISHER</h2>
+            <div class="crud-buttons">
+                <button onclick="openModal('publisherModal')">Add Publisher</button>
+            </div>
+            <table id="publisherTable">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Location</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>J. B. Lippincott & Co.</td>
+                        <td>Philadelphia, USA</td>
+                        <td>
+                            <button class="action-button" onclick="editItem('publisherTable', 1)">Edit</button>
+                            <button class="action-button" onclick="deleteItem('publisherTable', 1)">Delete</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Secker & Warburg</td>
+                        <td>London, UK</td>
+                        <td>
+                            <button class="action-button" onclick="editItem('publisherTable', 2)">Edit</button>
+                            <button class="action-button" onclick="deleteItem('publisherTable', 2)">Delete</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>T. Egerton, Whitehall</td>
+                        <td>London, UK</td>
+                        <td>
+                            <button class="action-button" onclick="editItem('publisherTable', 3)">Edit</button>
+                            <button class="action-button" onclick="deleteItem('publisherTable', 3)">Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="pagination">
+                <button onclick="changePage(1, 'publisher')">1</button>
+                <button onclick="changePage(2, 'publisher')">2</button>
+                <button onclick="changePage(3, 'publisher')">3</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modals -->
+    <div id="bookModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('bookModal')">&times;</span>
+            <h2>Add/Edit Book</h2>
+            <form id="bookForm">
+                <div class="form-group">
+                    <label for="bookTitle">Title:</label>
+                    <input type="text" id="bookTitle" name="bookTitle" required>
+                </div>
+                <div class="form-group">
+                    <label for="bookAuthor">Author:</label>
+                    <input type="text" id="bookAuthor" name="bookAuthor" required>
+                </div>
+                <div class="form-group">
+                    <label for="bookPublisher">Publisher:</label>
+                    <input type="text" id="bookPublisher" name="bookPublisher" required>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Submit">
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="authorModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('authorModal')">&times;</span>
+            <h2>Add/Edit Author</h2>
+            <form id="authorForm">
+                <div class="form-group">
+                    <label for="authorName">Name:</label>
+                    <input type="text" id="authorName" name="authorName" required>
+                </div>
+                <div class="form-group">
+                    <label for="authorCountry">Country:</label>
+                    <input type="text" id="authorCountry" name="authorCountry" required>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Submit">
+                </div>
+            </form>
+        </div>
+    </div>
+    <div id="publisherModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('publisherModal')">&times;</span>
+            <h2>Add/Edit Publisher</h2>
+            <form id="publisherForm">
+                <div class="form-group">
+                    <label for="publisherName">Name:</label>
+                    <input type="text" id="publisherName" name="publisherName" required>
+                </div>
+                <div class="form-group">
+                    <label for="publisherLocation">Location:</label>
+                    <input type="text" id="publisherLocation" name="publisherLocation" required>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Submit">
+                </div>
+            </form>
+        </div>
+    </div>
+
     <script src="../config/buku.js"></script>
 </body>
 </html>

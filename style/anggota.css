@@ -43,7 +43,7 @@ body {
     padding: 2rem;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    width: 100%;
+    width: 100%;    
     max-width: 400px;
     transform: scale(0.8);
     opacity: 0;
@@ -99,6 +99,7 @@ button:hover {
 .modal-content button {
     border-radius: 10px;
     background-color: var(--third);
+    color: white;
 }
 
 .modal-content button:hover {

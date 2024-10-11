@@ -1,156 +1,491 @@
-/* Existing styles */
-.content-wrapper {
-    margin: 10px;
-    padding: 10px;
-    width: 100%;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-}
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peminjaman Buku - Dashboard Super Admin</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        .sidebar {
+            width: 250px;
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px;
+            height: 100vh;
+        }
+        .profile {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .profile img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+        }
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .sidebar ul li {
+            margin-bottom: 10px;
+        }
+        .sidebar ul li a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .sidebar ul li a:hover, .sidebar ul li a.active {
+            background-color: #34495e;
+        }
+        .container {
+            flex-grow: 1;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        .tabs {
+            display: flex;
+            background-color: #e2889a;
+            margin-bottom: 20px;
+        }
+        .tab {
+            flex: 1;
+            padding: 15px;
+            cursor: pointer;
+            text-align: center;
+            color: black;
+            transition: background-color 0.3s;
+        }
+        .tab:hover, .tab.active {
+            background-color: #FF204E;
+        }
+        .tab-content {
+            display: none;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .tab-content.active {
+            display: block;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+        .crud-buttons {
+            margin-bottom: 20px;
+        }
+        .crud-buttons button, .action-button {
+            padding: 10px 15px;
+            background-color: #FF204E;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+        .crud-buttons button:hover, .action-button:hover {
+            background-color: #fd0033;
+        }
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .pagination button {
+            margin: 0 5px;
+            padding: 8px 12px;
+            background-color: #FF204E;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 500px;
+            border-radius: 8px;
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .close:hover {
+            color: black;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .form-group input[type="submit"] {
+            background-color: #FF204E;
+            color: white;
+            cursor: pointer;
+        }
+        .form-group input[type="submit"]:hover {
+            background-color: #fd0033;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="profile">
+            <img src="https://via.placeholder.com/100" alt="User Avatar"/>
+            <h2>Super Admin</h2>
+            <p>Hisyam-Ganz</p>
+        </div>
+        <ul>
+            <li><a href="#" class="active"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+            <li><a href="#"><i class="fas fa-book"></i> Buku</a></li>
+            <li><a href="#"><i class="fas fa-users"></i> Anggota</a></li>
+            <li><a href="#"><i class="fas fa-chart-bar"></i> Laporan</a></li>
+            <li><a href="#"><i class="fas fa-cog"></i> Data Admin</a></li>
+        </ul>
+        <button onclick="logOut()" class="crud-buttons" style="margin-top: 20px;">Logout</button>
+    </div>
 
-/* Styling untuk tabel */
-#dashboardTable {
-    width: 100%;
-    border-collapse: collapse;
-}
+    <main class="container">
+        <div class="tabs">
+            <div class="tab active" onclick="openTab(event, 'book')">Book</div>
+            <div class="tab" onclick="openTab(event, 'author')">Author</div>
+            <div class="tab" onclick="openTab(event, 'publisher')">Publisher</div>
+        </div>
 
-#dashboardTable th, #dashboardTable td {
-    padding: 12px 15px;
-    border: 1px solid #ddd;
-    text-align: left;
-}
+        <div id="book" class="tab-content active">
+            <h2>BOOK</h2>
+            <div class="crud-buttons">
+                <button onclick="openModal('bookModal')">Add Book</button>
+                <button onclick="exportData('book')">Export</button>
+            </div>
+            <table id="bookTable">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Author</th>
+                        <th>Publisher</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>To Kill a Mockingbird</td>
+                        <td>Harper Lee</td>
+                        <td>J. B. Lippincott & Co.</td>
+                        <td>
+                            <button class="action-button" onclick="editItem('bookTable', 1)">Edit</button>
+                            <button class="action-button" onclick="deleteItem('bookTable', 1)">Delete</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>1984</td>
+                        <td>George Orwell</td>
+                        <td>Secker & Warburg</td>
+                        <td>
+                            <button class="action-button" onclick="editItem('bookTable', 2)">Edit</button>
+                            <button class="action-button" onclick="deleteItem('bookTable', 2)">Delete</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Pride and Prejudice</td>
+                        <td>Jane Austen</td>
+                        <td>T. Egerton, Whitehall</td>
+                        <td>
+                            <button class="action-button" onclick="editItem('bookTable', 3)">Edit</button>
+                            <button class="action-button" onclick="deleteItem('bookTable', 3)">Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="pagination">
+                <button onclick="changePage(1, 'book')">1</button>
+                <button onclick="changePage(2, 'book')">2</button>
+                <button onclick="changePage(3, 'book')">3</button>
+            </div>
+        </div>
 
-#dashboardTable th {
-    background-color: #FF204E;
-    color: white;
-}
+        <div id="author" class="tab-content">
+            <h2>AUTHOR</h2>
+            <div class="crud-buttons">
+                <button onclick="openModal('authorModal')">Add Author</button>
+                <button onclick="exportData('author')">Export</button>
+            </div>
+            <table id="authorTable">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Country</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Harper Lee</td>
+                        <td>United States</td>
+                        <td>
+                            <button class="action-button" onclick="editItem('authorTable', 1)">Edit</button>
+                            <button class="action-button" onclick="deleteItem('authorTable', 1)">Delete</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>George Orwell</td>
+                        <td>United Kingdom</td>
+                        <td>
+                            <button class="action-button" onclick="editItem('authorTable', 2)">Edit</button>
+                            <button class="action-button" onclick="deleteItem('authorTable', 2)">Delete</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Jane Austen</td>
+                        <td>United Kingdom</td>
+                        <td>
+                            <button class="action-button" onclick="editItem('authorTable', 3)">Edit</button>
+                            <button class="action-button" onclick="deleteItem('authorTable', 3)">Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="pagination">
+                <button onclick="changePage(1, 'author')">1</button>
+                <button onclick="changePage(2, 'author')">2</button>
+                <button onclick="changePage(3, 'author')">3</button>
+            </div>
+        </div>
 
-#dashboardTable tr:nth-child(even) {
-    background-color: #f2f2f2;
-}
+        <div id="publisher" class="tab-content">
+            <h2>PUBLISHER</h2>
+            <div class="crud-buttons">
+                <button onclick="openModal('publisherModal')">Add Publisher</button>
+                <button onclick="exportData('publisher')">Export</button>
+            </div>
+            <table id="publisherTable">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Location</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>J. B. Lippincott & Co.</td>
+                        <td>Philadelphia, USA</td>
+                        <td>
+                            <button class="action-button" onclick="editItem('publisherTable', 1)">Edit</button>
+                            <button class="action-button" onclick="deleteItem('publisherTable', 1)">Delete</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Secker & Warburg</td>
+                        <td>London, UK</td>
+                        <td>
+                            <button class="action-button" onclick="editItem('publisherTable', 2)">Edit</button>
+                            <button class="action-button" onclick="deleteItem('publisherTable', 2)">Delete</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>T. Egerton, Whitehall</td>
+                        <td>London, UK</td>
+                        <td>
+                            <button class="action-button" onclick="editItem('publisherTable', 3)">Edit</button>
+                            <button class="action-button" onclick="deleteItem('publisherTable', 3)">Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="pagination">
+                <button onclick="changePage(1, 'publisher')">1</button>
+                <button onclick="changePage(2, 'publisher')">2</button>
+                <button onclick="changePage(3, 'publisher')">3</button>
+            </div>
+        </div>
+    </main>
 
-#dashboardTable tr:hover {
-    background-color: #ddd;
-}
+    <!-- Modals -->
+    <div id="bookModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('bookModal')">&times;</span>
+            <h2>Add/Edit Book</h2>
+            <form id="bookForm">
+                <div class="form-group">
+                    <label for="bookTitle">Title:</label>
+                    <input type="text" id="bookTitle" name="bookTitle" required>
+                </div>
+                <div class="form-group">
+                    <label for="bookAuthor">Author:</label>
+                    <input type="text" id="bookAuthor" name="bookAuthor" required>
+                </div>
+                <div class="form-group">
+                    <label for="bookPublisher">Publisher:</label>
+                    <input type="text" id="bookPublisher" name="bookPublisher" required>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Submit">
+                </div>
+            </form>
+        </div>
+    </div>
 
-.pagination {
-    margin-top: 20px;
-    display: flex;
-    justify-content: right;
-}
+    <div id="authorModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('authorModal')">&times;</span>
+            <h2>Add/Edit Author</h2>
+            <form id="authorForm">
+                <div class="form-group">
+                    <label for="authorName">Name:</label>
+                    <input type="text" id="authorName" name="authorName" required>
+                </div>
+                <div class="form-group">
+                    <label for="authorCountry">Country:</label>
+                    <input type="text" id="authorCountry" name="authorCountry" required>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Submit">
+                </div>
+            </form>
+        </div>
+    </div>
+    <div id="publisherModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('publisherModal')">&times;</span>
+            <h2>Add/Edit Publisher</h2>
+            <form id="publisherForm">
+                <div class="form-group">
+                    <label for="publisherName">Name:</label>
+                    <input type="text" id="publisherName" name="publisherName" required>
+                </div>
+                <div class="form-group">
+                    <label for="publisherLocation">Location:</label>
+                    <input type="text" id="publisherLocation" name="publisherLocation" required>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Submit">
+                </div>
+            </form>
+        </div>
+    </div>
 
-.pagination button {
-    padding: 10px 15px;
-    margin: 0 2px;
-    border: none;
-    background-color: #FF204E;
-    color: white;
-    border-radius: 5px;
-    cursor: pointer;
-}
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tab");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
 
-.pagination button.active {
-    background-color: #94001e;
-    color: white;
-}
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = "block";
+        }
 
-.pagination button:hover {
-    background-color: #ff204da2;
-}
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = "none";
+        }
 
-.pagination button.disabled {
-    background-color: #ddd;
-    cursor: not-allowed;
-}
+        function changePage(page, table) {
+            console.log(`Changing to page ${page} for ${table} table`);
+            // Implement pagination logic here
+        }
 
-/* Quick actions untuk filter */
-.filter-actions {
-    display: flex;
-    justify-content: left;
-    align-items: center;
-    margin: 10px;
-    margin-bottom: 20px;
-    gap: 10px;
-}
+        function exportData(table) {
+            console.log(`Exporting data for ${table} table`);
+            // Implement export logic here
+        }
 
-.filter-actions input {
-    padding: 10px;
-    width: 400px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-}
+        function editItem(tableId, id) {
+            console.log(`Editing item ${id} in ${tableId}`);
+            openModal(`${tableId.replace('Table', '')}Modal`);
+            // Implement edit logic here
+        }
 
-.filter-actions button {
-    padding: 10px 25px;
-    background-color: #FF204E;
-    color: white;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-}
+        function deleteItem(tableId, id) {
+            console.log(`Deleting item ${id} from ${tableId}`);
+            // Implement delete logic here
+        }
 
-.filter-actions button:hover {
-    background-color: #FF204E;
-}
+        function logOut() {
+            console.log('Logging out');
+            // Implement logout logic here
+        }
 
-/* New styles for tabs */
-.tabs {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-}
+        // Form submission handlers
+        document.getElementById('bookForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            console.log('Book form submitted');
+            // Implement form submission logic here
+            closeModal('bookModal');
+        });
 
-.tab-container {
-    display: flex;
-    overflow: hidden;
-    background-color: #f1f1f1;
-    border-bottom: 1px solid #ccc;
-}
+        document.getElementById('authorForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            console.log('Author form submitted');
+            // Implement form submission logic here
+            closeModal('authorModal');
+        });
 
-.tablink {
-    background-color: #f1f1f1;
-    color: #333;
-    float: left;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    padding: 14px 16px;
-    font-size: 17px;
-    transition: 0.3s;
-    border-radius: 5px 5px 0 0;
-    margin-right: 2px;
-    border-bottom: 3px solid transparent;
-}
+        document.getElementById('publisherForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            console.log('Publisher form submitted');
+            // Implement form submission logic here
+            closeModal('publisherModal');
+        });
 
-.tablink:hover {
-    background-color: #ddd;
-}
-
-.tablink.active {
-    background-color: #fff;
-    color: #FF204E;
-    border-bottom: 3px solid #FF204E;
-}
-
-.tabcontent {
-    display: none;
-    padding: 20px;
-    border-top: none;
-    animation: fadeEffect 1s;
-}
-
-@keyframes fadeEffect {
-    from {opacity: 0;}
-    to {opacity: 1;}
-}
-
-/* Responsive design */
-@media screen and (max-width: 600px) {
-    .tab-container {
-        flex-direction: column;
-    }
-    .tablink {
-        width: 100%;
-        margin-bottom: 2px;
-    }
-}
+        // Close modal when clicking outside of it
+        window.onclick = function(event) {
+            if (event.target.className === 'modal') {
+                event.target.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>

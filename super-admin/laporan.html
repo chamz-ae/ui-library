@@ -42,16 +42,7 @@
                 <canvas id="customerLineChart"></canvas>
             </div>
             <div class="chart">
-                <canvas id="expensesBarChart"></canvas>
-            </div>
-            <div class="chart">
                 <canvas id="profitDoughnutChart"></canvas>
-            </div>
-            <div class="chart">
-                <canvas id="employeeRadarChart"></canvas>
-            </div>
-            <div class="chart">
-                <canvas id="marketShareBubbleChart"></canvas>
             </div>
         </div>
     </div>
@@ -89,56 +80,12 @@
             }]
         };
 
-        const expensesData = {
-            labels: ['Gaji', 'Marketing', 'Operasional', 'R&D', 'Lain-lain'],
-            datasets: [{
-                label: 'Pengeluaran (Juta Rp)',
-                data: [120, 50, 80, 30, 20],
-                backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0', '#9966FF'],
-            }]
-        };
-
         const profitData = {
             labels: ['Q1', 'Q2', 'Q3', 'Q4'],
             datasets: [{
                 data: [300, 50, 100, 200],
                 backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0'],
                 hoverBackgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0']
-            }]
-        };
-
-        const employeeData = {
-            labels: ['Produktivitas', 'Kepuasan', 'Kehadiran', 'Kerjasama', 'Inovasi'],
-            datasets: [{
-                label: 'Performa Karyawan',
-                data: [65, 59, 90, 81, 56],
-                fill: true,
-                backgroundColor: 'rgba(255, 99, 132, 0.2)',
-                borderColor: 'rgb(255, 99, 132)',
-                pointBackgroundColor: 'rgb(255, 99, 132)',
-                pointBorderColor: '#fff',
-                pointHoverBackgroundColor: '#fff',
-                pointHoverBorderColor: 'rgb(255, 99, 132)'
-            }]
-        };
-
-        const marketShareData = {
-            datasets: [{
-                label: 'Market Share',
-                data: [{
-                    x: 20,
-                    y: 30,
-                    r: 15
-                }, {
-                    x: 40,
-                    y: 10,
-                    r: 10
-                }, {
-                    x: 30,
-                    y: 20,
-                    r: 20
-                }],
-                backgroundColor: 'rgb(255, 99, 132)'
             }]
         };
 
@@ -155,21 +102,7 @@
         createChart('salesChart', 'bar', salesData);
         createChart('productPieChart', 'pie', productData);
         createChart('customerLineChart', 'line', customerData);
-        createChart('expensesBarChart', 'bar', expensesData);
         createChart('profitDoughnutChart', 'doughnut', profitData);
-        createChart('employeeRadarChart', 'radar', employeeData);
-        createChart('marketShareBubbleChart', 'bubble', marketShareData, {
-            scales: {
-                x: {
-                    beginAtZero: true,
-                    max: 50
-                },
-                y: {
-                    beginAtZero: true,
-                    max: 50
-                }
-            }
-        });
     </script>
 </body>
 </html>
