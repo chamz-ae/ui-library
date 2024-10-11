@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard Laporan</title>
+    <title>Dashboard Report</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../style/super-admin.css">
     <link rel="stylesheet" href="../style/laporan.css">
@@ -20,17 +20,17 @@
         </div>
         <ul>
             <li class="dash" style="cursor: pointer;"><a onclick="window.location.href = 'index.html'"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
-            <li class="dash" style="cursor: pointer;"><a onclick="window.location.href = 'buku.html'"><i class="fas fa-book"></i> Buku</a></li>
-            <li class="dash" style="cursor: pointer;"><a onclick="window.location.href = 'anggota.html'"><i class="fas fa-users"></i> Anggota</a></li>
-            <li style="cursor: pointer;"><a class="dash active" onclick="window.location.href = 'laporan.html'"><i class="fas fa-chart-bar"></i> Laporan</a></li>
-            <li class="dash" style="cursor: pointer;"><a onclick="window.location.href = 'data-admim.html'"><i class="fas fa-cog"></i> Data Admin</a></li>
+            <li class="dash" style="cursor: pointer;"><a onclick="window.location.href = 'buku.html'"><i class="fas fa-book"></i> Books</a></li>
+            <li class="dash" style="cursor: pointer;"><a onclick="window.location.href = 'anggota.html'"><i class="fas fa-users"></i> Member</a></li>
+            <li style="cursor: pointer;"><a class="dash active" onclick="window.location.href = 'laporan.html'"><i class="fas fa-chart-bar"></i> Report</a></li>
+            <li class="dash" style="cursor: pointer;"><a onclick="window.location.href = 'data-admim.html'"><i class="fas fa-cog"></i> Admin Data</a></li>
         </ul>
         <div style="padding-left: 40px; margin-top: 210px;">
             <button onclick="window.location.href = '/auth/login.html'" class="logout-btn" id="logoutBtn" >Logout</button>
         </div>
     </div>
     <div class="laporan">
-        <h1>Dashboard Laporan Perusahaan</h1>
+        <h1>Company Report Dashboard</h1>
         <div class="chart-container">
             <div class="chart">
                 <canvas id="salesChart"></canvas>
@@ -52,7 +52,7 @@
         const salesData = {
             labels: ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun'],
             datasets: [{
-                label: 'Penjualan (Juta Rp)',
+                label: 'Market (Milion Rp)',
                 data: [12, 19, 3, 5, 2, 3],
                 backgroundColor: 'rgba(255, 99, 132, 0.5)',
                 borderColor: 'rgba(255, 99, 132, 1)',
@@ -61,7 +61,7 @@
         };
 
         const productData = {
-            labels: ['Produk A', 'Produk B', 'Produk C', 'Produk D'],
+            labels: ['Product A', 'Product B', 'Product C', 'Product D'],
             datasets: [{
                 data: [300, 50, 100, 80],
                 backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0'],
@@ -72,7 +72,7 @@
         const customerData = {
             labels: ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun'],
             datasets: [{
-                label: 'Pelanggan Baru',
+                label: 'New Customer',
                 data: [65, 59, 80, 81, 56, 55],
                 fill: false,
                 borderColor: 'rgb(75, 192, 192)',
