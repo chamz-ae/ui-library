@@ -31,7 +31,7 @@ body {
 .tab-content {
     /* display: none; */
     width: 100%;
-    overflow-x: auto;
+    /* overflow-x: auto; */
     white-space: nowrap;
     display: inline-block;
     /* display: inline-block; */
@@ -39,6 +39,12 @@ body {
 .tab-content.active {
     display: block;
 }
+
+.tab-content table {
+    overflow: auto;
+    display: block;
+}
+
 table {
     width: 100%;
     /* border-collapse: collapse; */

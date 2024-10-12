@@ -6,7 +6,7 @@
     <title>Kelola Anggota</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../style/super-admin.css">
-    <link rel="stylesheet" href="../style/anggota.css">
+    <link rel="stylesheet" href="../style/data-admin.css">
 </head>
 <body>
     <div class="sidebar">
@@ -28,87 +28,41 @@
             <button onclick="window.location.href = '/auth/login.html'" class="logout-btn" id="logoutBtn">Logout</button>
         </div>
     </div>
-    <div class="anggota">
-        <h2>Kelola Karyawan</h2>
-        
-        <button class="btnn" id="openModalBtn"><i class="fas fa-plus"></i> Tambah Anggota</button>
-
-        <div class="table-container">
-            <table id="anggotaTable">
-                <thead>
-                    <tr>
-                        <th>Id</th>
-                        <th>Username</th>
-                        <th>Email</th>
-                        <th>FullName</th>
-                        <th>Address</th>
-                        <th>Job</th>
-                        <th>Status</th>
-                        <th>Religion</th>
-                        <th>Gender</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Zeeshan</td>
-                        <td>Zeeshan@gmail.com</td>
-                        <td>Zeeshan Aihara</td>
-                        <td>Los Angles</td>
-                        <td>Progammer</td>
-                        <td>Active</td>
-                        <td>Islam</td>
-                        <td>Male</td>
-                        <td class="action-buttons">
-                            <button onclick="editAnggota(this)" class="btn-edit"><i class="fas fa-edit"></i> Edit</button>
-                            <button onclick="hapusAnggota(this)" class="btn-delete"><i class="fas fa-trash"></i> Hapus</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Kurcaci</td>
-                        <td>Kurcaci@gmail.com</td>
-                        <td>Kurcaci Kerdil</td>
-                        <td>Kota Gedhe Tua</td>
-                        <td>Progammer Bek-en</td>
-                        <td>Lost streak</td>
-                        <td>Alhamdulillah</td>
-                        <td>Male</td>
-                        <td class="action-buttons">
-                            <button onclick="editAnggota(this)" class="btn-edit"><i class="fas fa-edit"></i> Edit</button>
-                            <button onclick="hapusAnggota(this)" class="btn-delete"><i class="fas fa-trash"></i> Hapus</button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-</div>
-
-
-    <div class="modal-overlay" id="modalOverlay">
-        <div class="modal-content">
-            <form id="anggotaForm">
-                <h2 id="modalTitle">Tambah Anggota</h2>
-                <input type="hidden" id="editIndex">
-                <input type="text" id="nama" placeholder="Nama" required>
-                <input type="email" id="email" placeholder="Email" required>
-                <input type="text" id="FullName" placeholder="FullName" required>
-                <input type="text" id="Address" placeholder="Address" required>
-                <input type="text" id="Job" placeholder="Job" required>
-                <input type="text" id="Status" placeholder="Status" required>
-                <input type="text" id="Religion" placeholder="Religion" required>
-                <input type="text" id="Gender" placeholder="Gender" required>
-                <div class="action-buttons">
-                    <button type="submit" id="submitBtn">Simpan</button>
-                    <button type="button" id="cancelBtn">Batal</button>
-                </div>
-            </form>
-        </div>
+    <div class="container">
+       <div class="admin">
+        <h1>Ubah Data Admin</h1>
+        <form>
+            <div class="photo-upload">
+                <img class="profile-photo" id="profilePhoto">
+                <label for="photoUpload" class="upload-btn">Unggah Foto</label>
+                <input type="file" id="photoUpload" accept="image/*">
+            </div>
+            
+            <label for="nama">Nama:</label>
+            <input type="text" id="nama" name="nama" required>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="role">Role:</label>
+            <select id="role" name="role">
+                <option value="admin">Admin</option>
+                <option value="editor">Editor</option>
+                <option value="viewer">Viewer</option>
+            </select>
+            
+            <label for="status">Status:</label>
+            <select id="status" name="status">
+                <option value="aktif">Aktif</option>
+                <option value="nonaktif">Nonaktif</option>
+            </select>
+            
+            <button type="submit">Simpan Perubahan</button>
+        </form>
+       </div>
     </div>
 
     <script src="../config/dashboard.js"></script>
-    <script src="../config/anggota.js"></script>
+    <script src="../config/data-admin.js"></script>
 </body>
 </html>
