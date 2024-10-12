@@ -20,10 +20,10 @@
         </div>
         <ul>
             <li><a class="dash" href="index.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
-            <li><a class="dash" href="buku.html"><i class="fas fa-book"></i> Buku</a></li>
-            <li><a class="dash active" href="anggota.html"><i class="fas fa-users"></i> Anggota</a></li>
-            <li><a class="dash" href="laporan.html"><i class="fas fa-chart-bar"></i> Laporan</a></li>
-            <li><a class="dash" href="data-admim.html"><i class="fas fa-cog"></i> Data Admin</a></li>
+            <li><a class="dash" href="buku.html"><i class="fas fa-book"></i> Books</a></li>
+            <li><a class="dash active" href="anggota.html"><i class="fas fa-users"></i> Member</a></li>
+            <li><a class="dash" href="laporan.html"><i class="fas fa-chart-bar"></i> Report</a></li>
+            <li><a class="dash" href="data-admim.html"><i class="fas fa-cog"></i> Admin Data</a></li>
         </ul>
         <div style="padding-left: 40px; margin-top: 210px;">
             <button onclick="window.location.href = '/auth/login.html'" class="logout-btn" id="logoutBtn">Logout</button>
@@ -34,7 +34,7 @@
         <div class="btnn">
             <button class="btnn" id="flter"><i class='bx bx-filter-alt'></i>     Filter</button>
             <div></div>
-            <button class="btnn" id="openModalBtn"><i class="fas fa-plus"></i> Tambah Anggota</button>
+            <button class="btnn" id="openModalBtn"><i class="fas fa-plus"></i> Add Member</button>
 
         </div>
         
@@ -68,7 +68,7 @@
                         <td>Male</td>
                         <td class="action-buttons">
                             <button onclick="editAnggota(this)" class="btn-edit"><i class="fas fa-edit"></i> Edit</button>
-                            <button onclick="hapusAnggota(this)" class="btn-delete"><i class="fas fa-trash"></i> Hapus</button>
+                            <button onclick="hapusAnggota(this)" class="btn-delete"><i class="fas fa-trash"></i> Delete</button>
                         </td>
                     </tr>
                     <tr>
@@ -83,7 +83,7 @@
                         <td>Male</td>
                         <td class="action-buttons">
                             <button onclick="editAnggota(this)" class="btn-edit"><i class="fas fa-edit"></i> Edit</button>
-                            <button onclick="hapusAnggota(this)" class="btn-delete"><i class="fas fa-trash"></i> Hapus</button>
+                            <button onclick="hapusAnggota(this)" class="btn-delete"><i class="fas fa-trash"></i> Delete</button>
                         </td>
                     </tr>
                 </tbody>
@@ -96,7 +96,7 @@
     <div class="modal-overlay" id="modalOverlay">
         <div class="modal-content">
             <form id="anggotaForm">
-                <h2 id="modalTitle">Tambah Anggota</h2>
+                <h2 id="modalTitle">Add Member</h2>
                 <input type="hidden" id="editIndex">
                 <input type="text" id="nama" placeholder="Nama" required>
                 <input type="email" id="email" placeholder="Email" required>
@@ -107,8 +107,8 @@
                 <input type="text" id="Religion" placeholder="Religion" required>
                 <input type="text" id="Gender" placeholder="Gender" required>
                 <div class="action-buttons">
-                    <button type="submit" id="submitBtn">Simpan</button>
-                    <button type="button" id="cancelBtn">Batal</button>
+                    <button type="submit" id="submitBtn">Save</button>
+                    <button type="button" id="cancelBtn">Cancel</button>
                 </div>
             </form>
         </div>
