@@ -32,14 +32,14 @@ const modalOverlay = document.getElementById('modalOverlay');
 
         function editAnggota(button) {
             const row = button.closest('tr');
-            const nama = row.cells[0].textContent;
-            const email = row.cells[1].textContent;
-            const fullname = row.cells[2].textContent;
-            const address = row.cells[3].textContent;
-            const job = row.cells[4].textContent;
-            const status = row.cells[5].textContent;
-            const religion = row.cells[6].textContent;
-            const gender = row.cells[7].textContent;
+            const nama = row.cells[1].textContent;
+            const email = row.cells[2].textContent;
+            const fullname = row.cells[3].textContent;
+            const address = row.cells[4].textContent;
+            const job = row.cells[5].textContent;
+            const status = row.cells[6].textContent;
+            const religion = row.cells[7].textContent;
+            const gender = row.cells[8].textContent;
 
             namaInput.value = nama;
             emailInput.value = email;
@@ -72,18 +72,18 @@ const modalOverlay = document.getElementById('modalOverlay');
             const gender = genderInput.value;
 
             if (rowToEdit) {
-                rowToEdit.cells[0].textContent = nama;
-                rowToEdit.cells[1].textContent = email;
-                rowToEdit.cells[2].textContent = fullname;
-                rowToEdit.cells[3].textContent = address;
-                rowToEdit.cells[4].textContent = job;
-                rowToEdit.cells[5].textContent = status;
-                rowToEdit.cells[6].textContent = religion;
-                rowToEdit.cells[7].textContent = gender;
+                rowToEdit.cells[1].textContent = nama;
+                rowToEdit.cells[2].textContent = email;
+                rowToEdit.cells[3].textContent = fullname;
+                rowToEdit.cells[4].textContent = address;
+                rowToEdit.cells[5].textContent = job;
+                rowToEdit.cells[6].textContent = status;
+                rowToEdit.cells[7].textContent = religion;
+                rowToEdit.cells[8].textContent = gender;
             } else {
                 const newRow = anggotaTable.insertRow();
                 newRow.innerHTML = `
-                    <td>${"3"}</td>
+                    <td>${3}</td>
                     <td>${nama}</td>
                     <td>${email}</td>
                     <td>${fullname}</td>
