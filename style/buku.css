@@ -67,6 +67,24 @@ th {
     /* position: sticky; */
     /* top: 0; */
 }
+
+td.bio {
+    display: block;
+    white-space: break-spaces;
+    /* text-overflow: ellipsis;
+    overflow: hidden; */
+    text-align: start;
+    
+}
+
+/* th.head-bio {
+    display: block;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 20%;
+} */
+
 .crud-buttons {
     display: flex;
     justify-content: space-between;

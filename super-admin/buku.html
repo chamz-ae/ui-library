@@ -41,7 +41,7 @@
             <div class="crud-buttons">
                 <button onclick="openModal('bookModal')">Add Book</button>
             </div>
-            <table id="bookTable">
+            <table id="bookTable" class="my-table">
                 <thead>
                     <tr>
                         <th>Title</th>
@@ -128,12 +128,12 @@
             <div class="crud-buttons">
                 <button onclick="openModal('authorModal')">Add Author</button>
             </div>
-            <table id="authorTable">
+            <table id="authorTable" class="mytable">
                 <thead>
                     <tr>
                         <th>NO</th>
                         <th>Name</th>
-                        <th>Biography</th>
+                        <th class="head-bio">Biography</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -141,7 +141,7 @@
                     <tr>
                         <td>1</td>
                         <td>olivia saputra tere females</td>
-                        <td>author_biography</td>
+                        <td class="bio">Andi adalah seorang profesional pemasaran dengan lebih dari 8 tahun pengalaman di industri. Dia sangat antusias tentang teknologi dan inovasi, serta senang berbagi pengetahuan melalui blog pribadi dan seminar</td>
                         <td>
                             <button class="action-button" onclick="editItem('authorTable', 1)">Edit</button>
                             <button class="action-button" onclick="deleteItem('authorTable', 1)">Delete</button>
@@ -150,7 +150,7 @@
                     <tr>
                         <td>1</td>
                         <td>olivia saputra tere females</td>
-                        <td>author_biography</td>
+                        <td class="bio">Andi adalah seorang profesional pemasaran dengan lebih dari 8 tahun pengalaman di industri. Dia sangat antusias tentang teknologi dan inovasi, serta senang berbagi pengetahuan melalui blog pribadi dan seminar</td>
                         <td>
                             <button class="action-button" onclick="editItem('authorTable', 1)">Edit</button>
                             <button class="action-button" onclick="deleteItem('authorTable', 1)">Delete</button>
@@ -159,7 +159,7 @@
                     <tr>
                         <td>1</td>
                         <td>olivia saputra tere females</td>
-                        <td>author_biography</td>
+                        <td class="bio">Andi adalah seorang profesional pemasaran dengan lebih dari 8 tahun pengalaman di industri. Dia sangat antusias tentang teknologi dan inovasi, serta senang berbagi pengetahuan melalui blog pribadi dan seminar</td>
                         <td>
                             <button class="action-button" onclick="editItem('authorTable', 1)">Edit</button>
                             <button class="action-button" onclick="deleteItem('authorTable', 1)">Delete</button>
@@ -179,12 +179,12 @@
             <div class="crud-buttons">
                 <button onclick="openModal('publisherModal')">Add Publisher</button>
             </div>
-            <table id="publisherTable">
+            <table id="publisherTable" class="mytable">
                 <thead>
                     <tr>
                         <th>NO</th>
                         <th>Name</th>
-                        <th>Addess</th>
+                        <th>AddRess</th>
                         <th>Phone</th>
                         <th>Email</th>
                         <th>Action</th>
@@ -238,7 +238,7 @@
     <div id="bookModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('bookModal')">&times;</span>
-            <h2>Add</h2>
+            <h2>Add and Edit Books</h2>
             <form id="bookForm">
                 <div class="form-group">
                     <label for="bookTitle">Title:</label>

@@ -1,3 +1,9 @@
+:root {
+    --primary: rgb(243, 43, 43);
+    --hover: rgb(216, 6, 6);
+    --secondary: #ececec79;
+    --third: #FF204E;
+  }
 
 .container {
     margin: 10px;
@@ -11,12 +17,14 @@
 }
 
 .admin {
-    max-width: 1400px;
-    margin: 60px auto;
+    width: 900px;
+    margin: 10px auto;
     background: white;
     padding: 20px;
     border-radius: 15px;
     box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    overflow-y: auto;
+    display: block;
 }
 
 form {
@@ -38,7 +46,7 @@ select {
     box-sizing: border-box;
 }
 button {
-    background-color: #4CAF50;
+    background-color: var(--primary);
     color: white;
     padding: 12px;
     border: none;
@@ -48,7 +56,7 @@ button {
     font-size: 16px;
 }
 button:hover {
-    background-color: #45a049;
+    background-color: var(--hover);
 }
 .profile-photo {
     width: 150px;
@@ -57,7 +65,7 @@ button:hover {
     margin: 20px auto;
     display: block;
     object-fit: cover;
-    border: 3px solid #4CAF50;
+    border: 3px solid var(--third);
 }
 
 .photo-upload {
