@@ -77,6 +77,14 @@ td.bio {
     
 }
 
+td.address {
+    display: block;
+    white-space: break-spaces;
+    /* text-overflow: ellipsis;
+    overflow: hidden; */
+    text-align: start;
+}
+
 /* th.head-bio {
     display: block;
     white-space: nowrap;
