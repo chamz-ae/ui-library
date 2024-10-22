@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard Super Admin Library</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="../style/super-admin.css">
 </head>
 <body>
@@ -21,9 +22,10 @@
             <li><a class="dash" href="buku.html"><i class="fas fa-book"></i> Books</a></li>
             <li><a class="dash" href="anggota.html"><i class="fas fa-users"></i> Member</a></li>
             <li><a class="dash" href="laporan.html"><i class="fas fa-chart-bar"></i> Report</a></li>
+            <li><a class="dash" href="employee.html"><i class='bx bx-group'></i><span class="text"> Employee</span></a></li>
             <li><a class="dash" href="data-admim.html"><i class="fas fa-cog"></i> Admin Data</a></li>
         </ul>
-        <div style="padding-left: 40px; margin-top: 210px;">
+        <div style="padding-left: 40px; margin-top: 154px;">
             <button onclick="window.location.href = '/auth/login.html'" class="logout-btn" id="logoutBtn" >Logout</button>
         </div>
 
@@ -36,23 +38,23 @@
         <div class="card-container">
             <div class="card">
                 <h3>Most borrowed books</h3>
-                <p id="totalBooks">203</p>
+                <p id="totalBooks">---</p>
             </div>
             <div class="card">
                 <h3>Least borrowed books</h3>
-                <p id="activeMembers">1112</p>
+                <p id="activeMembers">---</p>
             </div>
             <div class="card">
                 <h3>Broken books</h3>
-                <p id="todayLoans">880</p>
+                <p id="todayLoans">---</p>
             </div>
             <div class="card">
                 <h3>Missing books</h3>
-                <p id="overdueBooks">23</p>
+                <p id="overdueBooks">---</p>
             </div>
             <div class="card">
                 <h3>Missing books</h3>
-                <p id="missingBooks">87</p>
+                <p id="missingBooks">---</p>
             </div>
         </div>
     </div>

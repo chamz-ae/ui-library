@@ -86,3 +86,10 @@ form button.active {
 form button:hover {
   background: #0e4bf1;
 }
+
+.resend {
+  font-size: 15px;
+  margin-top: 20px;
+  /* text-decoration: ; */
+  color: white;
+}

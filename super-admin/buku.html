@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Loan Books - Dashboard Super Admin</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="../style/super-admin.css">
     <link rel="stylesheet" href="../style/buku.css">
 </head>
@@ -21,7 +22,7 @@
             <li><a class="dash" href="index.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
             <li><a class="dash active" href="buku.html"><i class="fas fa-book"></i> Books</a></li>
             <li><a class="dash" href="anggota.html"><i class="fas fa-users"></i> Member</a></li>
-            <li><a class="dash" href="laporan.html"><i class="fas fa-chart-bar"></i> Report</a></li>
+            <li><a class="dash" href="employee.html"><i class="fas fa-chart-bar"></i> Employee</a></li>
             <li><a class="dash" href="data-admim.html"><i class="fas fa-cog"></i> Admin Data</a></li>
         </ul>
         <div style="padding-left: 40px; margin-top: 210px;">
@@ -41,9 +42,16 @@
             <div class="crud-buttons">
                 <button onclick="openModal('bookModal')">Add Book</button>
             </div>
+            <div class="search">
+                <form action="#">
+                    <input type="text" placeholder="Search.." name="search">
+                    <button type="submit"><i class='bx bx-search' ></i></button>
+                </form>
+            </div>
             <table id="bookTable" class="my-table">
                 <thead>
                     <tr>
+                        <th>NO</th>
                         <th>Title</th>
                         <th>Year</th>
                         <th>ISBN</th>
@@ -61,6 +69,7 @@
                 </thead>
                 <tbody>
                     <tr>
+                        <td>1</td>
                         <td>Supernova</td>
                         <td>2001</td>
                         <td>978-1-234567-07-7</td>
@@ -79,6 +88,7 @@
                         </td>
                     </tr>
                     <tr>
+                        <td>2</td>
                         <td>Supernova</td>
                         <td>2001</td>
                         <td>978-1-234567-07-7</td>
@@ -95,8 +105,152 @@
                             <button class="action-button" onclick="editItem('bookTable', 1)">Edit</button>
                             <button class="action-button" onclick="deleteItem('bookTable', 1)">Delete</button>
                         </td>
-                    </tr>
-                    <tr>
+                    </tr><tr>
+                        <td>3</td>
+                        <td>Supernova</td>
+                        <td>2001</td>
+                        <td>978-1-234567-07-7</td>
+                        <td>10</td>
+                        <td>190000</td>
+                        <td>BC007</td>
+                        <td>Penerbit Andi</td>
+                        <td>Jl. Sosial No. 5, Yogyakarta</td>
+                        <td>0274-78901234</td>
+                        <td>contact@andi.co.id</td>
+                        <td>Dewi Lestari</td>
+                        <td>Dewi Lestari, juga dikenal sebagai Dee, adalah penulis, penyanyi, dan penulis lirik.</td>
+                        <td>
+                            <button class="action-button" onclick="editItem('bookTable', 1)">Edit</button>
+                            <button class="action-button" onclick="deleteItem('bookTable', 1)">Delete</button>
+                        </td>
+                    </tr><tr>
+                        <td>4</td>
+                        <td>Supernova</td>
+                        <td>2001</td>
+                        <td>978-1-234567-07-7</td>
+                        <td>10</td>
+                        <td>190000</td>
+                        <td>BC007</td>
+                        <td>Penerbit Andi</td>
+                        <td>Jl. Sosial No. 5, Yogyakarta</td>
+                        <td>0274-78901234</td>
+                        <td>contact@andi.co.id</td>
+                        <td>Dewi Lestari</td>
+                        <td>Dewi Lestari, juga dikenal sebagai Dee, adalah penulis, penyanyi, dan penulis lirik.</td>
+                        <td>
+                            <button class="action-button" onclick="editItem('bookTable', 1)">Edit</button>
+                            <button class="action-button" onclick="deleteItem('bookTable', 1)">Delete</button>
+                        </td>
+                    </tr><tr>
+                        <td>5</td>
+                        <td>Supernova</td>
+                        <td>2001</td>
+                        <td>978-1-234567-07-7</td>
+                        <td>10</td>
+                        <td>190000</td>
+                        <td>BC007</td>
+                        <td>Penerbit Andi</td>
+                        <td>Jl. Sosial No. 5, Yogyakarta</td>
+                        <td>0274-78901234</td>
+                        <td>contact@andi.co.id</td>
+                        <td>Dewi Lestari</td>
+                        <td>Dewi Lestari, juga dikenal sebagai Dee, adalah penulis, penyanyi, dan penulis lirik.</td>
+                        <td>
+                            <button class="action-button" onclick="editItem('bookTable', 1)">Edit</button>
+                            <button class="action-button" onclick="deleteItem('bookTable', 1)">Delete</button>
+                        </td>
+                    </tr><tr>
+                        <td>6</td>
+                        <td>Supernova</td>
+                        <td>2001</td>
+                        <td>978-1-234567-07-7</td>
+                        <td>10</td>
+                        <td>190000</td>
+                        <td>BC007</td>
+                        <td>Penerbit Andi</td>
+                        <td>Jl. Sosial No. 5, Yogyakarta</td>
+                        <td>0274-78901234</td>
+                        <td>contact@andi.co.id</td>
+                        <td>Dewi Lestari</td>
+                        <td>Dewi Lestari, juga dikenal sebagai Dee, adalah penulis, penyanyi, dan penulis lirik.</td>
+                        <td>
+                            <button class="action-button" onclick="editItem('bookTable', 1)">Edit</button>
+                            <button class="action-button" onclick="deleteItem('bookTable', 1)">Delete</button>
+                        </td>
+                    </tr><tr>
+                        <td>7</td>
+                        <td>Supernova</td>
+                        <td>2001</td>
+                        <td>978-1-234567-07-7</td>
+                        <td>10</td>
+                        <td>190000</td>
+                        <td>BC007</td>
+                        <td>Penerbit Andi</td>
+                        <td>Jl. Sosial No. 5, Yogyakarta</td>
+                        <td>0274-78901234</td>
+                        <td>contact@andi.co.id</td>
+                        <td>Dewi Lestari</td>
+                        <td>Dewi Lestari, juga dikenal sebagai Dee, adalah penulis, penyanyi, dan penulis lirik.</td>
+                        <td>
+                            <button class="action-button" onclick="editItem('bookTable', 1)">Edit</button>
+                            <button class="action-button" onclick="deleteItem('bookTable', 1)">Delete</button>
+                        </td>
+                    </tr><tr>
+                        <td>8</td>
+                        <td>Supernova</td>
+                        <td>2001</td>
+                        <td>978-1-234567-07-7</td>
+                        <td>10</td>
+                        <td>190000</td>
+                        <td>BC007</td>
+                        <td>Penerbit Andi</td>
+                        <td>Jl. Sosial No. 5, Yogyakarta</td>
+                        <td>0274-78901234</td>
+                        <td>contact@andi.co.id</td>
+                        <td>Dewi Lestari</td>
+                        <td>Dewi Lestari, juga dikenal sebagai Dee, adalah penulis, penyanyi, dan penulis lirik.</td>
+                        <td>
+                            <button class="action-button" onclick="editItem('bookTable', 1)">Edit</button>
+                            <button class="action-button" onclick="deleteItem('bookTable', 1)">Delete</button>
+                        </td>
+                    </tr><tr>
+                        <td>9</td>
+                        <td>Supernova</td>
+                        <td>2001</td>
+                        <td>978-1-234567-07-7</td>
+                        <td>10</td>
+                        <td>190000</td>
+                        <td>BC007</td>
+                        <td>Penerbit Andi</td>
+                        <td>Jl. Sosial No. 5, Yogyakarta</td>
+                        <td>0274-78901234</td>
+                        <td>contact@andi.co.id</td>
+                        <td>Dewi Lestari</td>
+                        <td>Dewi Lestari, juga dikenal sebagai Dee, adalah penulis, penyanyi, dan penulis lirik.</td>
+                        <td>
+                            <button class="action-button" onclick="editItem('bookTable', 1)">Edit</button>
+                            <button class="action-button" onclick="deleteItem('bookTable', 1)">Delete</button>
+                        </td>
+                    </tr><tr>
+                        <td>10</td>
+                        <td>Supernova</td>
+                        <td>2001</td>
+                        <td>978-1-234567-07-7</td>
+                        <td>10</td>
+                        <td>190000</td>
+                        <td>BC007</td>
+                        <td>Penerbit Andi</td>
+                        <td>Jl. Sosial No. 5, Yogyakarta</td>
+                        <td>0274-78901234</td>
+                        <td>contact@andi.co.id</td>
+                        <td>Dewi Lestari</td>
+                        <td>Dewi Lestari, juga dikenal sebagai Dee, adalah penulis, penyanyi, dan penulis lirik.</td>
+                        <td>
+                            <button class="action-button" onclick="editItem('bookTable', 1)">Edit</button>
+                            <button class="action-button" onclick="deleteItem('bookTable', 1)">Delete</button>
+                        </td>
+                    </tr><tr>
+                        <td>11</td>
                         <td>Supernova</td>
                         <td>2001</td>
                         <td>978-1-234567-07-7</td>
@@ -128,6 +282,12 @@
             <div class="crud-buttons">
                 <button onclick="openModal('authorModal')">Add Author</button>
             </div>
+            <div class="search">
+                <form action="#">
+                    <input type="text" placeholder="Search.." name="search">
+                    <button type="submit"><i class='bx bx-search' ></i></button>
+                </form>
+            </div>
             <table id="authorTable" class="mytable">
                 <thead>
                     <tr>
@@ -148,7 +308,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>1</td>
+                        <td>2</td>
                         <td>olivia saputra tere females</td>
                         <td class="bio">Andi adalah seorang profesional pemasaran dengan lebih dari 8 tahun pengalaman di industri. Dia sangat antusias tentang teknologi dan inovasi, serta senang berbagi pengetahuan melalui blog pribadi dan seminar</td>
                         <td>
@@ -157,7 +317,88 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>1</td>
+                        <td>3</td>
+                        <td>olivia saputra tere females</td>
+                        <td class="bio">Andi adalah seorang profesional pemasaran dengan lebih dari 8 tahun pengalaman di industri. Dia sangat antusias tentang teknologi dan inovasi, serta senang berbagi pengetahuan melalui blog pribadi dan seminar</td>
+                        <td>
+                            <button class="action-button" onclick="editItem('authorTable', 1)">Edit</button>
+                            <button class="action-button" onclick="deleteItem('authorTable', 1)">Delete</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>olivia saputra tere females</td>
+                        <td class="bio">Andi adalah seorang profesional pemasaran dengan lebih dari 8 tahun pengalaman di industri. Dia sangat antusias tentang teknologi dan inovasi, serta senang berbagi pengetahuan melalui blog pribadi dan seminar</td>
+                        <td>
+                            <button class="action-button" onclick="editItem('authorTable', 1)">Edit</button>
+                            <button class="action-button" onclick="deleteItem('authorTable', 1)">Delete</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>olivia saputra tere females</td>
+                        <td class="bio">Andi adalah seorang profesional pemasaran dengan lebih dari 8 tahun pengalaman di industri. Dia sangat antusias tentang teknologi dan inovasi, serta senang berbagi pengetahuan melalui blog pribadi dan seminar</td>
+                        <td>
+                            <button class="action-button" onclick="editItem('authorTable', 1)">Edit</button>
+                            <button class="action-button" onclick="deleteItem('authorTable', 1)">Delete</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>olivia saputra tere females</td>
+                        <td class="bio">Andi adalah seorang profesional pemasaran dengan lebih dari 8 tahun pengalaman di industri. Dia sangat antusias tentang teknologi dan inovasi, serta senang berbagi pengetahuan melalui blog pribadi dan seminar</td>
+                        <td>
+                            <button class="action-button" onclick="editItem('authorTable', 1)">Edit</button>
+                            <button class="action-button" onclick="deleteItem('authorTable', 1)">Delete</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>olivia saputra tere females</td>
+                        <td class="bio">Andi adalah seorang profesional pemasaran dengan lebih dari 8 tahun pengalaman di industri. Dia sangat antusias tentang teknologi dan inovasi, serta senang berbagi pengetahuan melalui blog pribadi dan seminar</td>
+                        <td>
+                            <button class="action-button" onclick="editItem('authorTable', 1)">Edit</button>
+                            <button class="action-button" onclick="deleteItem('authorTable', 1)">Delete</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td>olivia saputra tere females</td>
+                        <td class="bio">Andi adalah seorang profesional pemasaran dengan lebih dari 8 tahun pengalaman di industri. Dia sangat antusias tentang teknologi dan inovasi, serta senang berbagi pengetahuan melalui blog pribadi dan seminar</td>
+                        <td>
+                            <button class="action-button" onclick="editItem('authorTable', 1)">Edit</button>
+                            <button class="action-button" onclick="deleteItem('authorTable', 1)">Delete</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td>olivia saputra tere females</td>
+                        <td class="bio">Andi adalah seorang profesional pemasaran dengan lebih dari 8 tahun pengalaman di industri. Dia sangat antusias tentang teknologi dan inovasi, serta senang berbagi pengetahuan melalui blog pribadi dan seminar</td>
+                        <td>
+                            <button class="action-button" onclick="editItem('authorTable', 1)">Edit</button>
+                            <button class="action-button" onclick="deleteItem('authorTable', 1)">Delete</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td>olivia saputra tere females</td>
+                        <td class="bio">Andi adalah seorang profesional pemasaran dengan lebih dari 8 tahun pengalaman di industri. Dia sangat antusias tentang teknologi dan inovasi, serta senang berbagi pengetahuan melalui blog pribadi dan seminar</td>
+                        <td>
+                            <button class="action-button" onclick="editItem('authorTable', 1)">Edit</button>
+                            <button class="action-button" onclick="deleteItem('authorTable', 1)">Delete</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>11</td>
+                        <td>olivia saputra tere females</td>
+                        <td class="bio">Andi adalah seorang profesional pemasaran dengan lebih dari 8 tahun pengalaman di industri. Dia sangat antusias tentang teknologi dan inovasi, serta senang berbagi pengetahuan melalui blog pribadi dan seminar</td>
+                        <td>
+                            <button class="action-button" onclick="editItem('authorTable', 1)">Edit</button>
+                            <button class="action-button" onclick="deleteItem('authorTable', 1)">Delete</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>12</td>
                         <td>olivia saputra tere females</td>
                         <td class="bio">Andi adalah seorang profesional pemasaran dengan lebih dari 8 tahun pengalaman di industri. Dia sangat antusias tentang teknologi dan inovasi, serta senang berbagi pengetahuan melalui blog pribadi dan seminar</td>
                         <td>
@@ -178,6 +419,12 @@
             <h2>PUBLISHER</h2>
             <div class="crud-buttons">
                 <button onclick="openModal('publisherModal')">Add Publisher</button>
+            </div>
+            <div class="search">
+                <form action="#">
+                    <input type="text" placeholder="Search.." name="search">
+                    <button type="submit"><i class='bx bx-search' ></i></button>
+                </form>
             </div>
             <table id="publisherTable" class="mytable">
                 <thead>
