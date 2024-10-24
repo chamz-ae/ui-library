@@ -31,21 +31,22 @@
     </div>
 
     <div class="container">
-        <div class="tabs">
-            <div class="tab active" onclick="openTab(event, 'book')">Book</div>
-            <div class="tab" onclick="openTab(event, 'author')">Author</div>
-            <div class="tab" onclick="openTab(event, 'publisher')">Publisher</div>
-        </div>
 
         <div id="book" class="tab-content active">
-            <h2>BOOK</h2>
-            <div class="crud-buttons">
-                <button onclick="openModal('bookModal')">Add Book</button>
+            <h2 style="font-size: 42px;">BOOK</h2>
+            <div class="tabs">
+                <div class="tab active" onclick="openTab(event, 'book')">Book</div>
+                <div class="tab" onclick="openTab(event, 'author')">Author</div>
+                <div class="tab" onclick="openTab(event, 'publisher')">Publisher</div>
             </div>
-            <div class="search">
-                <form action="#">
+            <!-- <div class="crud-buttons">
+                <button onclick="openModal('bookModal')">Add Book</button>
+            </div> -->
+            <div class="crud-buttons">
+                <button onclick="openModal('bookModal')" class="btn-add">Add Book</button>
+                <form class="search" action="#">
                     <input type="text" placeholder="Search.." name="search">
-                    <button type="submit"><i class='bx bx-search' ></i></button>
+                    <button type="submit" class="btn-src"><i class='bx bx-search' ></i></button>
                 </form>
             </div>
             <table id="bookTable" class="my-table">
@@ -54,14 +55,14 @@
                         <th>NO</th>
                         <th>Title</th>
                         <th>Year</th>
-                        <th>ISBN</th>
+                        <!-- <th>ISBN</th>
                         <th>Stock Quantity</th>
                         <th>Price</th>
                         <th>Barcode</th>
                         <th>Publisher</th>
                         <th>Address</th>
                         <th>Phone</th>
-                        <th>Email</th>
+                        <th>Email</th> -->
                         <th>Author</th>
                         <th>Biography</th>
                         <th>Action</th>
@@ -72,200 +73,271 @@
                         <td>1</td>
                         <td>Supernova</td>
                         <td>2001</td>
-                        <td>978-1-234567-07-7</td>
+                        <!-- <td>978-1-234567-07-7</td>
                         <td>10</td>
                         <td>190000</td>
                         <td>BC007</td>
                         <td>Penerbit Andi</td>
                         <td>Jl. Sosial No. 5, Yogyakarta</td>
                         <td>0274-78901234</td>
-                        <td>contact@andi.co.id</td>
+                        <td>contact@andi.co.id</td> -->
                         <td>Dewi Lestari</td>
                         <td>Dewi Lestari, juga dikenal sebagai Dee, adalah penulis, penyanyi, dan penulis lirik.</td>
                         <td>
                             <button class="action-button" onclick="editItem('bookTable', 1)">Edit</button>
                             <button class="action-button" onclick="deleteItem('bookTable', 1)">Delete</button>
+                            <button class="action-button" onclick="window.dialog.showModal();">Details</button>
+
+                            <dialog id="dialog">
+                                <div class="book-details">
+                                    <h2>Detail Informasi Buku</h2>
+                                    
+                                    <div class="detail-row">
+                                        <div class="detail-group">
+                                            <h3>Informasi Buku</h3>
+                                            <p><strong>NO:</strong> 1</p>
+                                            <p><strong>TITLE:</strong> Supernova</p>
+                                            <p><strong>YEAR Terbit:</strong> 2001</p>
+                                            <p><strong>ISBN:</strong> 978-1-234567-07-7</p>
+                                            <p><strong>STOCK:</strong> 10</p>
+                                            <p><strong>PRICE:</strong> Rp 190.000</p>
+                                            <p><strong>BARCODE:</strong> BC007</p>
+                                            <p><strong>PUBLISHER:</strong> Penerbit Andi</p>
+                                            <p><strong>ADDRESS:</strong> Jl. Sosial No. 5, Yogyakarta</p>
+                                            <p><strong>PHONE:</strong> 0274-78901234</p>
+                                            <p><strong>EMAIL:</strong> contact@andi.co.id</p>
+                                            <p><strong>AUTHOR:</strong> Dewi Lestari</p>
+                                            <p><strong>BIOGRAPHY:</strong> Dewi Lestari, juga dikenal sebagai Dee, adalah penulis, penyanyi, dan penulis lirik.</p>
+                                        </div>
+                            
+                                        <!-- <div class="detail-group">
+                                            <h3>Informasi Penerbit</h3>
+                                            <p><strong>Nama:</strong> Penerbit Andi</p>
+                                            <p><strong>Alamat:</strong> Jl. Sosial No. 5, Yogyakarta</p>
+                                            <p><strong>Telepon:</strong> 0274-78901234</p>
+                                            <p><strong>Email:</strong> contact@andi.co.id</p>
+                                        </div>-->
+                                        
+                                        <!-- <div class="detail-group">
+                                            <h3>Informasi Penulis</h3>
+                                            <p><strong>Nama:</strong> Dewi Lestari</p>
+                                            <p><strong>Biografi:</strong> Dewi Lestari, juga dikenal sebagai Dee, adalah penulis, penyanyi, dan penulis lirik.</p>
+                                        </div> -->
+                                    </div>
+                                </div>
+                                <button onclick="window.dialog.close();" aria-label="close" class="x">❌</button>
+                            </dialog>
                         </td>
                     </tr>
                     <tr>
                         <td>2</td>
                         <td>Supernova</td>
                         <td>2001</td>
-                        <td>978-1-234567-07-7</td>
+                        <!-- <td>978-1-234567-07-7</td>
                         <td>10</td>
                         <td>190000</td>
                         <td>BC007</td>
                         <td>Penerbit Andi</td>
                         <td>Jl. Sosial No. 5, Yogyakarta</td>
                         <td>0274-78901234</td>
-                        <td>contact@andi.co.id</td>
+                        <td>contact@andi.co.id</td> -->
                         <td>Dewi Lestari</td>
                         <td>Dewi Lestari, juga dikenal sebagai Dee, adalah penulis, penyanyi, dan penulis lirik.</td>
                         <td>
                             <button class="action-button" onclick="editItem('bookTable', 1)">Edit</button>
                             <button class="action-button" onclick="deleteItem('bookTable', 1)">Delete</button>
+                            <button class="action-button" onclick="window.dialog.showModal();">Details</button>
+
+                            
                         </td>
                     </tr><tr>
                         <td>3</td>
                         <td>Supernova</td>
                         <td>2001</td>
-                        <td>978-1-234567-07-7</td>
+                        <!-- <td>978-1-234567-07-7</td>
                         <td>10</td>
                         <td>190000</td>
                         <td>BC007</td>
                         <td>Penerbit Andi</td>
                         <td>Jl. Sosial No. 5, Yogyakarta</td>
                         <td>0274-78901234</td>
-                        <td>contact@andi.co.id</td>
+                        <td>contact@andi.co.id</td> -->
                         <td>Dewi Lestari</td>
                         <td>Dewi Lestari, juga dikenal sebagai Dee, adalah penulis, penyanyi, dan penulis lirik.</td>
                         <td>
                             <button class="action-button" onclick="editItem('bookTable', 1)">Edit</button>
                             <button class="action-button" onclick="deleteItem('bookTable', 1)">Delete</button>
+                            <button class="action-button" onclick="window.dialog.showModal();">Details</button>
+
+                            
                         </td>
                     </tr><tr>
                         <td>4</td>
                         <td>Supernova</td>
                         <td>2001</td>
-                        <td>978-1-234567-07-7</td>
+                        <!-- <td>978-1-234567-07-7</td>
                         <td>10</td>
                         <td>190000</td>
                         <td>BC007</td>
                         <td>Penerbit Andi</td>
                         <td>Jl. Sosial No. 5, Yogyakarta</td>
                         <td>0274-78901234</td>
-                        <td>contact@andi.co.id</td>
+                        <td>contact@andi.co.id</td> -->
                         <td>Dewi Lestari</td>
                         <td>Dewi Lestari, juga dikenal sebagai Dee, adalah penulis, penyanyi, dan penulis lirik.</td>
                         <td>
                             <button class="action-button" onclick="editItem('bookTable', 1)">Edit</button>
                             <button class="action-button" onclick="deleteItem('bookTable', 1)">Delete</button>
+                            <button class="action-button" onclick="window.dialog.showModal();">Details</button>
+
+                            
                         </td>
                     </tr><tr>
                         <td>5</td>
                         <td>Supernova</td>
                         <td>2001</td>
-                        <td>978-1-234567-07-7</td>
+                        <!-- <td>978-1-234567-07-7</td>
                         <td>10</td>
                         <td>190000</td>
                         <td>BC007</td>
                         <td>Penerbit Andi</td>
                         <td>Jl. Sosial No. 5, Yogyakarta</td>
                         <td>0274-78901234</td>
-                        <td>contact@andi.co.id</td>
+                        <td>contact@andi.co.id</td> -->
                         <td>Dewi Lestari</td>
                         <td>Dewi Lestari, juga dikenal sebagai Dee, adalah penulis, penyanyi, dan penulis lirik.</td>
                         <td>
                             <button class="action-button" onclick="editItem('bookTable', 1)">Edit</button>
                             <button class="action-button" onclick="deleteItem('bookTable', 1)">Delete</button>
+                            <button class="action-button" onclick="window.dialog.showModal();">Details</button>
+
+                            
                         </td>
                     </tr><tr>
                         <td>6</td>
                         <td>Supernova</td>
                         <td>2001</td>
-                        <td>978-1-234567-07-7</td>
+                        <!-- <td>978-1-234567-07-7</td>
                         <td>10</td>
                         <td>190000</td>
                         <td>BC007</td>
                         <td>Penerbit Andi</td>
                         <td>Jl. Sosial No. 5, Yogyakarta</td>
                         <td>0274-78901234</td>
-                        <td>contact@andi.co.id</td>
+                        <td>contact@andi.co.id</td> -->
                         <td>Dewi Lestari</td>
                         <td>Dewi Lestari, juga dikenal sebagai Dee, adalah penulis, penyanyi, dan penulis lirik.</td>
                         <td>
                             <button class="action-button" onclick="editItem('bookTable', 1)">Edit</button>
                             <button class="action-button" onclick="deleteItem('bookTable', 1)">Delete</button>
+                            <button class="action-button" onclick="window.dialog.showModal();">Details</button>
+
+                            
                         </td>
                     </tr><tr>
                         <td>7</td>
                         <td>Supernova</td>
                         <td>2001</td>
-                        <td>978-1-234567-07-7</td>
+                        <!-- <td>978-1-234567-07-7</td>
                         <td>10</td>
                         <td>190000</td>
                         <td>BC007</td>
                         <td>Penerbit Andi</td>
                         <td>Jl. Sosial No. 5, Yogyakarta</td>
                         <td>0274-78901234</td>
-                        <td>contact@andi.co.id</td>
+                        <td>contact@andi.co.id</td> -->
                         <td>Dewi Lestari</td>
                         <td>Dewi Lestari, juga dikenal sebagai Dee, adalah penulis, penyanyi, dan penulis lirik.</td>
                         <td>
                             <button class="action-button" onclick="editItem('bookTable', 1)">Edit</button>
                             <button class="action-button" onclick="deleteItem('bookTable', 1)">Delete</button>
+                            <button class="action-button" onclick="window.dialog.showModal();">Details</button>
+
+                            
                         </td>
                     </tr><tr>
                         <td>8</td>
                         <td>Supernova</td>
                         <td>2001</td>
-                        <td>978-1-234567-07-7</td>
+                        <!-- <td>978-1-234567-07-7</td>
                         <td>10</td>
                         <td>190000</td>
                         <td>BC007</td>
                         <td>Penerbit Andi</td>
                         <td>Jl. Sosial No. 5, Yogyakarta</td>
                         <td>0274-78901234</td>
-                        <td>contact@andi.co.id</td>
+                        <td>contact@andi.co.id</td> -->
                         <td>Dewi Lestari</td>
                         <td>Dewi Lestari, juga dikenal sebagai Dee, adalah penulis, penyanyi, dan penulis lirik.</td>
                         <td>
                             <button class="action-button" onclick="editItem('bookTable', 1)">Edit</button>
                             <button class="action-button" onclick="deleteItem('bookTable', 1)">Delete</button>
+                            <button class="action-button" onclick="window.dialog.showModal();">Details</button>
+
+                            
                         </td>
                     </tr><tr>
                         <td>9</td>
                         <td>Supernova</td>
                         <td>2001</td>
-                        <td>978-1-234567-07-7</td>
+                        <!-- <td>978-1-234567-07-7</td>
                         <td>10</td>
                         <td>190000</td>
                         <td>BC007</td>
                         <td>Penerbit Andi</td>
                         <td>Jl. Sosial No. 5, Yogyakarta</td>
                         <td>0274-78901234</td>
-                        <td>contact@andi.co.id</td>
+                        <td>contact@andi.co.id</td> -->
                         <td>Dewi Lestari</td>
                         <td>Dewi Lestari, juga dikenal sebagai Dee, adalah penulis, penyanyi, dan penulis lirik.</td>
                         <td>
                             <button class="action-button" onclick="editItem('bookTable', 1)">Edit</button>
                             <button class="action-button" onclick="deleteItem('bookTable', 1)">Delete</button>
+                            <button class="action-button" onclick="window.dialog.showModal();">Details</button>
+
+                            
                         </td>
                     </tr><tr>
                         <td>10</td>
                         <td>Supernova</td>
                         <td>2001</td>
-                        <td>978-1-234567-07-7</td>
+                        <!-- <td>978-1-234567-07-7</td>
                         <td>10</td>
                         <td>190000</td>
                         <td>BC007</td>
                         <td>Penerbit Andi</td>
                         <td>Jl. Sosial No. 5, Yogyakarta</td>
                         <td>0274-78901234</td>
-                        <td>contact@andi.co.id</td>
+                        <td>contact@andi.co.id</td> -->
                         <td>Dewi Lestari</td>
                         <td>Dewi Lestari, juga dikenal sebagai Dee, adalah penulis, penyanyi, dan penulis lirik.</td>
                         <td>
                             <button class="action-button" onclick="editItem('bookTable', 1)">Edit</button>
                             <button class="action-button" onclick="deleteItem('bookTable', 1)">Delete</button>
+                            <button class="action-button" onclick="window.dialog.showModal();">Details</button>
+
+                            
                         </td>
                     </tr><tr>
                         <td>11</td>
                         <td>Supernova</td>
                         <td>2001</td>
-                        <td>978-1-234567-07-7</td>
+                        <!-- <td>978-1-234567-07-7</td>
                         <td>10</td>
                         <td>190000</td>
                         <td>BC007</td>
                         <td>Penerbit Andi</td>
                         <td>Jl. Sosial No. 5, Yogyakarta</td>
                         <td>0274-78901234</td>
-                        <td>contact@andi.co.id</td>
+                        <td>contact@andi.co.id</td> -->
                         <td>Dewi Lestari</td>
                         <td>Dewi Lestari, juga dikenal sebagai Dee, adalah penulis, penyanyi, dan penulis lirik.</td>
                         <td>
                             <button class="action-button" onclick="editItem('bookTable', 1)">Edit</button>
                             <button class="action-button" onclick="deleteItem('bookTable', 1)">Delete</button>
+                            <button class="action-button" onclick="window.dialog.showModal();">Details</button>
+
+                            
                         </td>
                     </tr>
                 </tbody>
@@ -279,6 +351,11 @@
 
         <div id="author" class="tab-content">
             <h2>AUTHOR</h2>
+            <div class="tabs">
+                <div class="tab" onclick="openTab(event, 'book')">Book</div>
+                <div class="tab active" onclick="openTab(event, 'author')">Author</div>
+                <div class="tab" onclick="openTab(event, 'publisher')">Publisher</div>
+            </div>
             <div class="crud-buttons">
                 <button onclick="openModal('authorModal')">Add Author</button>
             </div>
@@ -417,6 +494,11 @@
 
         <div id="publisher" class="tab-content">
             <h2>PUBLISHER</h2>
+            <div class="tabs">
+                <div class="tab active" onclick="openTab(event, 'book')">Book</div>
+                <div class="tab" onclick="openTab(event, 'author')">Author</div>
+                <div class="tab" onclick="openTab(event, 'publisher')">Publisher</div>
+            </div>
             <div class="crud-buttons">
                 <button onclick="openModal('publisherModal')">Add Publisher</button>
             </div>
@@ -541,7 +623,66 @@
             </form>
         </div>
     </div>
-
+    <!-- BOOK DETAIL -->
+    <div id="bookDetail" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('bookDetail')">&times;</span>
+            <h2>Add and Edit Books</h2>
+            <form id="bookForm">
+                <div class="form-group">
+                    <label for="bookTitle">Title:</label>
+                    <input type="text" id="bookTitle" name="bookTitle" required>
+                </div>
+                <div class="form-group">
+                    <label for="bookYear">Year:</label>
+                    <input type="text" id="bookYear" name="bookYear" required>
+                </div>
+                <div class="form-group">
+                    <label for="bookISBN">ISBN:</label>
+                    <input type="text" id="bookISBN" name="bookISBN" required>
+                </div>
+                <div class="form-group">
+                    <label for="bookStockQuantity">Stock Quantity:</label>
+                    <input type="text" id="bookStockQuantity" name="bookStockQuantity" required>
+                </div>
+                <div class="form-group">
+                    <label for="bookPrice">Price:</label>
+                    <input type="text" id="bookPrice" name="bookPrice" required>
+                </div>
+                <div class="form-group">
+                    <label for="bookBarcode">Barcode:</label>
+                    <input type="text" id="bookBarcode" name="bookBarcode" required>
+                </div>
+                <div class="form-group">
+                    <label for="bookPublisher">Publisher:</label>
+                    <input type="text" id="bookPublisher" name="bookPublisher" required>
+                </div>
+                <div class="form-group">
+                    <label for="bookAddress">Address:</label>
+                    <input type="text" id="bookAddress" name="bookAddress" required>
+                </div>
+                <div class="form-group">
+                    <label for="bookPhone">Phone:</label>
+                    <input type="text" id="bookPhone" name="bookPhone" required>
+                </div>
+                <div class="form-group">
+                    <label for="bookEmail">Email:</label>
+                    <input type="text" id="bookEmail" name="bookEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="bookAuthor">Author:</label>
+                    <input type="text" id="bookAuthor" name="bookAuthor" required>
+                </div>
+                <div class="form-group">
+                    <label for="bookBiography">Biography:</label>
+                    <input type="text" id="bookBiography" name="bookBiography" required>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Submit">
+                </div>
+            </form>
+        </div>
+    </div>
     <div id="authorModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('authorModal')">&times;</span>

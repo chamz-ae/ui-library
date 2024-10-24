@@ -60,6 +60,12 @@ const itemsPerPage = 10;
         document.getElementById(modalId).style.display = "block";
     }
 
+    // function detailModal(modalId, tableId, id) {
+    //     document.getElementById(modalId).style.display = "block";
+    //     console.log(`Detail item ${id} in ${tableId}`);
+    //     openModal(`${tableId.replace('Table', '')}Modal`);
+    // }
+
     function closeModal(modalId) {
         document.getElementById(modalId).style.display = "none";
     }
@@ -68,11 +74,6 @@ const itemsPerPage = 10;
         console.log(`Editing item ${id} in ${tableId}`);
         openModal(`${tableId.replace('Table', '')}Modal`);
     }
-
-    function deleteItem(tableId, id) {
-        console.log(`Deleting item ${id} from ${tableId}`);
-    }
-
     document.addEventListener('DOMContentLoaded', () => {
         initializePagination();
         

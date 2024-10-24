@@ -42,21 +42,25 @@ body {
 
 .tabs {
     display: flex;
-    background-color: #e2889a;
-    margin-bottom: 20px;
-    position: sticky;
-    /* width: 78.2%;
-    position: fixed; */
-    top: 0;
+    gap: 3px;
+    /* margin-bottom: 20px; */
+    /* position: relative; */
+    /* position: sticky; */
+    /* width: 30%; */
+    /* position: fixed; */
+    /* top: 0; */
     /* filter: blur(2px) */
 
 }
 .tab {
-    flex: 1;
-    padding: 15px;
+    /* flex: 1; */
+    display: inline-block;
+    border-radius: 3px;
+    padding: 13px;
     cursor: pointer;
     text-align: center;
     color: black;
+    background-color: #e2889a;
     transition: background-color 0.3s;
 }
 .tab:hover, .tab.active {
@@ -84,7 +88,7 @@ body {
 table {
     width: 100%;
     /* border-collapse: collapse; */
-    margin-top: 1rem;
+    /* margin-top: 1rem; */
     background-color: white;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
@@ -130,20 +134,47 @@ td.address {
 .crud-buttons {
     display: flex;
     justify-content: space-between;
-    margin-right: 10px;
+    /* margin-right: 10px; */
+    align-items: center;
+
+
 }
-.crud-buttons button, .action-button {
-    padding: 10px 15px;
+.crud-buttons .btn-src{
+    padding: 9px 11px;
     background-color: #FF204E;
     color: white;
     border: none;
+    margin: 12px;
     border-radius: 4px;
     cursor: pointer;
     margin-right: 10px;
 }
+
+.crud-buttons button, .action-button {
+    padding: 10px 19px;
+    background-color: #FF204E;
+    color: white;
+    border: none;
+    /* margin: 12px; */
+    border-radius: 4px;
+    cursor: pointer;
+    /* margin-right: 10px; */
+}
 .crud-buttons button:hover, .action-button:hover {
     background-color: #fd0033;
 }
+
+.crud-buttons .btn-add {
+    padding: 10px 14px;
+    background-color: #FF204E;
+    color: white;
+    border: none;
+    /* margin: 12px; */
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
 .pagination {
     display: flex;
     justify-content: center;

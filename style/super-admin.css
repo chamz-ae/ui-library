@@ -193,7 +193,7 @@ ul li a:hover {
     }
 }
 
-/* .modal {
+.modal {
     display: none;
     position: fixed;
     z-index: 1;
@@ -257,4 +257,177 @@ ul li a:hover {
 
 .submit-btn:hover {
     background-color: #45a049;
-} */
+}
+
+
+
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
+:root {
+	--vs-primary: 29 92 255;
+}
+
+/*Dialog Styles*/
+dialog {
+	padding: 1rem 3rem;
+	background: white;
+	max-width: 400px;
+	padding-top: 2rem;
+	border-radius: 20px;
+	border: 0;
+	box-shadow: 0 5px 30px 0 rgb(0 0 0 / 10%);
+	animation: fadeIn 1s ease both;
+	&::backdrop {
+		animation: fadeIn 1s ease both;
+		background: rgb(255 255 255 / 40%);
+		z-index: 2;
+		backdrop-filter: blur(0px);
+	}
+	.x {
+		filter: grayscale(1);
+		border: none;
+		background: none;
+		position: absolute;
+		top: 15px;
+		right: 10px;
+		transition: ease filter, transform 0.3s;
+		cursor: pointer;
+		transform-origin: center;
+		&:hover {
+			filter: grayscale(0);
+			transform: scale(1.1);
+		}
+	}
+	h2 {
+		font-weight: 600;
+		font-size: 2rem;
+		padding-bottom: 1rem;
+	}
+	p {
+		font-size: 1rem;
+		line-height: 1.3rem;
+		padding: 0.5rem 0;
+		a {
+			&:visited {
+				color: rgb(var(--vs-primary));
+			}
+		}
+	}
+}
+
+button.primary {
+	display: inline-block;
+	font-size: 0.8rem;
+	color: #b80000 !important;
+	background: rgb(var(--vs-primary) / 100%);
+	padding: 13px 25px;
+	border-radius: 17px;
+	transition: background-color 0.1s ease;
+	box-sizing: border-box;
+	transition: all 0.25s ease;
+	border: 0;
+	cursor: pointer;
+	box-shadow: 0 10px 20px -10px rgb(var(--vs-primary) / 50%);
+	&:hover {
+		box-shadow: 0 20px 20px -10px rgb(var(--vs-primary) / 50%);
+		transform: translateY(-5px);
+	}
+}
+
+
+dialog {
+    position: fixed;
+    max-width: max-content;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    border: none;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+dialog::backdrop {
+    background: rgba(255, 255, 255, 0); /* Background biru dengan opacity 15% */
+    backdrop-filter:blur(1px) ;
+}
+
+.x {
+    position: relative;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+}
+
+dialog h2 {
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+dialog p {
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+
+.book-details {
+    padding-right: 20px;
+}
+
+.detail-row {
+    display: grid;
+    /* grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); */
+    /* gap: 20px; */
+    margin-top: 20px;
+}
+
+.detail-group {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.detail-group h3 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+    border-bottom: 2px solid #e9ecef;
+}
+
+.detail-group p {
+    margin: 8px 0;
+    line-height: 1.5;
+}
+
+.action-button {
+    padding: 8px 16px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.action-button:hover {
+    background: #0056b3;
+}
+
+.x:hover {
+    transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+    dialog {
+        width: 95%;
+        padding: 20px;
+    }
+    
+    .detail-row {
+        grid-template-columns: 1fr;
+    }
+}
