@@ -35,9 +35,9 @@
         <div id="book" class="tab-content active">
             <h2 style="font-size: 42px;">BOOK</h2>
             <div class="tabs">
-                <div class="tab active" onclick="openTab(event, 'book')">Book</div>
+                <div class="tab" onclick="openTab(event, 'book')">Book</div>
                 <div class="tab" onclick="openTab(event, 'author')">Author</div>
-                <div class="tab" onclick="openTab(event, 'publisher')">Publisher</div>
+                <div class="tab active" onclick="openTab(event, 'publisher')">Publisher</div>
             </div>
             <!-- <div class="crud-buttons">
                 <button onclick="openModal('bookModal')">Add Book</button>
@@ -350,19 +350,20 @@
         </div>
 
         <div id="author" class="tab-content">
-            <h2>AUTHOR</h2>
+            <h2 style="font-size: 42px;">AUTHOR</h2>
             <div class="tabs">
                 <div class="tab" onclick="openTab(event, 'book')">Book</div>
                 <div class="tab active" onclick="openTab(event, 'author')">Author</div>
                 <div class="tab" onclick="openTab(event, 'publisher')">Publisher</div>
             </div>
+            <!-- <div class="crud-buttons">
+                <button onclick="openModal('bookModal')">Add Book</button>
+            </div> -->
             <div class="crud-buttons">
-                <button onclick="openModal('authorModal')">Add Author</button>
-            </div>
-            <div class="search">
-                <form action="#">
+                <button onclick="openModal('authorModal')" class="btn-add">Add Book</button>
+                <form class="search" action="#">
                     <input type="text" placeholder="Search.." name="search">
-                    <button type="submit"><i class='bx bx-search' ></i></button>
+                    <button type="submit" class="btn-src"><i class='bx bx-search' ></i></button>
                 </form>
             </div>
             <table id="authorTable" class="mytable">
@@ -493,19 +494,20 @@
         </div>
 
         <div id="publisher" class="tab-content">
-            <h2>PUBLISHER</h2>
+            <h2 style="font-size: 42px;">PUBLISHER</h2>
             <div class="tabs">
                 <div class="tab active" onclick="openTab(event, 'book')">Book</div>
                 <div class="tab" onclick="openTab(event, 'author')">Author</div>
                 <div class="tab" onclick="openTab(event, 'publisher')">Publisher</div>
             </div>
+            <!-- <div class="crud-buttons">
+                <button onclick="openModal('bookModal')">Add Book</button>
+            </div> -->
             <div class="crud-buttons">
-                <button onclick="openModal('publisherModal')">Add Publisher</button>
-            </div>
-            <div class="search">
-                <form action="#">
+                <button onclick="openModal('publisherModal')" class="btn-add">Add Book</button>
+                <form class="search" action="#">
                     <input type="text" placeholder="Search.." name="search">
-                    <button type="submit"><i class='bx bx-search' ></i></button>
+                    <button type="submit" class="btn-src"><i class='bx bx-search' ></i></button>
                 </form>
             </div>
             <table id="publisherTable" class="mytable">
