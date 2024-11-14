@@ -87,3 +87,45 @@ input[type="file"] {
 .upload-btn:hover {
     background-color: #e0e0e0;
 }
+
+/* slidebar collapse */
+.submenu {
+    display: none;
+    border-radius: 17px;
+    /* padding-left: 30px; */
+    list-style: none;
+    background-color: #4747472c;
+}
+
+.submenu.active {
+    display: block;
+}
+
+.submenu a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.9em;
+    display: block;
+    transition: 0.3s;
+}
+
+.submenu a:hover {
+    color: var(--primary);
+    background-color: var(--secondary);
+}
+
+.arrow {
+    float: right;
+    rotate: 90deg;
+    margin-left: 85px;
+    transition: transform 0.3s;
+    margin-right: 15px;
+}
+
+.arrow.active {
+    transform: rotate(-180deg);
+}
+
+.has-submenu {
+    cursor: pointer;
+}

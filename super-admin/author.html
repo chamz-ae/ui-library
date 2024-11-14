@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan Books - Dashboard Super Admin</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="../style/super-admin.css">
+    <link rel="stylesheet" href="../style/buku.css">
+</head>
+<body>
+    <div class="sidebar">
+        <div class="profile">
+            <img src="/image/image-removebg-preview.png" alt="User Avatar" class="logo"/>
+            <div class="profile-info">
+                <h1>Super Admin</h1>
+                <p>Hisyam-Ganz</p>
+            </div>
+        </div>
+        <ul>
+            <li><a class="dash" href="index.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+            <li class="has-submenu">
+                <a class="dash active" href="#"><i class="fas fa-book" ></i> Menu Buku<i class="fas fa-chevron-right arrow"></i></a>
+                <ul class="submenu">
+                    <li style="cursor: pointer;"><a onclick="window.location.href = 'books.html'"><i class="fas fa-users"></i> Books</a></li>
+                    <li style="cursor: pointer;"><a onclick="window.location.href = 'publisher.html'"><i class="fas fa-users"></i> Publisher</a></li>
+                    <li style="cursor: pointer;"><a onclick="window.location.href = 'author.html'"><i class="fas fa-users"></i> Author</a></li>
+                </ul>
+            </li>
+            <li><a class="dash" href="anggota.html"><i class="fas fa-users"></i> Member</a></li>
+            <li><a class="dash" href="laporan.html"><i class="fas fa-chart-bar"></i> Report</a></li>
+            <li><a class="dash" href="data-admim.html"><i class="fas fa-cog"></i> Admin Data</a></li>
+        </ul>
+        <div style="padding-left: 40px; margin-top: 210px;">
+            <button onclick="window.location.href = '/auth/login.html'" class="logout-btn" id="logoutBtn">Logout</button>
+        </div>
+    </div>
+
+    <div class="container">
+
+        <div id="author" class="tab-content">
+            <h2 style="font-size: 42px;">AUTHOR</h2>
+            <div class="crud-buttons">
+                <button onclick="openModal('authorModal')" class="btn-add">Add Book</button>
+                <form class="search" action="#">
+                    <input type="text" placeholder="Search.." name="search">
+                    <button type="submit" class="btn-src"><i class='bx bx-search' ></i></button>
+                </form>
+            </div>
+            <table id="authorTable" class="mytable">
+                <thead>
+                    <tr>
+                        <th>NO</th>
+                        <th>Name</th>
+                        <th class="head-bio">Biography</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>olivia saputra tere females</td>
+                        <td class="bio">Andi adalah seorang profesional pemasaran dengan lebih dari 8 tahun pengalaman di industri. Dia sangat antusias tentang teknologi dan inovasi, serta senang berbagi pengetahuan melalui blog pribadi dan seminar</td>
+                        <td>
+                            <button class="action-button" onclick="editItem('authorTable', 1)">Edit</button>
+                            <button class="action-button" onclick="deleteItem('authorTable', 1)">Delete</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>olivia saputra tere females</td>
+                        <td class="bio">Andi adalah seorang profesional pemasaran dengan lebih dari 8 tahun pengalaman di industri. Dia sangat antusias tentang teknologi dan inovasi, serta senang berbagi pengetahuan melalui blog pribadi dan seminar</td>
+                        <td>
+                            <button class="action-button" onclick="editItem('authorTable', 1)">Edit</button>
+                            <button class="action-button" onclick="deleteItem('authorTable', 1)">Delete</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>olivia saputra tere females</td>
+                        <td class="bio">Andi adalah seorang profesional pemasaran dengan lebih dari 8 tahun pengalaman di industri. Dia sangat antusias tentang teknologi dan inovasi, serta senang berbagi pengetahuan melalui blog pribadi dan seminar</td>
+                        <td>
+                            <button class="action-button" onclick="editItem('authorTable', 1)">Edit</button>
+                            <button class="action-button" onclick="deleteItem('authorTable', 1)">Delete</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>olivia saputra tere females</td>
+                        <td class="bio">Andi adalah seorang profesional pemasaran dengan lebih dari 8 tahun pengalaman di industri. Dia sangat antusias tentang teknologi dan inovasi, serta senang berbagi pengetahuan melalui blog pribadi dan seminar</td>
+                        <td>
+                            <button class="action-button" onclick="editItem('authorTable', 1)">Edit</button>
+                            <button class="action-button" onclick="deleteItem('authorTable', 1)">Delete</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>olivia saputra tere females</td>
+                        <td class="bio">Andi adalah seorang profesional pemasaran dengan lebih dari 8 tahun pengalaman di industri. Dia sangat antusias tentang teknologi dan inovasi, serta senang berbagi pengetahuan melalui blog pribadi dan seminar</td>
+                        <td>
+                            <button class="action-button" onclick="editItem('authorTable', 1)">Edit</button>
+                            <button class="action-button" onclick="deleteItem('authorTable', 1)">Delete</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>olivia saputra tere females</td>
+                        <td class="bio">Andi adalah seorang profesional pemasaran dengan lebih dari 8 tahun pengalaman di industri. Dia sangat antusias tentang teknologi dan inovasi, serta senang berbagi pengetahuan melalui blog pribadi dan seminar</td>
+                        <td>
+                            <button class="action-button" onclick="editItem('authorTable', 1)">Edit</button>
+                            <button class="action-button" onclick="deleteItem('authorTable', 1)">Delete</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>olivia saputra tere females</td>
+                        <td class="bio">Andi adalah seorang profesional pemasaran dengan lebih dari 8 tahun pengalaman di industri. Dia sangat antusias tentang teknologi dan inovasi, serta senang berbagi pengetahuan melalui blog pribadi dan seminar</td>
+                        <td>
+                            <button class="action-button" onclick="editItem('authorTable', 1)">Edit</button>
+                            <button class="action-button" onclick="deleteItem('authorTable', 1)">Delete</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td>olivia saputra tere females</td>
+                        <td class="bio">Andi adalah seorang profesional pemasaran dengan lebih dari 8 tahun pengalaman di industri. Dia sangat antusias tentang teknologi dan inovasi, serta senang berbagi pengetahuan melalui blog pribadi dan seminar</td>
+                        <td>
+                            <button class="action-button" onclick="editItem('authorTable', 1)">Edit</button>
+                            <button class="action-button" onclick="deleteItem('authorTable', 1)">Delete</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td>olivia saputra tere females</td>
+                        <td class="bio">Andi adalah seorang profesional pemasaran dengan lebih dari 8 tahun pengalaman di industri. Dia sangat antusias tentang teknologi dan inovasi, serta senang berbagi pengetahuan melalui blog pribadi dan seminar</td>
+                        <td>
+                            <button class="action-button" onclick="editItem('authorTable', 1)">Edit</button>
+                            <button class="action-button" onclick="deleteItem('authorTable', 1)">Delete</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td>olivia saputra tere females</td>
+                        <td class="bio">Andi adalah seorang profesional pemasaran dengan lebih dari 8 tahun pengalaman di industri. Dia sangat antusias tentang teknologi dan inovasi, serta senang berbagi pengetahuan melalui blog pribadi dan seminar</td>
+                        <td>
+                            <button class="action-button" onclick="editItem('authorTable', 1)">Edit</button>
+                            <button class="action-button" onclick="deleteItem('authorTable', 1)">Delete</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>11</td>
+                        <td>olivia saputra tere females</td>
+                        <td class="bio">Andi adalah seorang profesional pemasaran dengan lebih dari 8 tahun pengalaman di industri. Dia sangat antusias tentang teknologi dan inovasi, serta senang berbagi pengetahuan melalui blog pribadi dan seminar</td>
+                        <td>
+                            <button class="action-button" onclick="editItem('authorTable', 1)">Edit</button>
+                            <button class="action-button" onclick="deleteItem('authorTable', 1)">Delete</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>12</td>
+                        <td>olivia saputra tere females</td>
+                        <td class="bio">Andi adalah seorang profesional pemasaran dengan lebih dari 8 tahun pengalaman di industri. Dia sangat antusias tentang teknologi dan inovasi, serta senang berbagi pengetahuan melalui blog pribadi dan seminar</td>
+                        <td>
+                            <button class="action-button" onclick="editItem('authorTable', 1)">Edit</button>
+                            <button class="action-button" onclick="deleteItem('authorTable', 1)">Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="pagination">
+                <button onclick="changePage(1, 'author')">1</button>
+                <button onclick="changePage(2, 'author')">2</button>
+                <button onclick="changePage(3, 'author')">3</button>
+            </div>
+        </div>
+        <div id="authorModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('authorModal')">&times;</span>
+                <h2>Add/Edit Author</h2>
+                <form id="authorForm">
+                    <div class="form-group">
+                        <label for="authorName">Name:</label>
+                        <input type="text" id="authorName" name="authorName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="authorBiography">Biography:</label>
+                        <input type="text" id="authorBiography" name="authorBiography" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Submit">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="../config/buku.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+        // Sidebar collapse functionality
+        const menuItems = document.querySelectorAll('.has-submenu');
+
+        menuItems.forEach(item => {
+            item.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const submenu = this.querySelector('.submenu');
+                const arrow = this.querySelector('.arrow');
+                
+                submenu.classList.toggle('active');
+                arrow.classList.toggle('active');
+                
+                // Close other submenus
+                const otherSubmenus = document.querySelectorAll('.submenu');
+                const otherArrows = document.querySelectorAll('.arrow');
+                
+                otherSubmenus.forEach(menu => {
+                    if (menu !== submenu && menu.classList.contains('active')) {
+                        menu.classList.remove('active');
+                    }
+                });
+                
+                otherArrows.forEach(arr => {
+                    if (arr !== arrow && arr.classList.contains('active')) {
+                        arr.classList.remove('active');
+                    }
+                });
+            });
+        });
+    });
+
+</script>
+</body>
+</html>

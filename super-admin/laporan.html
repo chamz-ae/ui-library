@@ -7,6 +7,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../style/super-admin.css">
     <link rel="stylesheet" href="../style/laporan.css">
+    <link rel="stylesheet" href="../style/anggota.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
 </head>
 <body>
@@ -19,15 +20,30 @@
             </div>
         </div>
         <ul>
-            <li class="dash" style="cursor: pointer;"><a onclick="window.location.href = 'index.html'"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
-            <li class="dash" style="cursor: pointer;"><a onclick="window.location.href = 'buku.html'"><i class="fas fa-book"></i> Books</a></li>
-            <li class="dash" style="cursor: pointer;"><a onclick="window.location.href = 'anggota.html'"><i class="fas fa-users"></i> Member</a></li>
-            <li style="cursor: pointer;"><a class="dash active" onclick="window.location.href = 'laporan.html'"><i class="fas fa-chart-bar"></i> Report</a></li>
-            <li class="dash" style="cursor: pointer;"><a onclick="window.location.href = 'data-admim.html'"><i class="fas fa-cog"></i> Admin Data</a></li>
+            <li><a class="dash" href="index.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+            <li class="has-submenu">
+                <a class="dash" href="#"><i class="fas fa-book" ></i> Menu Buku<i class="fas fa-chevron-right arrow"></i></a>
+                <ul class="submenu">
+                    <li style="cursor: pointer;"><a onclick="window.location.href = 'books.html'"><i class="fas fa-users"></i> Books</a></li>
+                    <li style="cursor: pointer;"><a onclick="window.location.href = 'publisher.html'"><i class="fas fa-users"></i> Publisher</a></li>
+                    <li style="cursor: pointer;"><a onclick="window.location.href = 'author.html'"><i class="fas fa-users"></i> Author</a></li>
+                </ul>
+            </li>
+            <li><a class="dash" href="anggota.html"><i class="fas fa-users"></i> Member</a></li>
+            <li class="has-submenu">
+                <a class="dash active" href="#"><i class="fas fa-chart-bar" ></i> Menu Report<i class="fas fa-chevron-right arrow"></i></a>
+                <ul class="submenu">
+                    <li style="cursor: pointer;"><a onclick="window.location.href = 'books.html'"><i class="fas fa-users"></i> Report</a></li>
+                    <li style="cursor: pointer;"><a onclick="window.location.href = 'publisher.html'"><i class="fas fa-users"></i> Report</a></li>
+                    <li style="cursor: pointer;"><a onclick="window.location.href = 'author.html'"><i class="fas fa-users"></i> Report</a></li>
+                </ul>
+            </li>
+            <li><a class="dash" href="data-admim.html"><i class="fas fa-cog"></i> Admin Data</a></li>
         </ul>
         <div style="padding-left: 40px; margin-top: 210px;">
             <button onclick="window.location.href = '/auth/login.html'" class="logout-btn" id="logoutBtn" >Logout</button>
         </div>
+        
     </div>
     <div class="laporan">
         <h1>Company Report Dashboard</h1>
@@ -103,6 +119,41 @@
         createChart('productPieChart', 'pie', productData);
         createChart('customerLineChart', 'line', customerData);
         createChart('profitDoughnutChart', 'doughnut', profitData);
+
+        // slidebar collapse
+
+    document.addEventListener('DOMContentLoaded', function() {
+    // Sidebar collapse functionality
+    const menuItems = document.querySelectorAll('.has-submenu');
+
+    menuItems.forEach(item => {
+        item.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const submenu = this.querySelector('.submenu');
+            const arrow = this.querySelector('.arrow');
+            
+            submenu.classList.toggle('active');
+            arrow.classList.toggle('active');
+            
+            // Close other submenus
+            const otherSubmenus = document.querySelectorAll('.submenu');
+            const otherArrows = document.querySelectorAll('.arrow');
+            
+            otherSubmenus.forEach(menu => {
+                if (menu !== submenu && menu.classList.contains('active')) {
+                    menu.classList.remove('active');
+                }
+            });
+            
+            otherArrows.forEach(arr => {
+                if (arr !== arrow && arr.classList.contains('active')) {
+                    arr.classList.remove('active');
+                }
+            });
+        });
+    });
+});
     </script>
 </body>
 </html>
