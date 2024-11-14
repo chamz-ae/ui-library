@@ -18,25 +18,25 @@
             </div>
         </div>
         <ul>
-            <li><a class="dash active" href="index.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+            <li><a class="dash active" href="index.html"><i class='bx bx-cool' ></i> Dashboard</a></li>
             <li class="has-submenu">
-                <a class="dash" href="#"><i class="fas fa-book" ></i> Menu Buku<i class="fas fa-chevron-right arrow"></i></a>
+                <a class="dash" href="#"><i class='bx bx-tired' ></i> Menu Buku<i class="fas fa-chevron-right arrow"></i></a>
                 <ul class="submenu">
-                    <li style="cursor: pointer;"><a onclick="window.location.href = 'books.html'"><i class="fas fa-users"></i> Books</a></li>
-                    <li style="cursor: pointer;"><a onclick="window.location.href = 'publisher.html'"><i class="fas fa-users"></i> Publisher</a></li>
-                    <li style="cursor: pointer;"><a onclick="window.location.href = 'author.html'"><i class="fas fa-users"></i> Author</a></li>
+                    <li style="cursor: pointer;"><a onclick="window.location.href = 'books.html'"><i class='bx bxs-meh-alt' ></i> Books</a></li>
+                    <li style="cursor: pointer;"><a onclick="window.location.href = 'publisher.html'"><i class='bx bxs-laugh' ></i> Publisher</a></li>
+                    <li style="cursor: pointer;"><a onclick="window.location.href = 'author.html'"><i class='bx bxs-cool' ></i> Author</a></li>
                 </ul>
             </li>
-            <li><a class="dash" href="anggota.html"><i class="fas fa-users"></i> Member</a></li>
+            <li><a class="dash" href="anggota.html"><i class='bx bx-wink-tongue' ></i> Member</a></li>
+            <li><a class="dash" href="data-admim.html"><i class='bx bx-wink-smile' ></i> Employee</a></li>
             <li class="has-submenu">
-                <a class="dash" href="#"><i class="fas fa-chart-bar" ></i> Menu Report<i class="fas fa-chevron-right arrow"></i></a>
+                <a class="dash" href="#"><i class='bx bx-sleepy' ></i> Menu Report<i class="fas fa-chevron-right arrow"></i></a>
                 <ul class="submenu">
                     <li style="cursor: pointer;"><a onclick="window.location.href = 'books.html'"><i class="fas fa-users"></i> Report</a></li>
                     <li style="cursor: pointer;"><a onclick="window.location.href = 'publisher.html'"><i class="fas fa-users"></i> Report</a></li>
                     <li style="cursor: pointer;"><a onclick="window.location.href = 'author.html'"><i class="fas fa-users"></i> Report</a></li>
                 </ul>
             </li>
-            <!-- <li><a class="dash" href="data-admim.html"><i class="fas fa-cog"></i> Admin Data</a></li> -->
         </ul>
         <div style="padding-left: 40px; margin-top:210px;">
             <button onclick="window.location.href = '/auth/login.html'" class="logout-btn" id="logoutBtn" >Logout</button>
@@ -45,8 +45,63 @@
     </div>
     <div class="main-content">
         <div class="header">
-            <h2>Date : 12 November 2024</h2>
-            <!-- <a href="login.html"> <button class="logout-btn" id="logoutBtn" href="login.html" >Logout</button></a> -->
+            <div class="filter-container">
+                <div class="filter-section">
+                  <div class="filter-title">Filter Date</div>
+                  
+                  <div class="filter-type">
+                    <label>
+                      <input type="radio" name="filter-type" value="range" checked onchange="showFilter('range')">
+                      Date Range
+                    </label>
+                    <label>
+                      <input type="radio" name="filter-type" value="month" onchange="showFilter('month')">
+                      Month
+                    </label>
+                    <label>
+                      <input type="radio" name="filter-type" value="date" onchange="showFilter('date')">
+                      Specific Date
+                    </label>
+                  </div>
+            
+                  <div id="range-filter" class="active-filter show">
+                    <div class="filter-options">
+                      <input type="date" class="date-input" placeholder="Tanggal Awal">
+                      <span>Until</span>
+                      <input type="date" class="date-input" placeholder="Tanggal Akhir">
+                      <button class="filter-button"> Filter</button>
+                    </div>
+                  </div>
+            
+                  <div id="month-filter" class="active-filter">
+                    <div class="filter-options">
+                      <select class="month-select">
+                        <option value="">Select Month</option>
+                        <option value="1">Januari</option>
+                        <option value="2">Februari</option>
+                        <option value="3">Maret</option>
+                        <option value="4">April</option>
+                        <option value="5">Mei</option>
+                        <option value="6">Juni</option>
+                        <option value="7">Juli</option>
+                        <option value="8">Agustus</option>
+                        <option value="9">September</option>
+                        <option value="10">Oktober</option>
+                        <option value="11">November</option>
+                        <option value="12">Desember</option>
+                      </select>
+                      <button class="filter-button"> Filter</button>
+                    </div>
+                  </div>
+            
+                  <div id="date-filter" class="active-filter">
+                    <div class="filter-options">
+                      <input type="date" class="date-input">
+                      <button class="filter-button"> Filter</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
         </div>
         <div class="card-container">
             <div class="card">

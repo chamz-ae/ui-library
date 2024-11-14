@@ -40,11 +40,11 @@ body {
 }
 .modal-content {
     background-color: #ffffff;
-    padding: 2rem;
+    padding: 1rem;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     width: 100%;    
-    max-width: 400px;
+    max-width: 500px;
     transform: scale(0.8);
     opacity: 0;
     transition: transform 0.3s ease, opacity 0.3s ease;
@@ -56,11 +56,25 @@ body {
 form {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 2px;
 }
+
+
+select {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+    text-transform: capitalize;
+}
+
 input[type="text"] {
     width: 100%;
-    padding: 0.75rem;
+    padding: 5px;
+    margin-bottom: 5px;
     border: 1px solid #ddd;
     border-radius: 4px;
     font-size: 1rem;
@@ -69,7 +83,8 @@ input[type="text"] {
 }
 input[type="email"] {
     width: 100%;
-    padding: 0.75rem;
+    padding: 5px;
+    margin-bottom: 5px;
     border: 1px solid #ddd;
     border-radius: 4px;
     font-size: 1rem;
@@ -81,7 +96,7 @@ input[type="email"]:focus {
     border-color: #FF204E;
 }
 .anggota button {
-    padding: 0.75rem 1.5rem;
+    padding: 0px 10px;
     border: none;
     border-radius: 5px;
     /* font-size: 1rem; */
@@ -138,7 +153,7 @@ th {
 }
 .action-buttons {
     display: flex;
-    gap: 0.5rem;
+    gap: 12px;
 }
 .action-buttons button {
     padding: 0.5rem 1rem;
@@ -147,9 +162,14 @@ th {
 
 .btnn{
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     margin-right: 10px;
 }
+
+
+/* .btnn form.search{
+    margin-left: 570px;
+} */
 
 #openModalBtn {
     margin-top: 20px;
@@ -161,13 +181,46 @@ th {
 }
 
 #flter {
-    margin-top: 20px;
+    margin-top: 5px;
+    padding: 0.5px 1px;
     display: block;
     background-color: var(--third);
 }
 
 #flter:hover {
     background-color: var(--hover);
+}
+
+/* Search */
+.search {
+    float: right;
+    justify-content: flex-end;
+    display: flex;
+    /* width: 300px; */
+    padding: 6px 10px;
+    margin-left: 600px;
+    margin-bottom: 8px;
+    /* margin-right: 16px; */
+    background: #f9f9f9;
+    font-size: 17px;
+    border: none;
+    cursor: pointer;
+}
+/* .search button {
+    float: none;
+    display: block;
+    text-align: left;
+    width: 13%;
+    margin: 0;
+    padding: 7px;
+} */
+
+.search input[type=text] {
+    border: 1px solid #ccc;
+    padding: 6px;
+    margin-top: 8px;
+    font-size: 17px;
+    border: none;
 }
 .submenu {
     display: none;

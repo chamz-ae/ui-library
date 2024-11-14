@@ -4,9 +4,17 @@ function dateToYMD(date) {
     var y = date.getFullYear();
     return '' + y + '-' + (m<=9 ? '0' + m : m) + '-' + (d <= 9 ? '0' + d : d);
 }
+// Filter Tanggal
 
-
-
+function showFilter(type) {
+    // Hide all filters
+    document.querySelectorAll('.active-filter').forEach(filter => {
+      filter.classList.remove('show');
+    });
+    
+    // Show selected filter
+    document.getElementById(`${type}-filter`).classList.add('show');
+  }
 
 // Sample data for the dashboard table
     const dashboardData = [
