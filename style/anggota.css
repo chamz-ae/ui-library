@@ -162,7 +162,7 @@ th {
 
 .btnn{
     display: flex;
-    /* justify-content: space-between; */
+    justify-content: space-between;
     margin-right: 10px;
 }
 
@@ -180,7 +180,7 @@ th {
     background-color: var(--hover);
 }
 
-#flter {
+#flter button {
     margin-top: 5px;
     padding: 0.5px 1px;
     display: block;
@@ -196,7 +196,7 @@ th {
     float: right;
     justify-content: flex-end;
     display: flex;
-    /* width: 300px; */
+    width: 300px;
     padding: 6px 10px;
     margin-left: 600px;
     margin-bottom: 8px;

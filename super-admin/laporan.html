@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard Report</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'> 
     <link rel="stylesheet" href="../style/super-admin.css">
     <link rel="stylesheet" href="../style/laporan.css">
     <link rel="stylesheet" href="../style/anggota.css">
@@ -20,22 +21,25 @@
             </div>
         </div>
         <ul>
-            <li><a class="dash" href="index.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+            <li><a class="dash" href="index.html"><i class='bx bx-cool' ></i> Dashboard</a></li>
             <li class="has-submenu">
-                <a class="dash" href="#"><i class="fas fa-book" ></i> Menu Buku<i class="fas fa-chevron-right arrow"></i></a>
+                <a class="dash" href="#"><i class='bx bx-tired' ></i> Menu Buku<i class="fas fa-chevron-right arrow"></i></a>
                 <ul class="submenu">
-                    <li style="cursor: pointer;"><a onclick="window.location.href = 'books.html'"><i class="fas fa-users"></i> Books</a></li>
-                    <li style="cursor: pointer;"><a onclick="window.location.href = 'publisher.html'"><i class="fas fa-users"></i> Publisher</a></li>
-                    <li style="cursor: pointer;"><a onclick="window.location.href = 'author.html'"><i class="fas fa-users"></i> Author</a></li>
+                    <li style="cursor: pointer;"><a onclick="window.location.href = 'books.html'"><i class='bx bxs-meh-alt' ></i> Books</a></li>
+                    <li style="cursor: pointer;"><a onclick="window.location.href = 'publisher.html'"><i class='bx bxs-laugh' ></i> Publisher</a></li>
+                    <li style="cursor: pointer;"><a onclick="window.location.href = 'author.html'"><i class='bx bxs-cool' ></i> Author</a></li>
                 </ul>
             </li>
-            <li><a class="dash" href="anggota.html"><i class="fas fa-users"></i> Member</a></li>
+            <li><a class="dash" href="anggota.html"><i class='bx bx-wink-tongue' ></i> Member</a></li>
+            <li><a class="dash" href="data-admim.html"><i class='bx bx-wink-smile' ></i> Employee</a></li>
             <li class="has-submenu">
-                <a class="dash active" href="#"><i class="fas fa-chart-bar" ></i> Menu Report<i class="fas fa-chevron-right arrow"></i></a>
+                <a class="dash active" href="#"><i class='bx bx-sleepy' ></i> Menu Report<i class="fas fa-chevron-right arrow"></i></a>
                 <ul class="submenu">
                     <li style="cursor: pointer;"><a onclick="window.location.href = 'books.html'"><i class="fas fa-users"></i> Report</a></li>
                     <li style="cursor: pointer;"><a onclick="window.location.href = 'publisher.html'"><i class="fas fa-users"></i> Report</a></li>
                     <li style="cursor: pointer;"><a onclick="window.location.href = 'author.html'"><i class="fas fa-users"></i> Report</a></li>
+                </ul>
+            </li>
                 </ul>
             </li>
             <li><a class="dash" href="data-admim.html"><i class="fas fa-cog"></i> Admin Data</a></li>
