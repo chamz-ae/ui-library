@@ -46,7 +46,7 @@
 
     <div class="container">
        <div class="admin">
-        <h1>Edit Admin Data</h1>
+        <h1>Edit Profile</h1>
         <form>
             <div class="photo-upload">
                 <img class="profile-photo" id="profilePhoto">
@@ -54,6 +54,7 @@
                 <input type="file" id="photoUpload" accept="image/*">
             </div>
             
+            <div class="form-admin">
             <label for="nama">Name:</label>
             <input type="text" id="nama" name="nama" required>
             
@@ -80,9 +81,12 @@
             
             <label for="Address">Address:</label>
             <input type="text" id="Address" name="Address" required>
+            </div>
             
-            <button type="submit">Save</button>
+            <!-- <button type="submit">Save</button> -->
         </form>
+        
+        <button type="submit">Save</button>
        </div>
 
     <script src="../config/dashboard.js"></script>
