@@ -14,12 +14,13 @@
         <div class="profile">
             <img src="/image/image-removebg-preview.png" alt="User Avatar" class="logo"/>
             <div class="profile-info">
-                <h1>Super Admin</h1>
+                <h1>Super Admin</h1>a
                 <p>Hisyam-Ganz</p>
             </div>
         </div>
         <ul>
             <li><a class="dash" href="index.html"><i class='bx bx-cool' ></i> Dashboard</a></li>
+            <li><a class="dash" href="peminjaman.html"><i class='bx bx-meh-alt'></i> Loan</a></li>
             <li class="has-submenu">
                 <a class="dash" href="#"><i class='bx bx-tired' ></i> Menu Buku<i class="fas fa-chevron-right arrow"></i></a>
                 <ul class="submenu">
@@ -29,7 +30,7 @@
                 </ul>
             </li>
             <li><a class="dash" href="anggota.html"><i class='bx bx-wink-tongue' ></i> Member</a></li>
-            <li><a class="dash active" href="data-admim.html"><i class='bx bx-wink-smile' ></i> Employee</a></li>
+            <li><a class="dash active" href="employee.html"><i class='bx bx-wink-smile' ></i> Employee</a></li>
             <li class="has-submenu">
                 <a class="dash" href="#"><i class='bx bx-sleepy' ></i> Menu Report<i class="fas fa-chevron-right arrow"></i></a>
                 <ul class="submenu">
@@ -39,7 +40,7 @@
                 </ul>
             </li>
         </ul>
-        <div style="padding-left: 40px; margin-top: 210px;">
+        <div style="padding-left: 40px; margin-top: 150px;">
             <button onclick="window.location.href = '/auth/login.html'" class="logout-btn" id="logoutBtn">Logout</button>
         </div>
     </div>
@@ -47,10 +48,14 @@
     <div class="anggota">
         <h2>Manage Employee</h2>
         <div class="btnn">
-            <button class="btnn" id="flter"><i class='bx bx-filter-alt'></i>Filter</button>
-            <div></div>
-            <button class="btnn" id="openModalBtn"><i class="fas fa-plus"></i> Add employee</button>
+            <button class="btnn" id="openModalBtn"><i class="fas fa-plus"></i> Add Member</button>
+            <form class="search" action="#">
+                <input type="text" placeholder="Search.." name="search">
+                <!--<button type="submit" class="btn-src"><i class='bx bx-search' ></i></button> -->
+            </form>
+            <button id="flter"><i class='bx bx-filter-alt'></i>Filter</button>
         </div>
+        
 
         <div class="table-container">
             <table id="anggotaTable">
@@ -91,7 +96,7 @@
                         <td>Kurcaci Kerdil</td>
                         <td>Kota Gedhe Tua</td>
                         <td>Progammer Bek-en</td>
-                        <td>Lost streak</td>
+                        <td>Non-Active</td>
                         <td>Alhamdulillah</td>
                         <td>Male</td>
                         <td class="action-buttons">
@@ -109,14 +114,35 @@
             <form id="anggotaForm">
                 <h2 id="modalTitle">Add Member</h2>
                 <input type="hidden" id="editIndex">
+                <label for="role">Name</label>
                 <input type="text" id="nama" placeholder="Nama" required>
+
+                <label for="role">Email</label>
                 <input type="email" id="email" placeholder="Email" required>
+
+                <label for="role">FullName</label>
                 <input type="text" id="FullName" placeholder="FullName" required>
+
+                <label for="role">Address</label>
                 <input type="text" id="Address" placeholder="Address" required>
+
+                <label for="role">Job</label>
                 <input type="text" id="Job" placeholder="Job" required>
-                <input type="text" id="Status" placeholder="Status" required>
+
+                <label for="status">Status</label>
+                <select id="Status" placeholder="Status" value="Active" required>
+                    <option value="Active">Active</option>
+                    <option value="Non-Active">Non-Active</option>
+                </select>
+
+                <label for="role">Religion</label>
                 <input type="text" id="Religion" placeholder="Religion" required>
-                <input type="text" id="Gender" placeholder="Gender" required>
+
+                <label for="role">Gender</label>
+                <select id="Gender" placeholder="Gender" value="Male" required>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
                 <div class="action-buttons">
                     <button type="submit" id="submitBtn">Save</button>
                     <button type="button" id="cancelBtn">Cancel</button>
