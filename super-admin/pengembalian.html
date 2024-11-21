@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POS Interface</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="../style/pengembalian.css">
+    <link rel="stylesheet" href="../style/super-admin.css">
+</head>
+<body>
+    <div class="sidebar">
+        <div class="profile">
+            <a href="../super-admin/data-admim.html"><img src="/image/image-removebg-preview.png" alt="User Avatar" class="logo"/></a>
+            <div class="profile-info">
+                <h1>Super Admin</h1>
+                <p>Hisyam-Ganz</p>
+            </div>
+        </div>
+        <ul>
+            <li><a class="dash" href="index.html"><i class='bx bx-cool' ></i> Dashboard</a></li>
+            <li><a class="dash active" href="peminjaman.html"><i class='bx bx-meh-alt'></i> Loan</a></li>
+            <li class="has-submenu">
+                <a class="dash" href="#"><i class='bx bx-tired' ></i> Menu Buku<i class="fas fa-chevron-right arrow"></i></a>
+                <ul class="submenu">
+                    <li style="cursor: pointer;"><a onclick="window.location.href = 'books.html'"><i class='bx bxs-meh-alt' ></i> Books</a></li>
+                    <li style="cursor: pointer;"><a onclick="window.location.href = 'publisher.html'"><i class='bx bxs-laugh' ></i> Publisher</a></li>
+                    <li style="cursor: pointer;"><a onclick="window.location.href = 'author.html'"><i class='bx bxs-cool' ></i> Author</a></li>
+                </ul>
+            </li>
+            <li><a class="dash" href="anggota.html"><i class='bx bx-wink-tongue' ></i> Member</a></li>
+            <li><a class="dash" href="employee.html"><i class='bx bx-wink-smile' ></i> Employee</a></li>
+            <li class="has-submenu">
+                <a class="dash" href="#"><i class='bx bx-sleepy' ></i> Menu Report<i class="fas fa-chevron-right arrow"></i></a>
+                <ul class="submenu">
+                    <li style="cursor: pointer;"><a onclick="window.location.href = 'books.html'"><i class="fas fa-users"></i> Report</a></li>
+                    <li style="cursor: pointer;"><a onclick="window.location.href = 'publisher.html'"><i class="fas fa-users"></i> Report</a></li>
+                    <li style="cursor: pointer;"><a onclick="window.location.href = 'author.html'"><i class="fas fa-users"></i> Report</a></li>
+                </ul>
+            </li>
+        </ul>
+        <div style="padding-left: 40px; margin-top:150px;">
+            <button onclick="window.location.href = '/auth/login.html'" class="logout-btn" id="logoutBtn" >Logout</button>
+        </div>
+
+    </div>
+  <div class="container">
+    <!-- Sidebar -->
+    <div class="sidebar1">
+      <h1>Books</h1>
+      <div class="search">
+        <!-- <input type="text" placeholder="Pilih Meja"> -->
+      </div>
+      <div class="order-list">
+        <p>borrowed books</p>
+        <div style="margin-top: 320px; " class="item">
+          <p>Daun Teratai</p>
+          <hr>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <h1>book borrower</h1>
+      <!-- <p class="total">Rp9.100</p> -->
+      <div class="payment-method">
+        <!-- <label for="method">Metode Bayar</label>
+        <select id="method">
+          <option value="">Pilih Metode Bayar</option>
+          <option value="cash">Cash</option>
+          <option value="credit">Credit Card</option>
+        </select> -->
+      </div>
+      <div class="summary">
+        <!-- <p>Subtotal: <span>Rp7.688</span></p>
+        <p>Diskon Toko 0%: <span>-Rp0</span></p>
+        <p>Biaya Servis 2%: <span>Rp153</span></p>
+        <p>Pajak (PPN) 3%: <span>Rp230</span></p>
+        <p>Biaya lainnya: <span>Rp1.000</span></p>
+        <p>Pembulatan: <span>Rp29</span></p>
+        <p><strong>Grand Total: <span>Rp9.100</span></strong></p> -->
+      </div>
+    </div>
+    <div class="order-btn">
+        <button id="payButton">Proses Pembayaran</button>
+    </div>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Sidebar collapse functionality
+        const menuItems = document.querySelectorAll('.has-submenu');
+
+        menuItems.forEach(item => {
+            item.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const submenu = this.querySelector('.submenu');
+                const arrow = this.querySelector('.arrow');
+                
+                submenu.classList.toggle('active');
+                arrow.classList.toggle('active');
+                
+                // Close other submenus
+                const otherSubmenus = document.querySelectorAll('.submenu');
+                const otherArrows = document.querySelectorAll('.arrow');
+                
+                otherSubmenus.forEach(menu => {
+                    if (menu !== submenu && menu.classList.contains('active')) {
+                        menu.classList.remove('active');
+                    }
+                });
+                
+                otherArrows.forEach(arr => {
+                    if (arr !== arrow && arr.classList.contains('active')) {
+                        arr.classList.remove('active');
+                    }
+                });
+            });
+        });
+    });
+    document.getElementById('payButton').addEventListener('click', () => {
+  alert('Proses pembayaran dimulai!');
+});
+  </script>
+</body>
+</html>

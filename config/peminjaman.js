@@ -47,7 +47,7 @@ const products = [
     },
     {
         id: 10,
-        name: "SIMUNTAK",
+        name: "BACK TO HOME",
         image: "../image/image4.png"
     },
     {

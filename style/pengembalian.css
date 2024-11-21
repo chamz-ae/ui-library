@@ -1,0 +1,88 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    height: 100vh;
+  }
+  
+  .container {
+    margin: 10px;
+    padding: 10px;
+    width: 100%;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    flex-grow: 1;
+    overflow-x: hidden;
+    display: flex;
+    /* width: 100%; */
+  }
+  
+  .sidebar1 {
+    width: 30%;
+    background-color: #f8f9fa;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .search input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .order-list {
+    border-top: 1px solid #ddd;
+    padding-top: 10px;
+    margin-bottom: 20px;
+  }
+
+  .order-list > p{
+    font-weight: 500;
+    font-size: 20px;
+  }
+  
+  .main-content {
+    width: 70%;
+    padding: 20px;
+  }
+  
+  h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  /* .total {
+    font-size: 28px;
+    color: red;
+    margin-bottom: 20px;
+  } */
+  
+  /* .payment-method {
+    margin-bottom: 20px;
+  }
+  
+  .payment-method select {
+    width: 100%;
+    padding: 10px;
+  } */
+  
+  /* .summary p {
+    display: flex;
+    justify-content: space-between;
+    margin: 5px 0;
+  } */
+  
+.order-btn button {
+    background-color: #007bff;
+    color: #fff;
+    margin-top: 20px;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  
+  button:disabled {
+    background-color: #ccc;
+  }

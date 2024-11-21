@@ -190,7 +190,13 @@ td.address {
     cursor: pointer;
 }
 .modal {
-    display: none;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+
+    display: flex;
     position: fixed;
     z-index: 1;
     left: 0;
@@ -201,6 +207,7 @@ td.address {
     background-color: rgba(0,0,0,0.4);
 }
 .modal-content {
+    position: fixed;
     background-color: #fefefe;
     margin: 15% auto;
     padding: 20px;
