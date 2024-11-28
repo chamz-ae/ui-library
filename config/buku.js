@@ -29,7 +29,7 @@ const itemsPerPage = 10;
     function openModal(modalId) {
         document.getElementById(modalId).style.display = "block";
     }
-
+ 
     function closeModal(modalId) {
         document.getElementById(modalId).style.display = "none";
     }
@@ -40,7 +40,7 @@ const itemsPerPage = 10;
     }
     document.addEventListener('DOMContentLoaded', () => {
         initializePagination();
-        
+         
         // Aktifkan tab pertama secara default
         document.querySelector('.tab').click();
 

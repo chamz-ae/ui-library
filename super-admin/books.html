@@ -478,6 +478,41 @@
             </div>
         </div> -->
     <script src="../config/buku.js"></script>
-
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Sidebar collapse functionality
+            const menuItems = document.querySelectorAll('.has-submenu');
+            menuItems.forEach(item => {
+                item.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const submenu = this.querySelector('.submenu');
+                    const arrow = this.querySelector('.arrow');
+                    
+                    submenu.classList.toggle('active');
+                    arrow.classList.toggle('active');
+                    
+                    // Close other submenus
+                    const otherSubmenus = document.querySelectorAll('.submenu');
+                    const otherArrows = document.querySelectorAll('.arrow');
+                    
+                    otherSubmenus.forEach(menu => {
+                        if (menu !== submenu && menu.classList.contains('active')) {
+                            menu.classList.remove('active');
+                        }
+                    });
+                    
+                    otherArrows.forEach(arr => {
+                        if (arr !== arrow && arr.classList.contains('active')) {
+                            arr.classList.remove('active');
+                        }
+                    });
+                });
+            });
+        });
+        document.getElementById('payButton').addEventListener('click', () => {
+      alert('Proses pembayaran dimulai!');
+    });
+      </script>
 </body>
 </html>
