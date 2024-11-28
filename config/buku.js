@@ -26,45 +26,9 @@ const itemsPerPage = 10;
         }
         pagination.innerHTML = html;
     }
-
-    function changePage(page, tabId) {
-        console.log(`Changing to page ${page} for ${tabId} table`);
-        currentPage = page;
-        const table = document.querySelector(`#${tabId} table`);
-        const rows = table.querySelectorAll('tbody tr');
-        const startIndex = (currentPage - 1) * itemsPerPage;
-        const endIndex = startIndex + itemsPerPage;
-
-        rows.forEach((row, index) => {
-            row.style.display = (index >= startIndex && index < endIndex) ? '' : 'none';
-        });
-
-        updatePagination(tabId, rows.length);
-    }
-
-    function openTab(evt, tabName) {
-        const tabContents = document.getElementsByClassName("tab-content");
-        const tabLinks = document.getElementsByClassName("tab");
-
-        Array.from(tabContents).forEach(content => content.style.display = "none");
-        Array.from(tabLinks).forEach(link => link.className = link.className.replace(" active", ""));
-
-        document.getElementById(tabName).style.display = "block";
-        evt.currentTarget.className += " active";
-
-        currentPage = 1;
-        changePage(1, tabName);
-    }
-
     function openModal(modalId) {
         document.getElementById(modalId).style.display = "block";
     }
-
-    // function detailModal(modalId, tableId, id) {
-    //     document.getElementById(modalId).style.display = "block";
-    //     console.log(`Detail item ${id} in ${tableId}`);
-    //     openModal(`${tableId.replace('Table', '')}Modal`);
-    // }
 
     function closeModal(modalId) {
         document.getElementById(modalId).style.display = "none";
