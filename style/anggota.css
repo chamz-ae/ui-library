@@ -38,6 +38,18 @@ body {
     opacity: 1;
     visibility: visible;
 }
+
+.modal-filter{
+    background-color: #fefefe;
+    margin: 7% auto;
+    padding: 20px;
+    position: relative;
+    overflow-y: scroll;
+    border: 1px solid #888;
+    width: 30%;
+    height: 60%;
+}
+
 .modal-content {
     background-color: #ffffff;
     padding: 1rem;
@@ -46,7 +58,7 @@ body {
     width: 100%;    
     max-width: 500px;
     transform: scale(0.8);
-    opacity: 0;
+    /* opacity: 0; */
     transition: transform 0.3s ease, opacity 0.3s ease;
 }
 .modal-overlay.active .modal-content {
@@ -95,8 +107,10 @@ input[type="email"]:focus {
     outline: none;
     border-color: #FF204E;
 }
-.anggota button {
+.anggota .btnn button[id="openModalBtn"] {
     padding: 0px 10px;
+    height: 35px;
+    width: 15%;
     border: none;
     border-radius: 5px;
     /* font-size: 1rem; */
@@ -105,6 +119,21 @@ input[type="email"]:focus {
     background-color: var(--third);
     color: white;
 }
+
+.anggota .btnn button[id="flter"] {
+    padding: 0px 10px;
+    border: none;
+    height: 37px;
+    margin-top: 13px;
+    width: 100px;
+    border-radius: 5px;
+    /* font-size: 1rem; */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background-color: var(--third);
+    color: white;
+}
+
 button:hover {
     background-color: var(--hover);
     transform: translateY(-2px);
@@ -132,7 +161,7 @@ button:hover {
 table {
     width: 100%;
     /* border-collapse: collapse; */
-    margin-top: 1rem;
+    margin-top: 10px;
     background-color: white;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
@@ -180,7 +209,7 @@ th {
     background-color: var(--hover);
 }
 
-#flter button {
+/* #flter button {
     margin-top: 5px;
     padding: 0.5px 1px;
     display: block;
@@ -189,21 +218,21 @@ th {
 
 #flter:hover {
     background-color: var(--hover);
-}
+} */
 
 /* Search */
 .search {
     float: right;
-    justify-content: flex-end;
+    justify-content: space-between;
     display: flex;
     width: 300px;
-    padding: 6px 10px;
+    padding: 5px 10px;
     margin-left: 600px;
     margin-bottom: 8px;
     /* margin-right: 16px; */
     background: #f9f9f9;
-    font-size: 17px;
-    border: none;
+    /* font-size: 17px; */
+    /* border: none; */
     cursor: pointer;
 }
 /* .search button {

@@ -521,6 +521,14 @@ dialog p {
     min-width: 120px;
   }
 
+  .year-select {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    min-width: 120px;
+  }
+
   .filter-button {
     background: #007bff;
     color: white;

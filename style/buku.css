@@ -193,12 +193,14 @@ td.address {
     margin-left: auto;
     margin-right: auto;
     max-width: auto;
-    display: flex;
+    /* display: none; */
     position: block;
     background-color: rgba(0,0,0,0.4);
 }
 .modal-content {
     position: relative;
+    height: 470px;
+    /* display: flex; */
     background-color: #fefefe;
     margin: 8% auto;
     /* overflow-y: auto; */
@@ -232,6 +234,14 @@ td.address {
     border: 1px solid #ddd;
     border-radius: 4px;
 }
+
+.form-group select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
 .form-group input[type="submit"] {
     background-color: #FF204E;
     color: white;

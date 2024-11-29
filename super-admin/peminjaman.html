@@ -78,6 +78,27 @@
         </aside>
     </div>
 
+    <!-- MODAL -->
+     <!-- Date Selection Modal -->
+<div class="modal fade" id="dateSelectionModal" tabindex="-1" aria-labelledby="dateSelectionModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="dateSelectionModalLabel">Pilih Tanggal Sewa</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <input type="date" class="form-control" id="rentalDateInput">
+                <input type="hidden" id="selectedProductId">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                <button type="button" class="btn btn-primary" id="confirmRentalDate">Konfirmasi</button>
+            </div>
+        </div>
+    </div>
+</div>
+
     <script src="../config/dashboard.js"></script>
     <script src="../config/peminjaman.js"></script>
     <script>

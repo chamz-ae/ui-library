@@ -109,6 +109,7 @@
         </div>
     </div>
 
+    <!-- Member Modal -->
     <div class="modal-overlay" id="modalOverlay">
         <div class="modal-content">
             <form id="anggotaForm">
@@ -146,6 +147,61 @@
                 <div class="action-buttons">
                     <button type="submit" id="submitBtn">Save</button>
                     <button type="button" id="cancelBtn">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Filter modal -->
+    <div id="myModal" class="modal">
+        <div class="modal-filter">
+            <span class="close">&times;</span>
+            <h2>FILTER</h2>
+            <form id="bookForm">
+                <div class="form-group">
+                    <label for="bookTitle">Title:</label>
+                    <input type="text" id="bookTitle" name="bookTitle" required>
+                </div>
+                <div class="form-group">
+                    <label for="publication_year">Publication Year:</label>
+                    <input type="number" id="publication_year" name="publication_year" required>
+                </div>
+                <div class="form-group">
+                    <label for="bookISBN">ISBN:</label>
+                    <input type="text" id="bookISBN" name="bookISBN" required>
+                </div>
+                <div class="form-group">
+                    <label for="stockQuantity">Stock Quantity:</label>
+                    <input type="text" id="stockQuantity" name="stockQuantity" required>
+                </div>
+                <div class="form-group">
+                    <label for="price">Price:</label>
+                    <input type="text" id="price" name="price" required>
+                </div>
+                <div class="form-group">
+                    <label for="barcode">Barcode:</label>
+                    <input type="text" id="barcode" name="barcode" required>
+                </div>
+                <div class="form-group">
+                    <label for="bookPublisher">Publisher:</label>
+                    <select id="publisher" placeholder="publisher" value="Irmawan" required>
+                        <option value="Irmawan">Irmawan</option>
+                        <option value="Riyana udud">Riyana udud</option>
+                        <option value="Supriyanti">Supriyanti</option>
+                        <option value="SupraDucati">SupraDucati</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="bookAuthor">Author:</label>
+                    <select id="author" placeholder="author" value="Riyana udud" required>
+                        <option value="Irmawan">Irmawan</option>
+                        <option value="Riyana udud">Riyana udud</option>
+                        <option value="Yadi">Yadi</option>
+                        <option value="Suryana">Suryana</option>
+                    </select>
+                </div>
+                <div style="position: sticky; bottom: 0px;" class="form-group">
+                    <input type="submit" value="Submit">
                 </div>
             </form>
         </div>
