@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard Super Admin Library</title>
+    <title>POS Interface</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <link rel="stylesheet" href="../style/peminjaman.css">
+    <link rel="stylesheet" href="../style/checkout.css">
     <link rel="stylesheet" href="../style/super-admin.css">
 </head>
 <body>
@@ -47,60 +47,95 @@
         </div>
 
     </div>
-    <!-- Search -->
-    <div class="search-container">
-        <form class="search" action="#">
-            <input type="text" placeholder="🔍 Search.." name="search" >
-        </form>
-    </div>
-    <div class="container">
-
-        <!-- Product List -->
-        <main class="product-section">
-            <div class="product-grid" id="productList">
-                <!-- Produk akan dimuat disini melalui JS -->
-            </div>
-        </main>
-
-        <!-- Cart Section -->
-        <aside class="cart-section">
-            <div class="cart-header">
-                <h3>Keranjang</h3>
-                <!-- <p>Jumlah Item: <span id="cartCount">0</span></p> -->
-            </div>
-            <div id="cartItems" class="cart-items">
-                <!-- Item keranjang tampilkan disini -->
-            </div>
-            <div class="cart-footer">
-                <h4>Total Items: <span id="cartTotal">0</span></h4>
-                <button class="checkout-btn" id="checkoutButton">Checkout</button>
-            </div>
-        </aside>
-    </div>
-
-    <!-- MODAL -->
-     <!-- Date Selection Modal -->
-     <div class="modal-overlay" id="dateSelectionModal">
-        <div class="modal-container">
-            <div class="modal-header">
-                <h3>Pilih Tanggal Peminjaman</h3>
-                <button id="closeModal">&times;</button>
-            </div>
-            <div class="modal-body">
-                <label for="rentalDate">Tanggal Peminjaman:</label>
-                <input type="date" id="rentalDate" required>
-            </div>
-            <div class="modal-footer">
-                <button id="cancelModal">Batal</button>
-                <button id="confirmRentalDate">Konfirmasi</button>
-            </div>
+  <div class="container">
+    <!-- Sidebar -->
+    <div class="sidebar1">
+      <h1>Books</h1>
+      <div class="search">
+        <!-- <input type="text" placeholder="Pilih Meja"> -->
+      </div>
+      <div class="order-list">
+        <p>borrowed books</p>
+        <div style="margin-top: 320px; " class="item">
+          <p>Daun Teratai</p>
+          <hr>
+          <p>Daun Teratai</p>
+          <hr>
+          <p>Daun Teratai</p>
+          <hr>x
         </div>
+      </div>
     </div>
 
-    <!-- <script src="../config/dashboard.js"></script> -->
-    <script src="../config/peminjaman.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
+    <!-- Main Content -->
+    <div class="main-content">
+      <h1>book borrower</h1>
+      <!-- <p class="total">Rp9.100</p> -->
+      <div class="payment-method">
+        <!-- <label for="method">Metode Bayar</label>
+        <select id="method">
+          <option value="">Pilih Metode Bayar</option>
+          <option value="cash">Cash</option>
+          <option value="credit">Credit Card</option>
+        </select> -->
+      </div>
+      <div class="summary">
+        <!-- <p>Subtotal: <span>Rp7.688</span></p>
+        <p>Diskon Toko 0%: <span>-Rp0</span></p>
+        <p>Biaya Servis 2%: <span>Rp153</span></p>
+        <p>Pajak (PPN) 3%: <span>Rp230</span></p>
+        <p>Biaya lainnya: <span>Rp1.000</span></p>
+        <p>Pembulatan: <span>Rp29</span></p>
+        <p><strong>Grand Total: <span>Rp9.100</span></strong></p> -->
+      </div>
+      <form>
+        <div class="photo-upload">
+            <img src="/image/image1.png" class="profile-photo" id="profilePhoto" >
+            <!-- <label for="photoUpload" class="upload-btn">Upload</label> -->
+            <input type="file" id="photoUpload" accept="image/*">
+        </div>
+        
+        <div class="form-admin">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" value="Icammm" required>
+        
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" value="Icam@gmail.com" required>
+
+        <label for="FullName">Full Name:</label>
+        <input type="text" id="FullName" name="FullName" value="Icamanakrajin" required>
+
+        <label for="address">Address:</label>
+        <input type="text" id="address" name="address" value="South Kalimantan" required>
+
+        <label for="job">Job:</label>
+        <input type="text" id="job" value="Super Visor" name="job" readonly required>
+
+        <label for="status">Status:</label>
+        <input type="text" id="status" name="status" value="Active" required>
+
+        <label for="religion">Religion:</label>
+        <input type="text" id="religion" name="religion" value="Italia" required>
+
+        <label for="barcode">Barcode:</label>
+        <input type="text" id="barcode" name="barcode" value="1238881933" required>
+
+        <label for="Gender">Gender:</label>
+        <select id="Gender" name="Gender">
+            <option value="Laki-Laki">Laki-Laki</option>
+            <option value="Perempuan">Perempuan</option>
+        </select>
+        
+        <div>
+          <button type="submit">Save</button>
+      </div>
+    </div>
+    </form>
+    </div>
+  </div>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
         // Sidebar collapse functionality
         const menuItems = document.querySelectorAll('.has-submenu');
 
@@ -132,7 +167,9 @@
             });
         });
     });
-
-</script>
+    document.getElementById('payButton').addEventListener('click', () => {
+  alert('Proses pembayaran dimulai!');
+});
+  </script>
 </body>
 </html>
